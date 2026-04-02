@@ -44,27 +44,27 @@ let queue = [
     id: 1,
     title: "Way Maker - Live",
     artist: "Sinach",
-    duration: 125, // seconds mock
+    duration: 312, // seconds mock
     img: "https://ui-avatars.com/api/?name=WM&background=8b5cf6&color=fff&size=150",
-    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    youtubeId: "n4XWfwLHeLM",
     lyrics: "You are here, moving in our midst<br/>I worship You, I worship You<br/><br/>You are here, working in this place<br/>I worship You, I worship You<br/><br/>(Chorus)<br/>Way Maker, Miracle Worker<br/>Promise Keeper, Light in the darkness<br/>My God, that is who You are!"
   },
   {
     id: 2,
     title: "What A Beautiful Name",
     artist: "Hillsong Worship",
-    duration: 180,
+    duration: 341,
     img: "https://ui-avatars.com/api/?name=WB&background=312e81&color=fff&size=150",
-    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    youtubeId: "nQWFzMvCfLE",
     lyrics: "You were the Word at the beginning<br/>One with God the Lord Most High<br/>Your hidden glory in creation<br/>Now revealed in You our Christ<br/><br/>(Chorus)<br/>What a beautiful Name it is<br/>What a beautiful Name it is<br/>The Name of Jesus Christ my King!"
   },
   {
     id: 3,
     title: "Imela",
     artist: "Nathaniel Bassey",
-    duration: 140,
+    duration: 326,
     img: "https://ui-avatars.com/api/?name=IM&background=14532d&color=fff&size=150",
-    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+    youtubeId: "EnYZQfS3SVE",
     lyrics: "When I think upon Your goodness<br/>And Your faithfulness each day<br/>I'm convinced it's not because I am worthy<br/>To receive the kind of love that You give<br/><br/>But I'm grateful for Your mercy<br/>And I'm grateful for Your grace<br/>And because of how You've poured out Yourself<br/>I have come to sing this song out in praise<br/><br/>Imela, Imela<br/>Okaka, Onyekeruwa!"
   },
   {
@@ -73,7 +73,7 @@ let queue = [
     artist: "Symphony Orchestra",
     duration: 160,
     img: "https://ui-avatars.com/api/?name=CW&background=047857&color=fff&size=150",
-    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+    youtubeId: "d8jcb6I5KGs",
     lyrics: "Instrumental - Classical Symphony"
   }
 ];
@@ -86,7 +86,7 @@ const recentlyPlayedEl = document.getElementById('recently-played');
 const btnPlay = document.getElementById('btn-play');
 const btnPrev = document.getElementById('btn-prev');
 const btnNext = document.getElementById('btn-next');
-const audioPlayer = document.getElementById('audio-player');
+const ytPlayerEl = document.getElementById('youtube-player');
 const progressBar = document.getElementById('progress-bar');
 const progressContainer = document.getElementById('progress-container');
 const timeCurrentEl = document.getElementById('time-current');
@@ -118,6 +118,60 @@ let speedIndex = 0;
 let isLyricsOpen = false;
 let savedVolume = localStorage.getItem('playerVolume') ? parseFloat(localStorage.getItem('playerVolume')) : 1.0;
 
+let ytPlayer = null;
+let ytInterval = null;
+let ytReady = false;
+
+// YouTube IFrame Initialization Boilerplate
+window.onYouTubeIframeAPIReady = function() {
+  ytPlayer = new YT.Player('youtube-player', {
+    videoId: '',
+    playerVars: { 'autoplay': 0, 'controls': 0, 'disablekb': 1, 'playsinline': 1 },
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+};
+
+function onPlayerReady(event) {
+  ytReady = true;
+  if(ytPlayer && ytPlayer.setVolume) ytPlayer.setVolume(Math.round(savedVolume * 100));
+  // Initially load track once player driver mounts
+  loadTrack(currentTrackIndex);
+  
+  // Auto-play attempt
+  setTimeout(() => { togglePlay(true); }, 300);
+}
+
+function onPlayerStateChange(event) {
+  if (event.data === YT.PlayerState.PLAYING) {
+    isPlaying = true;
+    startProgressInterval();
+    syncUI();
+  } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.CUED) {
+    isPlaying = false;
+    stopProgressInterval();
+    syncUI();
+  } else if (event.data === YT.PlayerState.ENDED) {
+    if(isRepeat) {
+      if(ytPlayer && ytPlayer.seekTo) ytPlayer.seekTo(0);
+      if(ytPlayer && ytPlayer.playVideo) ytPlayer.playVideo();
+    } else {
+      playNext();
+    }
+  }
+}
+
+function syncUI() {
+  if (isPlaying) {
+    btnPlay.innerHTML = '<i data-lucide="pause" class="w-5 h-5 fill-current ml-0"></i>';
+  } else {
+    btnPlay.innerHTML = '<i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>';
+  }
+  lucide.createIcons();
+}
+
 // Initialization
 async function init() {
   if (supabase) {
@@ -135,24 +189,9 @@ async function init() {
   populateMainContent();
   setGreeting();
   
-  // Set saved volume
-  audioPlayer.volume = savedVolume;
   volumeBar.style.width = `${Math.round(savedVolume * 100)}%`;
-  
-  // Setup MediaSession for hardware controls
   setupMediaSession();
-  
-  loadTrack(currentTrackIndex);
-  
-  // Re-initialize Lucide Icons for dynamic content
   lucide.createIcons();
-
-  // Attempt auto-play on load (some browsers block this without interaction)
-  setTimeout(() => {
-    audioPlayer.play().then(() => {
-      togglePlay(true);
-    }).catch(e => console.log('Autoplay blocked by browser until user touches page.'));
-  }, 200);
 }
 
 function setupMediaSession() {
@@ -231,7 +270,6 @@ function playMockTrack(e) {
 // Audio Player Logic
 function loadTrack(index) {
   const track = queue[index];
-  audioPlayer.src = track.url;
   currentTitleEl.innerText = track.title;
   currentArtistEl.innerText = track.artist;
   currentAlbumArtEl.src = track.img;
@@ -239,7 +277,6 @@ function loadTrack(index) {
   // Inject Lyrics
   lyricsContent.innerHTML = track.lyrics || "No lyrics available for this track.";
   
-  // Update Media Session native OS player
   updateMediaSessionMetadata(track);
   
   // Track Favorite State
@@ -250,27 +287,36 @@ function loadTrack(index) {
   if (isFav) icon.classList.add('fill-brand');
   else icon.classList.remove('fill-brand');
   
-  // Set total time based on array or metadata
   timeTotalEl.innerText = formatTime(track.duration);
   progressBar.style.width = '0%';
   timeCurrentEl.innerText = '0:00';
+  
+  if (ytReady && ytPlayer && track.youtubeId) {
+    if (isPlaying) {
+      ytPlayer.loadVideoById(track.youtubeId);
+    } else {
+      ytPlayer.cueVideoById(track.youtubeId);
+    }
+  }
 }
 
 function togglePlay(forcePlay) {
+  if (!ytReady || !ytPlayer) return;
+  
   if (typeof forcePlay === 'boolean') {
-    isPlaying = forcePlay;
-  } else {
-    isPlaying = !isPlaying;
+    if(forcePlay && !isPlaying) {
+       if(ytPlayer.playVideo) ytPlayer.playVideo();
+    } else if (!forcePlay && isPlaying) {
+       if(ytPlayer.pauseVideo) ytPlayer.pauseVideo();
+    }
+    return;
   }
-
+  
   if (isPlaying) {
-    audioPlayer.play();
-    btnPlay.innerHTML = '<i data-lucide="pause" class="w-5 h-5 fill-current ml-0"></i>';
+    if(ytPlayer.pauseVideo) ytPlayer.pauseVideo();
   } else {
-    audioPlayer.pause();
-    btnPlay.innerHTML = '<i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>';
+    if(ytPlayer.playVideo) ytPlayer.playVideo();
   }
-  lucide.createIcons();
 }
 
 function playNext() {
@@ -280,9 +326,8 @@ function playNext() {
 }
 
 function playPrev() {
-  // If > 3 seconds, just restart song
-  if (audioPlayer.currentTime > 3) {
-    audioPlayer.currentTime = 0;
+  if (ytReady && ytPlayer && ytPlayer.getCurrentTime && ytPlayer.getCurrentTime() > 3) {
+    ytPlayer.seekTo(0);
   } else {
     currentTrackIndex = currentTrackIndex === 0 ? queue.length - 1 : currentTrackIndex - 1;
     loadTrack(currentTrackIndex);
@@ -331,37 +376,51 @@ btnFav.addEventListener('click', async () => {
 
 btnRepeat.addEventListener('click', () => {
   isRepeat = !isRepeat;
-  audioPlayer.loop = isRepeat;
   btnRepeat.classList.toggle('text-brand', isRepeat);
 });
 
 btnSpeed.addEventListener('click', () => {
   speedIndex = (speedIndex + 1) % playbackSpeeds.length;
   const speed = playbackSpeeds[speedIndex];
-  audioPlayer.playbackRate = speed;
+  if(ytReady && ytPlayer && ytPlayer.setPlaybackRate) {
+    ytPlayer.setPlaybackRate(speed);
+  }
   btnSpeed.innerText = speed + 'x';
 });
 
-audioPlayer.addEventListener('timeupdate', () => {
-  const { currentTime, duration } = audioPlayer;
-  const progressPercent = (currentTime / duration) * 100;
-  progressBar.style.width = `${progressPercent}%`;
-  timeCurrentEl.innerText = formatTime(currentTime);
-  // Optional: update total time once audio is loaded if relying on real duration
-  if (duration && !isNaN(duration)) {
+// YouTube Interval Sync Logic
+function startProgressInterval() {
+  stopProgressInterval();
+  ytInterval = setInterval(updateProgress, 500);
+}
+
+function stopProgressInterval() {
+  if(ytInterval) clearInterval(ytInterval);
+}
+
+function updateProgress() {
+  if(!ytReady || !ytPlayer || !ytPlayer.getCurrentTime) return;
+  const currentTime = ytPlayer.getCurrentTime() || 0;
+  let duration = queue[currentTrackIndex]?.duration || 0;
+  if(ytPlayer.getDuration && ytPlayer.getDuration() > 0) duration = ytPlayer.getDuration();
+  
+  if (duration > 0) {
+    const progressPercent = (currentTime / duration) * 100;
+    progressBar.style.width = `${progressPercent}%`;
+    timeCurrentEl.innerText = formatTime(currentTime);
     timeTotalEl.innerText = formatTime(duration);
   }
-});
-
-audioPlayer.addEventListener('ended', playNext);
+}
 
 progressContainer.addEventListener('click', (e) => {
   const width = progressContainer.clientWidth;
   const clickX = e.offsetX;
-  const duration = audioPlayer.duration;
+  let duration = queue[currentTrackIndex]?.duration || 0;
+  if(ytReady && ytPlayer && ytPlayer.getDuration && ytPlayer.getDuration() > 0) duration = ytPlayer.getDuration();
   
-  if (duration && !isNaN(duration)) {
-    audioPlayer.currentTime = (clickX / width) * duration;
+  if (duration > 0 && ytReady && ytPlayer) {
+    const newTime = (clickX / width) * duration;
+    ytPlayer.seekTo(newTime, true);
   }
 });
 
@@ -411,7 +470,10 @@ function updateVolume(e) {
   clickX = Math.max(0, Math.min(clickX, width)); 
   const newVol = clickX / width;
   
-  audioPlayer.volume = newVol;
+  if (ytReady && ytPlayer && ytPlayer.setVolume) {
+     ytPlayer.setVolume(Math.round(newVol * 100));
+  }
+  
   volumeBar.style.width = `${newVol * 100}%`;
   localStorage.setItem('playerVolume', newVol);
 }
