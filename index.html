@@ -209,8 +209,9 @@
     </div>
   </footer>
 
-  <!-- Invisible Audio Element -->
-  <audio id="audio-player"></audio>
+  <!-- YouTube Wrapper (Invisible) -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <div id="youtube-player" style="position: absolute; width: 0px; height: 0px; pointer-events: none; opacity: 0; overflow: hidden; z-index: -999;"></div>
 
   <!-- Application Logic -->
   <script src="app.js"></script>
