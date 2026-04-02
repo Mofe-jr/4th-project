@@ -1,28 +1,45 @@
+// Supabase Configuration
+const SUPABASE_URL = 'https://woodsdwveicynllmxbnn.supabase.co'; // <-- INSERT YOUR URL HERE
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indvb2RzZHd2ZWljeW5sbG14Ym5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxMzk5MDYsImV4cCI6MjA5MDcxNTkwNn0.PEfmjh_OXd82l0a6R3uP8Wx-loZISLHQ0SWbuZZvfMg'; // <-- INSERT YOUR KEY HERE
+const supabase = (window.supabase && SUPABASE_URL !== 'YOUR_SUPABASE_URL') 
+  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) 
+  : null;
+
+// Unique Anonymous Session ID for Persistent Favorites
+let deviceId = localStorage.getItem('deviceId');
+if (!deviceId) {
+  deviceId = crypto.randomUUID ? crypto.randomUUID() : 'id_' + Math.random().toString(36).substr(2, 9);
+  localStorage.setItem('deviceId', deviceId);
+}
+
 // Initialize Lucide Icons
 lucide.createIcons();
 
-// Mock Data
-const playlists = [
+// Placeholder Extended Mock Data
+let playlists = [
   "Morning Devotion", "Praise & Worship", "Hillsong Classics", "Nigerian Gospel",
-  "Sunday Vibes", "Quiet Time", "Gospel Anthems", "Afro Gospel"
+  "Sunday Vibes", "Quiet Time", "Gospel Anthems", "Afro Gospel", "Classical Worship", "Gospel Jazz", "Blues Devotional", "RnB Worship"
 ];
 
-const featuredAlbums = [
+let featuredAlbums = [
   { id: 1, title: "Way Maker", artist: "Sinach", img: "https://ui-avatars.com/api/?name=WM&background=4c1d95&color=fff&size=150" },
   { id: 2, title: "There Is More", artist: "Hillsong Worship", img: "https://ui-avatars.com/api/?name=TM&background=8b5cf6&color=fff&size=150" },
   { id: 3, title: "Olowogbogboro", artist: "Nathaniel Bassey", img: "https://ui-avatars.com/api/?name=OL&background=1e40af&color=fff&size=150" },
-  { id: 4, title: "Satisfied", artist: "Mercy Chinwo", img: "https://ui-avatars.com/api/?name=SA&background=9f1239&color=fff&size=150" }
+  { id: 4, title: "Satisfied", artist: "Mercy Chinwo", img: "https://ui-avatars.com/api/?name=SA&background=9f1239&color=fff&size=150" },
+  { id: 9, title: "Smooth Jazz Devotional", artist: "Jazz Vibes", img: "https://ui-avatars.com/api/?name=JV&background=1e40af&color=fff&size=150" },
+  { id: 10, title: "Classical Redemption", artist: "Symphony Orchestra", img: "https://ui-avatars.com/api/?name=CR&background=047857&color=fff&size=150" }
 ];
 
-const recentlyPlayed = [
+let recentlyPlayed = [
   ...featuredAlbums,
   { id: 5, title: "Crossover: Live", artist: "Travis Greene", img: "https://ui-avatars.com/api/?name=TG&background=ea580c&color=fff&size=150" },
   { id: 6, title: "Graves Into Gardens", artist: "Elevation Worship", img: "https://ui-avatars.com/api/?name=GG&background=0284c7&color=fff&size=150" },
   { id: 7, title: "God Will Make A Way", artist: "Don Moen", img: "https://ui-avatars.com/api/?name=DM&background=eab308&color=fff&size=150" },
-  { id: 8, title: "Alabaster Box", artist: "CeCe Winans", img: "https://ui-avatars.com/api/?name=CW&background=000&color=fff&size=150" }
+  { id: 8, title: "Alabaster Box", artist: "CeCe Winans", img: "https://ui-avatars.com/api/?name=CW&background=000&color=fff&size=150" },
+  { id: 11, title: "RnB Praise", artist: "Soul Chorus", img: "https://ui-avatars.com/api/?name=RB&background=be123c&color=fff&size=150" }
 ];
 
-const queue = [
+let queue = [
   {
     id: 1,
     title: "Way Maker - Live",
@@ -49,6 +66,15 @@ const queue = [
     img: "https://ui-avatars.com/api/?name=IM&background=14532d&color=fff&size=150",
     url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
     lyrics: "When I think upon Your goodness<br/>And Your faithfulness each day<br/>I'm convinced it's not because I am worthy<br/>To receive the kind of love that You give<br/><br/>But I'm grateful for Your mercy<br/>And I'm grateful for Your grace<br/>And because of how You've poured out Yourself<br/>I have come to sing this song out in praise<br/><br/>Imela, Imela<br/>Okaka, Onyekeruwa!"
+  },
+  {
+    id: 4,
+    title: "Classical Worship Anthem",
+    artist: "Symphony Orchestra",
+    duration: 160,
+    img: "https://ui-avatars.com/api/?name=CW&background=047857&color=fff&size=150",
+    url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+    lyrics: "Instrumental - Classical Symphony"
   }
 ];
 
@@ -93,7 +119,18 @@ let isLyricsOpen = false;
 let savedVolume = localStorage.getItem('playerVolume') ? parseFloat(localStorage.getItem('playerVolume')) : 1.0;
 
 // Initialization
-function init() {
+async function init() {
+  if (supabase) {
+    try {
+      const { data: dbQueue } = await supabase.from('queue').select('*');
+      if (dbQueue && dbQueue.length > 0) {
+        queue = dbQueue;
+      }
+    } catch (e) {
+      console.warn("Supabase fetch failed. Falling back to local/placeholder queue.");
+    }
+  }
+
   populateSidebar();
   populateMainContent();
   setGreeting();
@@ -205,6 +242,14 @@ function loadTrack(index) {
   // Update Media Session native OS player
   updateMediaSessionMetadata(track);
   
+  // Track Favorite State
+  let favs = JSON.parse(localStorage.getItem('favs') || '[]');
+  const isFav = favs.includes(track.id);
+  btnFav.classList.toggle('text-brand', isFav);
+  const icon = btnFav.querySelector('i');
+  if (isFav) icon.classList.add('fill-brand');
+  else icon.classList.remove('fill-brand');
+  
   // Set total time based on array or metadata
   timeTotalEl.innerText = formatTime(track.duration);
   progressBar.style.width = '0%';
@@ -257,13 +302,30 @@ btnPlay.addEventListener('click', () => togglePlay());
 btnNext.addEventListener('click', playNext);
 btnPrev.addEventListener('click', playPrev);
 
-btnFav.addEventListener('click', () => {
+btnFav.addEventListener('click', async () => {
+  const currentTrackId = queue[currentTrackIndex].id;
   btnFav.classList.toggle('text-brand');
+  const isNowFav = btnFav.classList.contains('text-brand');
   const icon = btnFav.querySelector('i');
-  if (btnFav.classList.contains('text-brand')) {
+  
+  if (isNowFav) {
     icon.classList.add('fill-brand');
+    // Save to LocalStorage
+    let favs = JSON.parse(localStorage.getItem('favs') || '[]');
+    if(!favs.includes(currentTrackId)) favs.push(currentTrackId);
+    localStorage.setItem('favs', JSON.stringify(favs));
+    
+    // Attempt Supabase Sync (Silent)
+    if(supabase) supabase.from('favorites').insert([{ device_id: deviceId, song_id: currentTrackId }]).catch(()=>{});
   } else {
     icon.classList.remove('fill-brand');
+    // Remove from LocalStorage
+    let favs = JSON.parse(localStorage.getItem('favs') || '[]');
+    favs = favs.filter(id => id !== currentTrackId);
+    localStorage.setItem('favs', JSON.stringify(favs));
+    
+    // Attempt Supabase Sync (Silent)
+    if(supabase) supabase.from('favorites').delete().match({ device_id: deviceId, song_id: currentTrackId }).catch(()=>{});
   }
 });
 
