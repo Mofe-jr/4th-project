@@ -1,2 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Custom Web Player</title>
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Configure Tailwind -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#8b5cf6', // Electric Purple
+              hover: '#a78bfa',
+              dark: '#5b21b6'
+            },
+            surface: {
+              base: '#121212', // Main background
+              elevated: '#181818', // Cards, sidebar
+              highlight: '#282828', // Hover state
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 
-<!DOCTYPE html><html class="encore-dark-theme encore-layout-themes" lang="en" dir="ltr"><head><meta charSet="utf-8"/><title>Spotify – Web Player</title><link rel="icon" sizes="32x32" type="image/png" href="https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png"/><link rel="icon" sizes="16x16" type="image/png" href="https://open.spotifycdn.com/cdn/images/favicon16.1c487bff.png"/><link rel="icon" href="https://open.spotifycdn.com/cdn/images/favicon.0f31d2ea.ico"/><meta http-equiv="X-UA-Compatible" content="IE=9"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/><link rel="preload" href="https://encore.scdn.co/fonts/SpotifyMixUI-Regular-76c92fb1a35c462f73429fa8865163eb.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><link rel="preload" href="https://encore.scdn.co/fonts/SpotifyMixMono-Regular-134eeb986fc0f94a9f0acb9cedaeb584.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><link rel="preload" href="https://encore.scdn.co/fonts/SpotifyMixUITitleVariable-08bab3354d40f74e5177917b5ae80894.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><link rel="preload" href="https://encore.scdn.co/fonts/SpotifyMixUI-Bold-09c45a3a0ce9d2971e62cb26e97760fb.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><link rel="preload" href="https://encore.scdn.co/fonts/SpotifyMixUITitleVariable-08bab3354d40f74e5177917b5ae80894.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><meta property="og:site_name" content="Spotify"/><meta property="fb:app_id" content="174829003346"/><link rel="canonical" href="https://open.spotify.com/"/><link rel="manifest" href="https://open.spotifycdn.com/cdn/generated/manifest-web-player.1609946b.json"/><style data-styled="active"></style><link rel="stylesheet" href="https://open.spotifycdn.com/cdn/build/web-player/web-player.83d2f05c.css"/><link rel="preconnect" href="https://apresolve.spotify.com" crossorigin="anonymous"/><link rel="preconnect" href="https://clienttoken.spotify.com" crossorigin="anonymous"/><link rel="preconnect" href="https://api-partner.spotify.com" crossorigin="anonymous"/><link rel="preconnect" href="https://spclient.wg.spotify.com" crossorigin="anonymous"/><link rel="preconnect" href="https://api.spotify.com" crossorigin="anonymous"/><link rel="preconnect" href="https://daily-mix.scdn.co" crossorigin="anonymous"/><link rel="preconnect" href="https://exp.wg.spotify.com" crossorigin="anonymous"/><link rel="preconnect" href="https://i.scdn.co" crossorigin="anonymous"/><link rel="preconnect" href="https://lineup-images.scdn.co" crossorigin="anonymous"/><link rel="preconnect" href="https://mosaic.scdn.co" crossorigin="anonymous"/><link rel="preconnect" href="https://open.spotifycdn.com" crossorigin="anonymous"/><link rel="preconnect" href="https://pixel-static.spotify.com" crossorigin="anonymous"/><link rel="preconnect" href="https://pixel.spotify.com" crossorigin="anonymous"/><link rel="preconnect" href="https://pl.scdn.co" crossorigin="anonymous"/><link rel="preconnect" href="https://gew1-dealer.g2.spotify.com" crossorigin="anonymous"/><link rel="preconnect" href="https://gew1-spclient.spotify.com" crossorigin="anonymous"/><link rel="preload" href="https://open.spotifycdn.com/cdn/generated-locales/web-player/en.8a3a865a.json" data-translations-url-for-locale="en" as="fetch" crossorigin="anonymous" type="application/json"/><style>.grecaptcha-badge { display: none !important;}</style><script src="https://www.google.com/recaptcha/enterprise.js?render=6LfCVLAUAAAAALFwwRnnCJ12DalriUGbj8FW_J39" async="" defer=""></script><link rel="search" type="application/opensearchdescription+xml" title="Spotify" href="https://open.spotifycdn.com/cdn/generated/opensearch.4cd8879e.xml"/><script defer="" src="https://open.spotifycdn.com/cdn/js/gtm.96d60fd6.js"></script><script defer="" src="https://open.spotifycdn.com/cdn/js/retargeting-pixels.02346b5d.js"></script></head><body class=""><div class="body-drag-top"></div><script id="appServerConfig" type="text/plain">eyJhcHBOYW1lIjoid2ViX3BsYXllcl9wcm90b3R5cGUiLCJtYXJrZXQiOiJORyIsImxvY2FsZSI6eyJsb2NhbGUiOiJlbiIsInJ0bCI6ZmFsc2UsInRleHREaXJlY3Rpb24iOiJsdHIifSwidXNlckNvdW50cnkiOiJORyIsImlzUHJlbWl1bSI6ZmFsc2UsImNvcnJlbGF0aW9uSWQiOiI4MDY2YTNkNi1lMmE1LTRjNjgtYjk1ZC1jOTQ5N2IzM2Y4NWMiLCJpc0Fub255bW91cyI6ZmFsc2UsImd0bUlkIjoiR1RNLVBaSE4zVkQiLCJwaXBSZXNvdXJjZXMiOnsic2NyaXB0cyI6WyJodHRwczovL29wZW4uc3BvdGlmeWNkbi5jb20vY2RuL2J1aWxkL3dlYi1wbGF5ZXIvdmVuZG9yfndlYi1wbGF5ZXIuOGQ2NDdjYjYuanMiLCJodHRwczovL29wZW4uc3BvdGlmeWNkbi5jb20vY2RuL2J1aWxkL3dlYi1wbGF5ZXIvcGlwLW1pbmktcGxheWVyLjRkZGE3MjgyLmpzIl0sInN0eWxlcyI6WyJodHRwczovL29wZW4uc3BvdGlmeWNkbi5jb20vY2RuL2J1aWxkL3dlYi1wbGF5ZXIvcGlwLW1pbmktcGxheWVyLjNmNjI3NmRjLmNzcyJdfSwicmV0YXJnZXRpbmdQaXhlbHMiOm51bGwsInJlY2FwdGNoYVdlYlBsYXllckZyYXVkU2l0ZUtleSI6IjZMZkNWTEFVQUFBQUFMRnd3Um5uQ0oxMkRhbHJpVUdiajhGV19KMzkiLCJzZXJ2ZXJUaW1lIjoxNzc1MTM0ODk4LCJjbGllbnRWZXJzaW9uIjoiMS4yLjg3LjM4Ny5nODkzNWYwMmQiLCJidWlsZFZlcnNpb24iOiJvcGVuLXNlcnZlcl8yMDI2LTA0LTAyXzE3NzUxMzIzMTgyNDRfODkzNWYwMiIsImJ1aWxkRGF0ZSI6IjIwMjYtMDQtMDIifQ==</script><script id="featureFlags" type="text/plain">eyJlbmFibGVTaG93cyI6dHJ1ZX0=</script><script id="seoExperiments" type="text/plain">e30=</script><script id="remoteConfig" type="text/plain">eyIjdiI6IjEiLCJlbmFibGVTdWJ0aXRsZXNVc2luZ0hhcm1vbnkiOnRydWUsImVuYWJsZUZ1bGxzY3JlZW5Nb2RlIjp0cnVlLCJlbmFibGVOcHZBYm91dFBvZGNhc3QiOnRydWUsImNhbllvdXJESlVzZXJVc2VEZXNrdG9wQXBwIjp0cnVlLCJlbmFibGVMeXJpY3NVcHNlbGwiOnRydWUsImVuYWJsZUFkYXB0aXZlVGl0bGVFbnRpdGllcyI6dHJ1ZSwiZW5hYmxlQ29uY2VydHNSZXBvcnRJc3N1ZSI6dHJ1ZSwiZW5hYmxlSW1wcm92ZWRDaW5lbWFNb2RlQ2FudmFzIjp0cnVlLCJlbmFibGVOYXZpZ2F0ZVRvR2FsbGVyeUZyb21Db25jZXB0UGlsbCI6dHJ1ZSwiZW5hYmxlU3RydWN0dXJlZERlc2NyaXB0aW9uSHRtbCI6dHJ1ZSwiZW5hYmxlRXhjbHVkZVRyYWNrRnJvbVRhc3RlUHJvZmlsZSI6dHJ1ZSwiZW5hYmxlQnV5T3B0aW9uSW5BdWRpb2Jvb2tDb250ZXh0TWVudSI6dHJ1ZSwiZW5hYmxlTGlzdGVuaW5nU3RhdHNNb2RhbCI6dHJ1ZSwiZW5hYmxlTm90aWZpY2F0aW9uQ2VudGVyIjp0cnVlLCJlbmFibGVQZWVrTnB2Ijp0cnVlLCJlbmFibGVTZWFyY2hTdWdnZXN0aW9ucyI6dHJ1ZSwiZW5hYmxlTWFncGllIjp0cnVlLCJlbmFibGVSZWdpc3RlcmVkQXJ0aXN0QmFubmVyIjp0cnVlLCJlbmFibGVEeW5hbWljTGl2ZUV2ZW50c0ZlZWQiOnRydWUsImVuYWJsZVZpZGVvVGh1bWJuYWlsU2NydWJiaW5nIjp0cnVlLCJlbmFibGVPdXRyb1ByZXZpZXdSZXBvcnRpbmciOiJQUk9EVUNUSU9OIiwiZW5hYmxlV2F0Y2hGZWVkUHJldmlld1JlcG9ydGluZyI6dHJ1ZSwiZW5hYmxlMURDYXJkUHJldmlld1JlcG9ydGluZyI6dHJ1ZSwiZW5hYmxlUG9kY2FzdENoYXB0ZXJzU2F2aW5nIjp0cnVlLCJlbmFibGVOZXdIYXJtb255U2Vla3RhYmxlcyI6dHJ1ZSwiZW5hYmxlUHJlbWl1bVBhZ2VQcmVwYWlkIjp0cnVlLCJlbmFibGVNYW5kYWxvcmlhbkVhc3RlckVnZyI6IkhFTE1FVF9BTkRfU09VTkQiLCJlbmFibGVWaWV3TW9kZSI6dHJ1ZSwiZW5hYmxlQ29uY2VydHNOZWFyWW91Ijp0cnVlLCJlbmFibGVGZWVkQmFzZWxpbmVUcmFuc2NyaXB0cyI6dHJ1ZSwiZW5hYmxlRmVlZEJhc2VsaW5lVmlkZW9QcmV2aWV3cyI6dHJ1ZSwiZW5hYmxlRmVlZEJhc2VsaW5lQXVkaW9QcmV2aWV3cyI6dHJ1ZSwiZW5hYmxlQXVkaW9ib29rQ2FyZFBsYXlCdXR0b24iOnRydWUsImVuYWJsZVlMWFByZXJlbGVhc2VBbGJ1bXMiOnRydWUsImVuYWJsZVB1c2hDaW5lbWFNb2RlU3RhdGVUb0hpc3RvcnkiOnRydWUsImVuYWJsZUZ1bGxzY3JlZW5MaWJyYXJ5Ijp0cnVlLCJlbmFibGVOcHZDcmVkaXRzSW1wcmVzc2lvbnMiOnRydWUsImVuYWJsZVdlYlRvRGVza3RvcEZ1bm5lbCI6dHJ1ZSwiZW5hYmxlVE9UUFZlcnNpb25WYWxpZGF0aW9uIjp0cnVlLCJlbmFibGVDb25jZXJ0c05vdEludGVyZXN0ZWQiOnRydWUsImVuYWJsZVZlbnVlUGFnZUdlbnJlcyI6dHJ1ZSwiZW5hYmxlVmVudWVQYWdlRm9sbG93Ijp0cnVlLCJlbmFibGVWZW51ZXNJbllvdXJMaWJyYXJ5Ijp0cnVlLCJlbmFibGVQcmVmZXRjaGluZyI6dHJ1ZSwiZW5hYmxlV2F0Y2hGZWVkIjp0cnVlLCJlbmFibGVXYXRjaEZlZWRFbnRpdHlQYWdlcyI6dHJ1ZSwiZW5hYmxlQXV0b1BsYXlPbkxvYWQiOnRydWUsImVwaXNvZGVUcmFuc2NyaXB0VGFiU291cmNlIjoiUkVBRF9BTE9ORyIsImVuYWJsZVNtYXJ0U2h1ZmZsZSI6dHJ1ZSwiZW5hYmxlQ2VudHJhbGlzZWRTbWFydFNodWZmbGUiOnRydWUsInJlYWxseUVuYWJsZVVuaWZpZWRTbWFydFNodWZmbGVTaWduYWxzIjp0cnVlLCIjY29uZmlndXJhdGlvbkFzc2lnbm1lbnRJZCI6ImNjMTFlOGRlLWY0ODMtYjFmYy01ZGI0LTc4NWQxMWJlZjNhZjozMTA0MjcyIiwiI2dyb3VwSWRzIjp7ImVuYWJsZVN1YnRpdGxlc1VzaW5nSGFybW9ueSI6MzU1MTksImVuYWJsZUZ1bGxzY3JlZW5Nb2RlIjozMTI0NzksImVuYWJsZU5wdkFib3V0UG9kY2FzdCI6MTEzMDU5NSwiY2FuWW91ckRKVXNlclVzZURlc2t0b3BBcHAiOjExMzIwNDIsImVuYWJsZUx5cmljc1Vwc2VsbCI6MTE3MTUyNCwiZW5hYmxlQWRhcHRpdmVUaXRsZUVudGl0aWVzIjoxMjAyOTY4LCJlbmFibGVDb25jZXJ0c1JlcG9ydElzc3VlIjoxMjI1MzA1LCJlbmFibGVDb25jZXJ0RGlzdGFuY2VSYWRpdXMiOjEyMjcxNDAsImVuYWJsZUltcHJvdmVkQ2luZW1hTW9kZUNhbnZhcyI6MTIzMzQ4MiwiZW5hYmxlQW1iaWVudE1vZGVUaW1lciI6MTIzMzQ4MiwiZW5hYmxlTmF2aWdhdGVUb0dhbGxlcnlGcm9tQ29uY2VwdFBpbGwiOjEyNDQwNzEsImVuYWJsZVN0cnVjdHVyZWREZXNjcmlwdGlvbkh0bWwiOjEyNTMxMDAsImVuYWJsZUV4Y2x1ZGVUcmFja0Zyb21UYXN0ZVByb2ZpbGUiOjEyNjU0NjksImVuYWJsZUJ1eU9wdGlvbkluQXVkaW9ib29rQ29udGV4dE1lbnUiOjEyNjkxMTgsImVuYWJsZUxpc3RlbmluZ1N0YXRzTW9kYWwiOjEyNjU5OTIsImVuYWJsZU5vdGlmaWNhdGlvbkNlbnRlciI6MTI3NTU5NSwiZW5hYmxlUGVla05wdiI6MTI3NjY0NiwiZW5hYmxlSG9tZUZvbGxvd2luZ1N1YmZlZWRzIjoxMjgwODA1LCJlbmFibGVTZWFyY2hTdWdnZXN0aW9ucyI6MTI4MDgxMSwiZW5hYmxlTWFncGllIjoxMjgwMjM5LCJlbmFibGVSZWdpc3RlcmVkQXJ0aXN0QmFubmVyIjoxMjgyMTk1LCJlbmFibGVEeW5hbWljTGl2ZUV2ZW50c0ZlZWQiOjEyODU2NjksImVuYWJsZVZpZGVvVGh1bWJuYWlsU2NydWJiaW5nIjoxMjkxMzc5LCJlbmFibGVPdXRyb1ByZXZpZXdSZXBvcnRpbmciOjEyOTI5OTgsImVuYWJsZVdhdGNoRmVlZFByZXZpZXdSZXBvcnRpbmciOjEyOTI5OTgsImVuYWJsZTFEQ2FyZFByZXZpZXdSZXBvcnRpbmciOjEyOTI5OTgsImVuYWJsZVBvZGNhc3RDaGFwdGVyc1NhdmluZyI6MTI5MzM0NywiZW5hYmxlTmV3SGFybW9ueVNlZWt0YWJsZXMiOjEyODk0MTYsImVuYWJsZVByZW1pdW1QYWdlUHJlcGFpZCI6MTE3MzM0MiwiZW5hYmxlTWFuZGFsb3JpYW5FYXN0ZXJFZ2ciOjExODk0NjQsImVuYWJsZVZpZXdNb2RlIjoxMTg5NzA5LCJlbmFibGVSZWFjdFF1ZXJ5UGVyc2lzdGVuY2UiOjEyMTkyMDcsImVuYWJsZUNvbmNlcnRzTmVhcllvdSI6MTIzMTA4NywiZW5hYmxlRmVlZEJhc2VsaW5lVHJhbnNjcmlwdHMiOjEyMjUwMDcsImVuYWJsZUZlZWRCYXNlbGluZVZpZGVvUHJldmlld3MiOjEyMjUwMDcsImVuYWJsZUZlZWRCYXNlbGluZUF1ZGlvUHJldmlld3MiOjEyMjUwMDcsImVuYWJsZUF1ZGlvYm9va0NhcmRQbGF5QnV0dG9uIjoxMjI5NjY5LCJlbmFibGVZTFhQcmVyZWxlYXNlQWxidW1zIjoxMjM1MTAxLCJlbmFibGVQdXNoQ2luZW1hTW9kZVN0YXRlVG9IaXN0b3J5IjoxMjM3OTI2LCJlbmFibGVGdWxsc2NyZWVuTGlicmFyeSI6MTIzNzkyNiwiZW5hYmxlTnB2Q3JlZGl0c0ltcHJlc3Npb25zIjoxMjM4ODc3LCJlbmFibGVXZWJUb0Rlc2t0b3BGdW5uZWwiOjEyNDI0MTIsImVuYWJsZVRPVFBWZXJzaW9uVmFsaWRhdGlvbiI6MTI0NzU4MCwiZW5hYmxlQ29uY2VydHNOb3RJbnRlcmVzdGVkIjoxMjUwMjA2LCJlbmFibGVWZW51ZVBhZ2VHZW5yZXMiOjEyNjQwNzcsImVuYWJsZVZlbnVlUGFnZUZvbGxvdyI6MTI2NDA3NywiZW5hYmxlVmVudWVzSW5Zb3VyTGlicmFyeSI6MTI2NDA3NywiZW5hYmxlUHJlZmV0Y2hpbmciOjEyNjU3NTYsImVuYWJsZVdhdGNoRmVlZCI6MTI2NzA3MywiZW5hYmxlV2F0Y2hGZWVkRW50aXR5UGFnZXMiOjEyNjcwNzMsImVuYWJsZUF1dG9QbGF5T25Mb2FkIjoxMjc0OTM5LCJlcGlzb2RlVHJhbnNjcmlwdFRhYlNvdXJjZSI6MTAwMDAyMTUsImVuYWJsZVNtYXJ0U2h1ZmZsZSI6MTAwMDAyNjQsImVuYWJsZUNlbnRyYWxpc2VkU21hcnRTaHVmZmxlIjoxMDAwMDI2NCwicmVhbGx5RW5hYmxlVW5pZmllZFNtYXJ0U2h1ZmZsZVNpZ25hbHMiOjEwMDAxMTQ0fSwiI2ZldGNoVGltZU1pbGxpcyI6MTc3NTEzNDg5ODkzNywiI2NvbnRleHRIYXNoIjoiYjg3NDI0ZTc5YWU2MmQzOCJ9</script><script src="https://open.spotifycdn.com/cdn/build/web-player/web-player.98d6a290.js"></script><script src="https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.8d647cb6.js"></script><script src="https://open.spotifycdn.com/cdn/build/web-player/encore~web-player.f7595fde.js"></script></body></html>
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Supabase CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-black text-white h-screen flex flex-col font-sans overflow-hidden selec-none">
+
+  <!-- Main App Layout (Top Part before Playback Bar) -->
+  <div class="flex-1 flex overflow-hidden p-2 gap-2 h-[calc(100vh-90px)]">
+    
+    <!-- Left Sidebar -->
+    <nav id="sidebar" class="w-64 bg-black/40 backdrop-blur-2xl border border-white/5 rounded-2xl flex flex-col overflow-hidden shadow-2xl relative">
+      <!-- Main Nav -->
+      <div class="p-4 space-y-4 font-semibold">
+        <a href="#" class="flex items-center gap-4 text-gray-300 hover:text-white transition group">
+          <i data-lucide="home" class="w-6 h-6 transition group-hover:text-white"></i>
+          Home
+        </a>
+        <a href="#" class="flex items-center gap-4 text-gray-300 hover:text-white transition group">
+          <i data-lucide="search" class="w-6 h-6 transition group-hover:text-white"></i>
+          Search
+        </a>
+      </div>
+
+      <!-- Library Section -->
+      <div class="flex-1 flex flex-col mt-2 px-2 pb-2 overflow-hidden">
+        <div class="flex items-center justify-between p-2 text-gray-300 hover:text-white transition cursor-pointer">
+          <div class="flex items-center gap-2 font-semibold">
+            <i data-lucide="library" class="w-6 h-6"></i>
+            Your Library
+          </div>
+          <button class="hover:bg-surface-highlight p-1 rounded-full"><i data-lucide="plus" class="w-4 h-4"></i></button>
+        </div>
+        
+        <!-- Filter Pills -->
+        <div class="flex gap-1.5 p-2 mt-2" id="sidebar-filter-tabs">
+          <span data-tab="playlists" class="sidebar-tab text-xs bg-brand text-white font-medium px-3 py-1 rounded-full cursor-pointer transition shadow-sm">Playlists</span>
+          <span data-tab="artists" class="sidebar-tab text-xs bg-surface-highlight text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-1 rounded-full cursor-pointer transition">Artists</span>
+          <span data-tab="folders" class="sidebar-tab text-xs bg-surface-highlight text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-1 rounded-full cursor-pointer transition">Folders</span>
+        </div>
+
+        <!-- Scrollable Playlists -->
+        <div id="sidebar-playlists" class="flex-1 overflow-y-auto mt-2 space-y-1 custom-scrollbar pr-1">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="flex-1 rounded-2xl relative overflow-y-auto custom-scrollbar bg-gradient-to-br from-brand-dark/30 via-surface-base to-black pb-24 shadow-inner border border-white/5 ml-2">
+      
+      <!-- Sticky Top Header -->
+      <header class="sticky top-0 z-10 flex items-center justify-between px-6 py-4 bg-black/40 backdrop-blur-xl border-b border-white/5 gap-4">
+        <!-- Navigation Arrows & Search Input -->
+        <div class="flex items-center gap-4 flex-1 max-w-xl">
+          <div class="flex gap-2">
+            <button class="bg-black/50 hover:bg-black p-2 rounded-full text-gray-300 hover:text-white transition">
+              <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button class="bg-black/50 hover:bg-black p-2 rounded-full text-gray-300 hover:text-white transition">
+              <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+          </div>
+          <!-- Live Search Bar -->
+          <div class="relative flex-1">
+            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+            <input id="search-input" type="text" placeholder="Search songs, artists (Hillsong, Tasha Cobbs...), or categories..." class="w-full bg-surface-highlight/80 hover:bg-surface-highlight focus:bg-surface-elevated text-sm text-white placeholder-gray-400 pl-9 pr-8 py-2 rounded-full border border-white/5 focus:border-brand/60 focus:outline-none transition-all shadow-inner" />
+            <button id="search-clear" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white hidden"><i data-lucide="x" class="w-3.5 h-3.5"></i></button>
+          </div>
+        </div>
+
+        <!-- Profile / Account -->
+        <div class="flex items-center gap-2">
+          <button class="bg-white text-black font-bold px-4 py-1.5 rounded-full text-sm hover:scale-105 transition shadow-md">Explore Premium</button>
+          <button class="bg-black/50 hover:bg-black p-2 rounded-full text-gray-300 hover:text-white transition">
+            <i data-lucide="bell" class="w-5 h-5"></i>
+          </button>
+          <button class="bg-black p-1 rounded-full text-gray-300 hover:text-white transition border border-gray-700">
+            <img src="https://i.pravatar.cc/150?u=user1" alt="Profile" class="w-7 h-7 rounded-full" />
+          </button>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="px-6 relative z-0">
+        <!-- Greeting & Category Chips Filter -->
+        <div class="mt-6 mb-6">
+          <h1 id="greeting" class="text-4xl font-outfit font-bold tracking-tight drop-shadow-md mb-4">Good evening</h1>
+          
+          <!-- Category / Artist Filter Chips -->
+          <div id="category-chips" class="flex gap-2 overflow-x-auto custom-scrollbar pb-2 pt-1">
+            <button data-filter="all" class="chip active bg-white text-black font-semibold text-xs px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap shadow">All</button>
+            <button data-filter="Hillsong United" class="chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap">Hillsong United</button>
+            <button data-filter="Tasha Cobbs" class="chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap">Tasha Cobbs</button>
+            <button data-filter="Elevation Worship" class="chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap">Elevation Worship</button>
+            <button data-filter="Phil Thompson" class="chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap">Phil Thompson</button>
+            <button data-filter="Travis Greene" class="chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap">Travis Greene</button>
+            <button data-filter="CeCe Winans" class="chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap">CeCe Winans</button>
+            <button data-filter="Nathaniel Bassey" class="chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap">Nathaniel Bassey</button>
+            <button data-filter="Sinach" class="chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap">Sinach</button>
+            <button data-filter="Mercy Chinwo" class="chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap">Mercy Chinwo</button>
+            <button data-filter="Don Moen" class="chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap">Don Moen</button>
+            <button data-filter="Gospel Jazz" class="chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap">Gospel Jazz</button>
+            <button data-filter="Classical Worship" class="chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap">Classical</button>
+            <button data-filter="Blues Devotional" class="chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap">Blues</button>
+            <button data-filter="RnB Worship" class="chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap">RnB Worship</button>
+          </div>
+        </div>
+        
+        <!-- Featured Grid (Top Picks) -->
+        <div id="featured-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-8">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Dynamic Filtered / Main Content Area -->
+        <div id="dynamic-sections" class="space-y-8">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </main>
+    
+    <!-- Lyrics Panel (Hidden by default) -->
+    <aside id="lyrics-panel" class="w-80 bg-black/40 backdrop-blur-3xl border border-white/10 rounded-2xl flex-col overflow-hidden hidden transition-all duration-300 shadow-2xl ml-2 relative">
+      <div class="p-4 border-b border-white/10 flex justify-between items-center bg-transparent sticky top-0 z-10 backdrop-blur-md">
+        <h2 class="font-outfit font-bold text-xl tracking-wide text-white drop-shadow">Lyrics</h2>
+        <button id="btn-close-lyrics" class="text-gray-400 hover:text-white transition"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <div id="lyrics-content" class="p-6 overflow-y-auto custom-scrollbar flex-1 text-lg leading-relaxed font-semibold text-gray-200">
+        <!-- Lyrics injected here -->
+        Loading lyrics...
+      </div>
+    </aside>
+  </div>
+
+  <!-- Bottom Playback Bar -->
+  <footer id="player-bar" class="h-[90px] bg-black/60 backdrop-blur-2xl px-4 flex items-center justify-between border-t border-white/10 fixed bottom-0 w-full z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+    
+    <!-- Now Playing Info -->
+    <div class="flex items-center w-[30%] min-w-[180px] gap-4">
+      <img id="current-album-art" src="https://ui-avatars.com/api/?name=Music&background=282828&color=fff" class="h-14 w-14 rounded-lg shadow-lg border border-white/10" alt="Album Art" />
+      <div class="flex flex-col justify-center">
+        <a id="current-title" href="#" class="text-md font-outfit font-bold hover:underline line-clamp-1 drop-shadow tracking-wide">Song Title</a>
+        <a id="current-artist" href="#" class="text-xs text-gray-400 hover:underline hover:text-white line-clamp-1 mt-0.5">Artist Name</a>
+      </div>
+      <button id="btn-fav" class="text-gray-400 hover:text-brand transition ml-2">
+        <i data-lucide="heart" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+    <!-- Player Controls -->
+    <div class="flex flex-col items-center max-w-[45%] w-full">
+      <div class="flex items-center gap-6 mb-1">
+        <button class="text-gray-400 hover:text-white transition"><i data-lucide="shuffle" class="w-4 h-4"></i></button>
+        <button id="btn-prev" class="text-gray-400 hover:text-white transition"><i data-lucide="skip-back" class="w-5 h-5 fill-current border-0"></i></button>
+        <button id="btn-play" class="bg-white text-black rounded-full p-2 hover:scale-105 transition hover:bg-gray-200">
+          <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
+        </button>
+        <button id="btn-next" class="text-gray-400 hover:text-white transition"><i data-lucide="skip-forward" class="w-5 h-5 fill-current border-0"></i></button>
+        <button id="btn-repeat" class="text-gray-400 hover:text-white transition"><i data-lucide="repeat" class="w-4 h-4"></i></button>
+      </div>
+      <!-- Scrubber -->
+      <div class="flex items-center gap-2 w-full text-xs text-gray-400">
+        <span id="time-current">0:00</span>
+        <div class="relative w-full h-1 group cursor-pointer flex items-center" id="progress-container">
+          <div class="absolute w-full h-1 bg-surface-highlight rounded-full overflow-hidden">
+             <div id="progress-bar" class="h-full bg-white group-hover:bg-brand rounded-full" style="width: 0%"></div>
+          </div>
+          <!-- Scrubber Thumb (visible strictly on hover) -->
+          <div id="progress-thumb" class="absolute h-3 w-3 bg-white rounded-full shadow hidden group-hover:block transition" style="left: 0%; transform: translateX(-50%);"></div>
+        </div>
+        <span id="time-total">0:00</span>
+      </div>
+    </div>
+
+    <!-- Extra Controls -->
+    <div class="flex items-center justify-end w-[30%] min-w-[180px] gap-3 text-gray-400">
+      <button id="btn-speed" class="hover:text-white transition font-bold text-xs border border-gray-600 hover:border-gray-400 rounded px-1 min-w-[28px]">1x</button>
+      <button id="btn-lyrics" class="hover:text-white transition"><i data-lucide="mic-2" class="w-4 h-4"></i></button>
+      <button class="hover:text-white transition"><i data-lucide="list-music" class="w-4 h-4"></i></button>
+      <button class="hover:text-white transition"><i data-lucide="laptop-2" class="w-4 h-4"></i></button>
+      <div class="flex items-center gap-2 group w-24">
+        <button class="hover:text-white transition"><i data-lucide="volume-2" class="w-4 h-4"></i></button>
+        <div class="relative w-full h-1 group cursor-pointer flex items-center" id="volume-container">
+          <div class="absolute w-full h-1 bg-surface-highlight rounded-full overflow-hidden">
+             <div id="volume-bar" class="h-full bg-white group-hover:bg-brand rounded-full" style="width: 100%"></div>
+          </div>
+          <div class="absolute h-3 w-3 bg-white rounded-full shadow hidden group-hover:block transition" style="left: 100%; transform: translateX(-50%);"></div>
+        </div>
+      </div>
+      <button class="hover:text-white transition"><i data-lucide="maximize-2" class="w-4 h-4"></i></button>
+    </div>
+  </footer>
+
+  <!-- YouTube Wrapper (Invisible) -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <div id="youtube-player" style="position: absolute; width: 0px; height: 0px; pointer-events: none; opacity: 0; overflow: hidden; z-index: -999;"></div>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

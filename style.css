@@ -1,0 +1,36 @@
+/* Custom scrollbar to match the slick design */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px;
+  background-color: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 8px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb,
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Ensure body doesn't bounce/scroll */
+html, body {
+  overscroll-behavior: none;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Gradient Fade Mask for Lyrics text so it doesn't clip harshly */
+#lyrics-content {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* Smooth Image Transitions */
+img {
+  will-change: transform;
+}

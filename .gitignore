@@ -1,0 +1,5 @@
+# Ignore files larger than 100MB to comply with GitHub file size limits
+music/RnB/Rhythm and Blues Classic.mp3
+*.log
+.DS_Store
+Thumbs.db
