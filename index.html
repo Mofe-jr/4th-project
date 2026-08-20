@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Custom Web Player</title>
+  <title>StreamHub - Premium Music & Worship Player</title>
   
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -38,7 +38,7 @@
   <!-- Google Fonts: Inter & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -49,89 +49,122 @@
   <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-black text-white h-screen flex flex-col font-sans overflow-hidden selec-none">
+<body class="bg-black text-white h-screen flex flex-col font-sans overflow-hidden select-none antialiased">
 
   <!-- Main App Layout (Top Part before Playback Bar) -->
   <div class="flex-1 flex overflow-hidden p-2 gap-2 h-[calc(100vh-90px)]">
     
     <!-- Left Sidebar -->
-    <nav id="sidebar" class="w-64 bg-black/40 backdrop-blur-2xl border border-white/5 rounded-2xl flex flex-col overflow-hidden shadow-2xl relative">
-      <!-- Main Nav -->
-      <div class="p-4 space-y-4 font-semibold">
-        <a href="#" class="flex items-center gap-4 text-gray-300 hover:text-white transition group">
-          <i data-lucide="home" class="w-6 h-6 transition group-hover:text-white"></i>
-          Home
-        </a>
-        <a href="#" class="flex items-center gap-4 text-gray-300 hover:text-white transition group">
-          <i data-lucide="search" class="w-6 h-6 transition group-hover:text-white"></i>
-          Search
-        </a>
+    <nav id="sidebar" class="w-64 bg-[#121212]/90 backdrop-blur-2xl border border-white/5 rounded-2xl flex flex-col overflow-hidden shadow-2xl relative shrink-0">
+      <!-- Logo / Brand & Main Nav -->
+      <div class="p-4 border-b border-white/5">
+        <div class="flex items-center gap-2.5 mb-4 px-1 cursor-pointer" onclick="resetFilters()">
+          <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-dark to-brand flex items-center justify-center shadow-lg shadow-brand/30">
+            <i data-lucide="music-2" class="w-4 h-4 text-white"></i>
+          </div>
+          <span class="font-outfit font-extrabold text-lg tracking-wider bg-gradient-to-r from-white via-purple-100 to-brand bg-clip-text text-transparent">STREAMHUB</span>
+        </div>
+        <div class="space-y-3 font-semibold text-sm">
+          <a href="#" onclick="resetFilters()" class="flex items-center gap-3.5 text-white bg-white/10 px-3 py-2 rounded-xl transition group font-medium">
+            <i data-lucide="home" class="w-5 h-5 text-brand"></i>
+            Home
+          </a>
+          <a href="#" onclick="document.getElementById('search-input').focus()" class="flex items-center gap-3.5 text-gray-400 hover:text-white hover:bg-white/5 px-3 py-2 rounded-xl transition group font-medium">
+            <i data-lucide="search" class="w-5 h-5 transition group-hover:text-white"></i>
+            Search
+          </a>
+        </div>
       </div>
 
       <!-- Library Section -->
-      <div class="flex-1 flex flex-col mt-2 px-2 pb-2 overflow-hidden">
-        <div class="flex items-center justify-between p-2 text-gray-300 hover:text-white transition cursor-pointer">
-          <div class="flex items-center gap-2 font-semibold">
-            <i data-lucide="library" class="w-6 h-6"></i>
+      <div class="flex-1 flex flex-col px-2 py-3 overflow-hidden">
+        <div class="flex items-center justify-between px-2 text-gray-300 hover:text-white transition cursor-pointer">
+          <div class="flex items-center gap-2 font-bold text-sm">
+            <i data-lucide="library" class="w-5 h-5 text-brand"></i>
             Your Library
           </div>
-          <button class="hover:bg-surface-highlight p-1 rounded-full"><i data-lucide="plus" class="w-4 h-4"></i></button>
+          <button class="hover:bg-white/10 p-1.5 rounded-full transition text-gray-400 hover:text-white"><i data-lucide="plus" class="w-4 h-4"></i></button>
         </div>
         
         <!-- Filter Pills -->
-        <div class="flex gap-1.5 p-2 mt-2" id="sidebar-filter-tabs">
+        <div class="flex gap-1.5 p-2 mt-1" id="sidebar-filter-tabs">
           <span data-tab="playlists" class="sidebar-tab text-xs bg-brand text-white font-medium px-3 py-1 rounded-full cursor-pointer transition shadow-sm">Playlists</span>
           <span data-tab="artists" class="sidebar-tab text-xs bg-surface-highlight text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-1 rounded-full cursor-pointer transition">Artists</span>
           <span data-tab="folders" class="sidebar-tab text-xs bg-surface-highlight text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-1 rounded-full cursor-pointer transition">Folders</span>
         </div>
 
-        <!-- Scrollable Playlists -->
-        <div id="sidebar-playlists" class="flex-1 overflow-y-auto mt-2 space-y-1 custom-scrollbar pr-1">
+        <!-- Scrollable Playlists / Artists / Folders -->
+        <div id="sidebar-playlists" class="flex-1 overflow-y-auto mt-1 space-y-1 custom-scrollbar pr-1">
           <!-- Populated by JS -->
         </div>
       </div>
     </nav>
 
     <!-- Main Content Area -->
-    <main id="main-content" class="flex-1 rounded-2xl relative overflow-y-auto custom-scrollbar bg-gradient-to-br from-brand-dark/30 via-surface-base to-black pb-24 shadow-inner border border-white/5 ml-2">
+    <main id="main-content" class="flex-1 rounded-2xl relative overflow-y-auto custom-scrollbar bg-[#121212] pb-24 shadow-inner border border-white/5">
       
       <!-- Sticky Top Header -->
-      <header class="sticky top-0 z-10 flex items-center justify-between px-6 py-4 bg-black/40 backdrop-blur-xl border-b border-white/5 gap-4">
+      <header class="sticky top-0 z-20 flex items-center justify-between px-6 py-3.5 bg-[#121212]/80 backdrop-blur-xl border-b border-white/5 gap-4">
         <!-- Navigation Arrows & Search Input -->
         <div class="flex items-center gap-4 flex-1 max-w-xl">
           <div class="flex gap-2">
-            <button class="bg-black/50 hover:bg-black p-2 rounded-full text-gray-300 hover:text-white transition">
-              <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            <button onclick="resetFilters()" class="bg-black/60 hover:bg-black p-2 rounded-full text-gray-300 hover:text-white transition border border-white/5">
+              <i data-lucide="chevron-left" class="w-4 h-4"></i>
             </button>
-            <button class="bg-black/50 hover:bg-black p-2 rounded-full text-gray-300 hover:text-white transition">
-              <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            <button class="bg-black/60 hover:bg-black p-2 rounded-full text-gray-300 hover:text-white transition border border-white/5">
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
             </button>
           </div>
           <!-- Live Search Bar -->
           <div class="relative flex-1">
-            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-            <input id="search-input" type="text" placeholder="Search songs, artists (Hillsong, Tasha Cobbs...), or categories..." class="w-full bg-surface-highlight/80 hover:bg-surface-highlight focus:bg-surface-elevated text-sm text-white placeholder-gray-400 pl-9 pr-8 py-2 rounded-full border border-white/5 focus:border-brand/60 focus:outline-none transition-all shadow-inner" />
+            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+            <input id="search-input" type="text" placeholder="Search songs, artists (Hillsong, Tasha Cobbs, Jazz, Blues...)" class="w-full bg-[#242424]/90 hover:bg-[#2a2a2a] focus:bg-[#2f2f2f] text-xs md:text-sm text-white placeholder-gray-400 pl-10 pr-9 py-2 rounded-full border border-white/10 focus:border-brand/70 focus:outline-none transition-all shadow-inner" />
             <button id="search-clear" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white hidden"><i data-lucide="x" class="w-3.5 h-3.5"></i></button>
           </div>
         </div>
 
         <!-- Profile / Account -->
-        <div class="flex items-center gap-2">
-          <button class="bg-white text-black font-bold px-4 py-1.5 rounded-full text-sm hover:scale-105 transition shadow-md">Explore Premium</button>
-          <button class="bg-black/50 hover:bg-black p-2 rounded-full text-gray-300 hover:text-white transition">
-            <i data-lucide="bell" class="w-5 h-5"></i>
+        <div class="flex items-center gap-3 shrink-0">
+          <button class="bg-gradient-to-r from-purple-500 to-brand text-white font-bold px-4 py-1.5 rounded-full text-xs hover:scale-105 transition shadow-lg shadow-purple-900/30 hidden sm:block">Explore Premium</button>
+          <button class="bg-black/50 hover:bg-black p-2 rounded-full text-gray-300 hover:text-white transition border border-white/5">
+            <i data-lucide="bell" class="w-4 h-4"></i>
           </button>
-          <button class="bg-black p-1 rounded-full text-gray-300 hover:text-white transition border border-gray-700">
-            <img src="https://i.pravatar.cc/150?u=user1" alt="Profile" class="w-7 h-7 rounded-full" />
-          </button>
+          <div class="flex items-center gap-2 bg-black/40 hover:bg-black/70 p-1 pr-3 rounded-full border border-white/10 cursor-pointer transition">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Profile" class="w-7 h-7 rounded-full object-cover" />
+            <span class="text-xs font-semibold hidden md:inline">User</span>
+          </div>
         </div>
       </header>
 
       <!-- Content -->
       <div class="px-6 relative z-0">
+        <!-- Visual hero: remains visible while the personalised sections load below -->
+        <section class="home-hero mt-6 mb-7" aria-labelledby="hero-title">
+          <img
+            src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1800&q=88"
+            alt="Worship band performing beneath concert lights"
+            class="home-hero-image"
+          />
+          <div class="home-hero-scrim"></div>
+          <div class="home-hero-content">
+            <span class="home-hero-kicker"><i data-lucide="sparkles" class="w-3.5 h-3.5"></i> STREAMHUB SESSION</span>
+            <h1 id="hero-title" class="font-outfit text-3xl md:text-5xl font-black tracking-tight text-white">Worship without limits.</h1>
+            <p class="max-w-md text-sm md:text-base text-purple-100/90">A fresh selection of uplifting worship, soulful gospel and quiet moments for your day.</p>
+            <div class="flex items-center gap-3 mt-5">
+              <button onclick="playCategory('Hillsong United', false)" class="home-hero-play"><i data-lucide="play" class="w-4 h-4 fill-current"></i> Start listening</button>
+              <button onclick="filterByCategory('Hillsong United')" class="home-hero-link">Explore collection <i data-lucide="arrow-up-right" class="w-4 h-4"></i></button>
+            </div>
+          </div>
+          <div class="home-hero-stat">
+            <span class="text-[10px] uppercase tracking-[0.18em] text-purple-200">Featured</span>
+            <span class="font-outfit font-bold text-white">Hillsong United</span>
+            <span class="text-xs text-gray-300">Worship essentials</span>
+          </div>
+        </section>
+
         <!-- Greeting & Category Chips Filter -->
-        <div class="mt-6 mb-6">
-          <h1 id="greeting" class="text-4xl font-outfit font-bold tracking-tight drop-shadow-md mb-4">Good evening</h1>
+        <div class="mb-6">
+          <h1 id="greeting" class="text-3xl md:text-4xl font-outfit font-extrabold tracking-tight drop-shadow-md mb-4 text-white">Good evening</h1>
           
           <!-- Category / Artist Filter Chips -->
           <div id="category-chips" class="flex gap-2 overflow-x-auto custom-scrollbar pb-2 pt-1">
@@ -183,7 +216,7 @@
     
     <!-- Now Playing Info -->
     <div class="flex items-center w-[30%] min-w-[180px] gap-4">
-      <img id="current-album-art" src="https://ui-avatars.com/api/?name=Music&background=282828&color=fff" class="h-14 w-14 rounded-lg shadow-lg border border-white/10" alt="Album Art" />
+      <img id="current-album-art" src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=300&q=80" class="h-14 w-14 rounded-lg shadow-lg border border-white/10 object-cover" alt="Album Art" />
       <div class="flex flex-col justify-center">
         <a id="current-title" href="#" class="text-md font-outfit font-bold hover:underline line-clamp-1 drop-shadow tracking-wide">Song Title</a>
         <a id="current-artist" href="#" class="text-xs text-gray-400 hover:underline hover:text-white line-clamp-1 mt-0.5">Artist Name</a>

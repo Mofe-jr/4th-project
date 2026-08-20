@@ -1,19 +1,20 @@
 /* Custom scrollbar to match the slick design */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
+  height: 8px;
   background-color: transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border-radius: 8px;
-  border: 3px solid transparent;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  border: 2px solid transparent;
   background-clip: padding-box;
 }
 
 .custom-scrollbar:hover::-webkit-scrollbar-thumb,
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.35);
 }
 
 /* Ensure body doesn't bounce/scroll */
@@ -24,13 +25,181 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Gradient Fade Mask for Lyrics text so it doesn't clip harshly */
-#lyrics-content {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+/* Typography Headings */
+h1, h2, h3, h4, .font-outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Hero Section Gradients & Glass Effects */
+.hero-gradient-overlay {
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(18,18,18,0.7) 60%, #121212 100%);
+}
+
+.hero-radial-glow {
+  background: radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.35) 0%, transparent 70%);
+}
+
+.category-hero-banner {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-card-hover {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+
+.category-card-hover:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Homepage visual anchor */
+.home-hero {
+  position: relative;
+  min-height: 275px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.5rem;
+  background: #251242;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+.home-hero-image {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.home-hero-scrim {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(18, 8, 39, 0.96) 0%, rgba(26, 12, 55, 0.75) 43%, rgba(14, 8, 25, 0.16) 100%), linear-gradient(0deg, rgba(18, 18, 18, 0.52), transparent 58%);
+}
+
+.home-hero-content {
+  padding: 2rem;
+}
+
+.home-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+  padding: 0.38rem 0.7rem;
+  border: 1px solid rgba(216, 180, 254, 0.35);
+  border-radius: 9999px;
+  background: rgba(24, 13, 48, 0.52);
+  color: #e9d5ff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.home-hero-play, .home-hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.home-hero-play {
+  padding: 0.7rem 1rem;
+  background: #fff;
+  color: #1d1037;
+}
+
+.home-hero-link { color: #fff; padding: 0.7rem 0.25rem; }
+.home-hero-play:hover, .home-hero-link:hover { transform: translateY(-2px); }
+
+.home-hero-stat {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  min-width: 155px;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0.9rem;
+  background: rgba(10, 8, 18, 0.48);
+  backdrop-filter: blur(12px);
+}
+
+@media (max-width: 640px) {
+  .home-hero { min-height: 315px; }
+  .home-hero-content { padding: 1.5rem; }
+  .home-hero-stat { display: none; }
+  .home-hero-image { object-position: 64% center; }
 }
 
 /* Smooth Image Transitions */
 img {
   will-change: transform;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+/* Equalizer Bars Animation for Playing Item */
+.playing-equalizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.playing-equalizer span {
+  width: 3px;
+  background-color: #8b5cf6;
+  border-radius: 9999px;
+  animation: eqBounce 1s infinite ease-in-out alternate;
+}
+
+.playing-equalizer span:nth-child(1) { animation-delay: 0.1s; height: 60%; }
+.playing-equalizer span:nth-child(2) { animation-delay: 0.3s; height: 100%; }
+.playing-equalizer span:nth-child(3) { animation-delay: 0.2s; height: 75%; }
+.playing-equalizer span:nth-child(4) { animation-delay: 0.4s; height: 40%; }
+
+@keyframes eqBounce {
+  0% { height: 20%; }
+  100% { height: 100%; }
+}
+
+/* Gradient Fade Mask for Lyrics text so it doesn't clip harshly */
+#lyrics-content {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(18, 18, 18, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
 }

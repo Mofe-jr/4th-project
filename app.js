@@ -13,7 +13,209 @@ if (!deviceId) {
 }
 
 // -------------------------------------------------------------
-// Comprehensive Song Catalog (5 songs in each folder)
+// Category Metadata & Strong Hero Visuals
+// -------------------------------------------------------------
+const categoryMetadata = {
+  "Hillsong United": {
+    name: "Hillsong United & Worship",
+    shortName: "Hillsong United",
+    badge: "GLOBAL ANTHEM",
+    tagline: "Atmospheric Arena Worship & Oceans of Faith",
+    description: "Soaring guitars, heartfelt congregational devotion, and timeless anthems of faith that unite millions worldwide.",
+    heroImg: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#8b5cf6",
+    gradient: "from-purple-900/90 via-indigo-950/70 to-[#121212]",
+    listeners: "3.4M monthly listeners",
+    songsCount: 5,
+    folder: "music/Gospel/Hillsong_United"
+  },
+  "Tasha Cobbs": {
+    name: "Tasha Cobbs Leonard",
+    shortName: "Tasha Cobbs",
+    badge: "GRAMMY® WINNER",
+    tagline: "Powerhouse Gospel & Anointed Praise",
+    description: "High-impact gospel anthems that break every chain with transcendent vocal resonance and glorious choir arrangements.",
+    heroImg: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#ec4899",
+    gradient: "from-pink-950/90 via-rose-950/70 to-[#121212]",
+    listeners: "2.1M monthly listeners",
+    songsCount: 5,
+    folder: "music/Gospel/Tasha_Cobbs"
+  },
+  "Elevation Worship": {
+    name: "Elevation Worship",
+    shortName: "Elevation Worship",
+    badge: "ARENA LIVE",
+    tagline: "Dynamic Stadium Praise & Faith Anthems",
+    description: "Electrifying live worship recordings, vibrant energetic declarations, and unforgettable melodies transforming graves into gardens.",
+    heroImg: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#06b6d4",
+    gradient: "from-cyan-950/90 via-blue-950/70 to-[#121212]",
+    listeners: "4.2M monthly listeners",
+    songsCount: 5,
+    folder: "music/Gospel/Elevation_Worship"
+  },
+  "Phil Thompson": {
+    name: "Phil Thompson",
+    shortName: "Phil Thompson",
+    badge: "DEVOTIONAL",
+    tagline: "Heartfelt Intimacy & Authentic Worship",
+    description: "Deeply personal, acoustic-infused declarations of devotion and grace that usher listeners into peaceful reflection.",
+    heroImg: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#f97316",
+    gradient: "from-amber-950/90 via-orange-950/70 to-[#121212]",
+    listeners: "1.2M monthly listeners",
+    songsCount: 5,
+    folder: "music/Gospel/Phil_Thompson"
+  },
+  "Travis Greene": {
+    name: "Travis Greene",
+    shortName: "Travis Greene",
+    badge: "CONTEMPORARY GOSPEL",
+    tagline: "Bold Modern Sound & Energetic Praise",
+    description: "Fusing contemporary brass, gospel roots, and explosive stage energy with infectious messages of triumph.",
+    heroImg: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#eab308",
+    gradient: "from-yellow-950/90 via-amber-950/70 to-[#121212]",
+    listeners: "1.5M monthly listeners",
+    songsCount: 5,
+    folder: "music/Gospel/Travis_Greene"
+  },
+  "CeCe Winans": {
+    name: "CeCe Winans",
+    shortName: "CeCe Winans",
+    badge: "LIVING LEGEND",
+    tagline: "Legendary Voice of Grace & Devotion",
+    description: "Timeless gospel excellence and celestial harmonies from one of the most celebrated and decorated voices in music history.",
+    heroImg: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#10b981",
+    gradient: "from-emerald-950/90 via-teal-950/70 to-[#121212]",
+    listeners: "2.8M monthly listeners",
+    songsCount: 5,
+    folder: "music/Gospel/CeCe_Winans"
+  },
+  "Nathaniel Bassey": {
+    name: "Nathaniel Bassey",
+    shortName: "Nathaniel Bassey",
+    badge: "SPIRITUAL PRAISE",
+    tagline: "Sound of the Trumpet & High Praise",
+    description: "Spiritual revival, trumpet fanfares, and deeply moving melodies of gratitude that awaken heartfelt devotion.",
+    heroImg: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#3b82f6",
+    gradient: "from-blue-950/90 via-indigo-950/70 to-[#121212]",
+    listeners: "1.9M monthly listeners",
+    songsCount: 5,
+    folder: "music/Gospel/Nathaniel_Bassey"
+  },
+  "Sinach": {
+    name: "Sinach",
+    shortName: "Sinach",
+    badge: "GLOBAL WORSHIP",
+    tagline: "Global Anthems of Faith & Victory",
+    description: "World-renowned worship songwriter behind transformative anthems sung in hundreds of languages across the globe.",
+    heroImg: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#a855f7",
+    gradient: "from-purple-950/90 via-violet-950/70 to-[#121212]",
+    listeners: "2.5M monthly listeners",
+    songsCount: 5,
+    folder: "music/Gospel/Sinach"
+  },
+  "Mercy Chinwo": {
+    name: "Mercy Chinwo",
+    shortName: "Mercy Chinwo",
+    badge: "AFRO GOSPEL",
+    tagline: "Radiant Afro-Gospel & Celebration",
+    description: "Joyous rhythms, infectious celebratory grooves, and passionate praise full of rich African cultural vibrancy.",
+    heroImg: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#f43f5e",
+    gradient: "from-rose-950/90 via-pink-950/70 to-[#121212]",
+    listeners: "1.7M monthly listeners",
+    songsCount: 5,
+    folder: "music/Gospel/Mercy_Chinwo"
+  },
+  "Don Moen": {
+    name: "Don Moen",
+    shortName: "Don Moen",
+    badge: "PEACE & WORSHIP",
+    tagline: "Peaceful Reflections & Timeless Hymns",
+    description: "Gentle piano compositions, comforting acoustic melodies, and inspirational arrangements of hope for every soul.",
+    heroImg: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#fbbf24",
+    gradient: "from-amber-950/90 via-yellow-950/70 to-[#121212]",
+    listeners: "1.4M monthly listeners",
+    songsCount: 5,
+    folder: "music/Gospel/Don_Moen"
+  },
+  "Gospel Jazz": {
+    name: "Gospel Jazz Café",
+    shortName: "Gospel Jazz",
+    badge: "JAZZ LOUNGE",
+    tagline: "Velvet Saxophone, Smooth Grooves & Ambient Keys",
+    description: "Warm candlelit lounge ambiance, golden brass improvisation, and soulful reharmonized spiritual melodies.",
+    heroImg: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#d97706",
+    gradient: "from-amber-950/90 via-yellow-950/70 to-[#121212]",
+    listeners: "950K monthly listeners",
+    songsCount: 5,
+    folder: "music/Jazz/Gospel_Jazz"
+  },
+  "Blues Devotional": {
+    name: "Delta Blues Devotional",
+    shortName: "Blues Devotional",
+    badge: "ROOTS & BLUES",
+    tagline: "Raw Acoustic Resonator & Deep Southern Soul",
+    description: "Rustic resonator slide guitar, raw harmonica notes, and heartfelt southern blues ballads filled with spiritual emotion.",
+    heroImg: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#b45309",
+    gradient: "from-amber-950/90 via-orange-950/70 to-[#121212]",
+    listeners: "680K monthly listeners",
+    songsCount: 5,
+    folder: "music/Blues/Gospel_Blues"
+  },
+  "Classical Worship": {
+    name: "Classical Symphony Worship",
+    shortName: "Classical Worship",
+    badge: "PHILHARMONIC",
+    tagline: "Grand Philharmonic Symphony & Majestic Strings",
+    description: "Awe-inspiring orchestral arrangements, lush concert violins, and grand piano concertos recorded in historic acoustic halls.",
+    heroImg: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#6366f1",
+    gradient: "from-indigo-950/90 via-slate-950/70 to-[#121212]",
+    listeners: "1.1M monthly listeners",
+    songsCount: 5,
+    folder: "music/Classical/Symphony_Worship"
+  },
+  "RnB Worship": {
+    name: "RnB Soul Sanctuary",
+    shortName: "RnB Worship",
+    badge: "NEO-SOUL & RNB",
+    tagline: "Smooth Soul, Neo-Gospel & Midnight Harmonies",
+    description: "Warm vintage Rhodes keys, lush vocal stacks, contemporary 808 rhythms, and deep neo-soul devotional grooves.",
+    heroImg: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#ec4899",
+    gradient: "from-pink-950/90 via-purple-950/70 to-[#121212]",
+    listeners: "1.3M monthly listeners",
+    songsCount: 5,
+    folder: "music/RnB/RnB_Gospel"
+  }
+};
+
+// -------------------------------------------------------------
+// Comprehensive Song Catalog (70 Songs with High-Res Artwork)
 // -------------------------------------------------------------
 const allSongs = [
   // ===========================================================
@@ -27,7 +229,7 @@ const allSongs = [
     category: "Hillsong United",
     folder: "music/Gospel/Hillsong_United",
     duration: 538,
-    img: "https://ui-avatars.com/api/?name=Oceans&background=312e81&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80",
     youtubeId: "dy9nWe9_xOI",
     lyrics: "You call me out upon the waters<br/>The great unknown where feet may fail<br/>And there I find You in the mystery<br/>In oceans deep, my faith will stand<br/><br/>(Chorus)<br/>And I will call upon Your name<br/>And keep my eyes above the waves<br/>When oceans rise, my soul will rest in Your embrace<br/>For I am Yours and You are mine<br/><br/>Spirit lead me where my trust is without borders<br/>Let me walk upon the waters<br/>Wherever You would call me<br/>Take me deeper than my feet could ever wander<br/>And my faith will be made stronger<br/>In the presence of my Savior"
   },
@@ -39,7 +241,7 @@ const allSongs = [
     category: "Hillsong United",
     folder: "music/Gospel/Hillsong_United",
     duration: 428,
-    img: "https://ui-avatars.com/api/?name=So+Will+I&background=1e1b4b&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=80",
     youtubeId: "GfVd5x9W1Xc",
     lyrics: "God of creation, there at the start<br/>Before the beginning of time<br/>With no point of reference, You spoke to the dark<br/>And fleshed out the wonder of light<br/><br/>(Chorus)<br/>And as You speak<br/>A hundred billion galaxies are born<br/>In the vapour of Your breath the planets form<br/>If the stars were made to worship so will I<br/>I can see Your heart in everything You've made<br/>Every burning star a signal fire of grace<br/>If creation sings Your praises so will I"
   },
@@ -51,7 +253,7 @@ const allSongs = [
     category: "Hillsong United",
     folder: "music/Gospel/Hillsong_United",
     duration: 427,
-    img: "https://ui-avatars.com/api/?name=Touch+Heaven&background=4338ca&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80",
     youtubeId: "_T2sW3Z7rF4",
     lyrics: "How I live for the moments where I'm still in Your presence<br/>All the noise dies down<br/>Lord, speak to me now<br/>In Your presence, in Your love<br/><br/>(Chorus)<br/>All I want is just a touch of Heaven<br/>Just a moment in Your embrace<br/>Nothing compares to the beauty of Your holiness<br/>My heart beats for You"
   },
@@ -63,7 +265,7 @@ const allSongs = [
     category: "Hillsong United",
     folder: "music/Gospel/Hillsong_United",
     duration: 341,
-    img: "https://ui-avatars.com/api/?name=Beautiful+Name&background=4c1d95&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=500&q=80",
     youtubeId: "nQWFzMvCfLE",
     lyrics: "You were the Word at the beginning<br/>One with God the Lord Most High<br/>Your hidden glory in creation<br/>Now revealed in You our Christ<br/><br/>(Chorus)<br/>What a beautiful Name it is<br/>What a beautiful Name it is<br/>The Name of Jesus Christ my King<br/>What a beautiful Name it is, nothing compares to this<br/>What a beautiful Name it is, the Name of Jesus!"
   },
@@ -75,7 +277,7 @@ const allSongs = [
     category: "Hillsong United",
     folder: "music/Gospel/Hillsong_United",
     duration: 358,
-    img: "https://ui-avatars.com/api/?name=Good+Grace&background=5b21b6&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
     youtubeId: "bXkL61l-Q04",
     lyrics: "People come together<br/>Strange as neighbours, our souls feel like friends<br/>We've got one hope, one foundation<br/><br/>(Chorus)<br/>Don't let your heart be troubled<br/>Hold your head up high, don't fear no evil<br/>Fix your eyes on this one truth<br/>God is so good, His grace is enough!"
   },
@@ -91,7 +293,7 @@ const allSongs = [
     category: "Tasha Cobbs",
     folder: "music/Gospel/Tasha_Cobbs",
     duration: 485,
-    img: "https://ui-avatars.com/api/?name=Break+Chains&background=831843&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
     youtubeId: "HMYJpB_47J0",
     lyrics: "There is power in the name of Jesus<br/>There is power in the name of Jesus<br/>There is power in the name of Jesus<br/><br/>(Chorus)<br/>To break every chain, break every chain, break every chain<br/>To break every chain, break every chain, break every chain<br/><br/>There's an army rising up<br/>To break every chain!"
   },
@@ -103,7 +305,7 @@ const allSongs = [
     category: "Tasha Cobbs",
     folder: "music/Gospel/Tasha_Cobbs",
     duration: 524,
-    img: "https://ui-avatars.com/api/?name=You+Know+Me&background=9d174d&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
     youtubeId: "k9Zp1_3U3yM",
     lyrics: "He knows my name<br/>He knows my name<br/>He knows my name<br/>He knows my name<br/><br/>(Chorus)<br/>And oh how He walks with me<br/>And oh how He talks with me<br/>And oh how He tells me that I am His own<br/>No fire can burn me, no weapon can form<br/>No giant can defeat me because I am His own!"
   },
@@ -115,7 +317,7 @@ const allSongs = [
     category: "Tasha Cobbs",
     folder: "music/Gospel/Tasha_Cobbs",
     duration: 400,
-    img: "https://ui-avatars.com/api/?name=Your+Glory&background=be185d&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
     youtubeId: "Y4Uj1_n-eNk",
     lyrics: "Lord, if I find favor in Your sight<br/>Lord, please hear my heart's cry<br/>I'm desperately in love with You<br/><br/>(Chorus)<br/>For Your glory, I will do anything<br/>Just to see You, to behold You as my King<br/>I want to be where You are, I gotta be where You are!"
   },
@@ -127,7 +329,7 @@ const allSongs = [
     category: "Tasha Cobbs",
     folder: "music/Gospel/Tasha_Cobbs",
     duration: 354,
-    img: "https://ui-avatars.com/api/?name=Fill+Me+Up&background=9f1239&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80",
     youtubeId: "aQkP709q43Y",
     lyrics: "You provide the fire, I'll provide the sacrifice<br/>You provide the spirit, and I will open up inside<br/><br/>(Chorus)<br/>Fill me up God, fill me up God<br/>Fill me up God, fill me up!<br/>Love of God, overflow in this place!"
   },
@@ -139,7 +341,7 @@ const allSongs = [
     category: "Tasha Cobbs",
     folder: "music/Gospel/Tasha_Cobbs",
     duration: 266,
-    img: "https://ui-avatars.com/api/?name=In+Spite&background=701a75&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
     youtubeId: "l2w03t6U86U",
     lyrics: "Every time I look back over my life<br/>All I can see is Your mercy and grace<br/>Loving me, keeping me, holding me<br/>In spite of me!"
   },
@@ -155,7 +357,7 @@ const allSongs = [
     category: "Elevation Worship",
     folder: "music/Gospel/Elevation_Worship",
     duration: 452,
-    img: "https://ui-avatars.com/api/?name=Graves+Gardens&background=0284c7&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80",
     youtubeId: "KwX1f2g50Oo",
     lyrics: "I searched the world but it couldn't fill me<br/>A man's empty praise and treasures that fade<br/>Are never enough<br/>Then You came along and You put me back together<br/>And every desire is now satisfied here in Your love<br/><br/>(Chorus)<br/>Oh, there's nothing better than You<br/>There's nothing better than You<br/>Lord there's nothing, nothing is better than You<br/><br/>You turn mourning to dancing<br/>You give beauty for ashes<br/>You turn shame into glory<br/>You're the only one who can<br/>You turn graves into gardens!"
   },
@@ -167,7 +369,7 @@ const allSongs = [
     category: "Elevation Worship",
     folder: "music/Gospel/Elevation_Worship",
     duration: 507,
-    img: "https://ui-avatars.com/api/?name=The+Blessing&background=0369a1&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
     youtubeId: "Zp6aygmFZM4",
     lyrics: "The Lord bless you and keep you<br/>Make His face shine upon you and be gracious to you<br/>The Lord turn His face toward you and give you peace<br/><br/>(Chorus)<br/>Amen, amen, amen<br/>Amen, amen, amen<br/><br/>May His favor be upon you and a thousand generations<br/>And your family and your children, and their children, and their children"
   },
@@ -179,7 +381,7 @@ const allSongs = [
     category: "Elevation Worship",
     folder: "music/Gospel/Elevation_Worship",
     duration: 590,
-    img: "https://ui-avatars.com/api/?name=Jireh&background=075985&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=500&q=80",
     youtubeId: "mC-zw0zCCtg",
     lyrics: "I'll never be more loved than I am right now<br/>Wasn't holding You up, so there's nothing I can do to let You down<br/>It doesn't take a trophy to make You proud<br/>I'll never be more loved than I am right now<br/><br/>(Chorus)<br/>Jireh, You are enough<br/>Jireh, You are enough<br/>And I will be content in every circumstance<br/>Jireh, You are enough!"
   },
@@ -191,7 +393,7 @@ const allSongs = [
     category: "Elevation Worship",
     folder: "music/Gospel/Elevation_Worship",
     duration: 453,
-    img: "https://ui-avatars.com/api/?name=RATTLE&background=0e7490&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80",
     youtubeId: "xrA3nnAMDY8",
     lyrics: "Saturday was silent, surely it was through<br/>Since when has impossible ever stopped You?<br/>Friday's disappointment is Sunday's empty tomb<br/>Since when has impossible ever stopped You?<br/><br/>(Chorus)<br/>This is the sound of dry bones rattling!<br/>This is the praise make a dead man walk again<br/>Open the graves, I'm coming out<br/>I'm gonna live, I'm gonna live again!"
   },
@@ -203,7 +405,7 @@ const allSongs = [
     category: "Elevation Worship",
     folder: "music/Gospel/Elevation_Worship",
     duration: 312,
-    img: "https://ui-avatars.com/api/?name=Praise&background=155e75&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
     youtubeId: "f2oxGYPUfq4",
     lyrics: "Let everything that has breath praise the Lord!<br/>I'll praise in the valley, praise on the mountain<br/>I'll praise when I'm sure, praise when I'm doubting<br/>I'll praise when it's easy, praise when it's hard<br/>Praise is the weapon that silences the enemy!"
   },
@@ -219,7 +421,7 @@ const allSongs = [
     category: "Phil Thompson",
     folder: "music/Gospel/Phil_Thompson",
     duration: 615,
-    img: "https://ui-avatars.com/api/?name=My+Worship&background=7c2d12&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
     youtubeId: "y7l3K1bA_bE",
     lyrics: "You thought I was worth saving<br/>So You came and changed my life<br/>You thought I was worth keeping<br/>So You cleaned me up inside<br/>You thought I was to die for<br/>So You sacrificed Your life<br/>So I could be free, so I could be whole<br/><br/>(Chorus)<br/>Here is my worship, all of my worship<br/>Receive my worship, all of my worship<br/>As long as I am breathing, I will not keep silent<br/>I will always worship You!"
   },
@@ -231,7 +433,7 @@ const allSongs = [
     category: "Phil Thompson",
     folder: "music/Gospel/Phil_Thompson",
     duration: 344,
-    img: "https://ui-avatars.com/api/?name=Atmosphere&background=9a3412&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=500&q=80",
     youtubeId: "h3nC5rZ09v0",
     lyrics: "There is only one name, only one name<br/>With power to save, with power to save<br/>Our God is champion, He reigns forevermore<br/><br/>(Chorus)<br/>Atmosphere shift now, chains be broken<br/>Holy Spirit come, overflow this place!"
   },
@@ -243,7 +445,7 @@ const allSongs = [
     category: "Phil Thompson",
     folder: "music/Gospel/Phil_Thompson",
     duration: 380,
-    img: "https://ui-avatars.com/api/?name=Lion+Judah&background=c2410c&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
     youtubeId: "BqL9v3f3e-U",
     lyrics: "The Lion of Judah has conquered the grave<br/>He is high and lifted up<br/>All glory, power and honor to the King of Kings!"
   },
@@ -255,7 +457,7 @@ const allSongs = [
     category: "Phil Thompson",
     folder: "music/Gospel/Phil_Thompson",
     duration: 322,
-    img: "https://ui-avatars.com/api/?name=Jesus&background=ea580c&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
     youtubeId: "P6GgHhN97R8",
     lyrics: "Jesus, Jesus, sweetest name I know<br/>Fills my every longing, keeps me singing as I go<br/>Jesus, Jesus, holy is Your name!"
   },
@@ -267,7 +469,7 @@ const allSongs = [
     category: "Phil Thompson",
     folder: "music/Gospel/Phil_Thompson",
     duration: 350,
-    img: "https://ui-avatars.com/api/?name=Ransom&background=f97316&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80",
     youtubeId: "D6Mh2Y_V6W0",
     lyrics: "You paid the ultimate price for my freedom<br/>You ransom me, You rescued me<br/>Forever I will sing Your praise!"
   },
@@ -283,7 +485,7 @@ const allSongs = [
     category: "Travis Greene",
     folder: "music/Gospel/Travis_Greene",
     duration: 595,
-    img: "https://ui-avatars.com/api/?name=Made+A+Way&background=854d0e&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80",
     youtubeId: "l5_yR705a_w",
     lyrics: "You made a way<br/>When our backs were against the wall<br/>And it looked as if it was over<br/>You made a way<br/>And we're standing here only because You made a way<br/><br/>(Chorus)<br/>You move mountains, You cause walls to fall<br/>With Your power, You perform miracles<br/>There is nothing that's impossible<br/>And I'm standing here only because You made a way!"
   },
@@ -295,7 +497,7 @@ const allSongs = [
     category: "Travis Greene",
     folder: "music/Gospel/Travis_Greene",
     duration: 315,
-    img: "https://ui-avatars.com/api/?name=Intentional&background=a16207&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80",
     youtubeId: "uK4rE7K4uLw",
     lyrics: "All things are working for my good<br/>He's intentional, never failing<br/>I know that all things are working for my good<br/><br/>(Chorus)<br/>He's intentional, He's intentional<br/>Never failing, never failing!"
   },
@@ -307,7 +509,7 @@ const allSongs = [
     category: "Travis Greene",
     folder: "music/Gospel/Travis_Greene",
     duration: 408,
-    img: "https://ui-avatars.com/api/?name=You+Waited&background=ca8a04&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
     youtubeId: "eK9hQjP5kLs",
     lyrics: "When I was far away, You waited for me<br/>When I was lost in sin, You called my name<br/>You waited, You waited, You waited for me!"
   },
@@ -319,7 +521,7 @@ const allSongs = [
     category: "Travis Greene",
     folder: "music/Gospel/Travis_Greene",
     duration: 324,
-    img: "https://ui-avatars.com/api/?name=Wont+Let+Go&background=eab308&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
     youtubeId: "1wQ9P7L5wYs",
     lyrics: "Your love won't let go, Your hands won't let go<br/>Even in the fire, even in the flood<br/>Your faithfulness remains through it all!"
   },
@@ -331,7 +533,7 @@ const allSongs = [
     category: "Travis Greene",
     folder: "music/Gospel/Travis_Greene",
     duration: 385,
-    img: "https://ui-avatars.com/api/?name=Good+Loved&background=facc15&color=000&size=200",
+    img: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=500&q=80",
     youtubeId: "kQyQY9zW8t0",
     lyrics: "I am good and loved, You are kind and true<br/>My soul will rest securely in You!"
   },
@@ -347,7 +549,7 @@ const allSongs = [
     category: "CeCe Winans",
     folder: "music/Gospel/CeCe_Winans",
     duration: 300,
-    img: "https://ui-avatars.com/api/?name=Goodness+God&background=14532d&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
     youtubeId: "-f4MUKEWRMQ",
     lyrics: "I love You Lord, for Your mercy never fails me<br/>All my days, I've been held in Your hands<br/>From the moment that I wake up until I lay my head<br/>Oh, I will sing of the goodness of God<br/><br/>(Chorus)<br/>'Cause all my life You have been faithful<br/>And all my life You have been so, so good<br/>With every breath that I am able<br/>Oh, I will sing of the goodness of God!"
   },
@@ -359,7 +561,7 @@ const allSongs = [
     category: "CeCe Winans",
     folder: "music/Gospel/CeCe_Winans",
     duration: 242,
-    img: "https://ui-avatars.com/api/?name=Believe+For+It&background=166534&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
     youtubeId: "-m1e9M5c2u4",
     lyrics: "They say this mountain can't be moved<br/>They say these chains will never break<br/>But they don't know You like we do<br/>There is power in Your name!<br/><br/>(Chorus)<br/>Move the impossible, break every chain<br/>I will believe for it!"
   },
@@ -371,7 +573,7 @@ const allSongs = [
     category: "CeCe Winans",
     folder: "music/Gospel/CeCe_Winans",
     duration: 336,
-    img: "https://ui-avatars.com/api/?name=Alabaster&background=15803d&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80",
     youtubeId: "vJzC7i6-h2w",
     lyrics: "Don't be angry if I wash His feet with my tears<br/>And I dry them with my hair<br/>You weren't there the night He found me<br/>You didn't feel what I felt when He wrapped His love around me<br/><br/>(Chorus)<br/>And you don't know the cost of the oil in my alabaster box!"
   },
@@ -383,7 +585,7 @@ const allSongs = [
     category: "CeCe Winans",
     folder: "music/Gospel/CeCe_Winans",
     duration: 290,
-    img: "https://ui-avatars.com/api/?name=Mercy+No&background=22c55e&color=000&size=200",
+    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=80",
     youtubeId: "3b9r4w7uY8k",
     lyrics: "Sin had demanded my soul, but mercy said no<br/>I am not gonna let you go<br/>I'm gonna heal your heart, make you whole<br/>Mercy said no!"
   },
@@ -395,7 +597,7 @@ const allSongs = [
     category: "CeCe Winans",
     folder: "music/Gospel/CeCe_Winans",
     duration: 284,
-    img: "https://ui-avatars.com/api/?name=My+King&background=16a34a&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=500&q=80",
     youtubeId: "z2pY5w8L1Xw",
     lyrics: "He's the Lion and the Lamb, the Alpha and Omega<br/>Ruler of the nations, healer of the broken<br/>That's my King, that's my Lord!"
   },
@@ -411,7 +613,7 @@ const allSongs = [
     category: "Nathaniel Bassey",
     folder: "music/Gospel/Nathaniel_Bassey",
     duration: 326,
-    img: "https://ui-avatars.com/api/?name=Imela&background=1e3a8a&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=500&q=80",
     youtubeId: "EnYZQfS3SVE",
     lyrics: "When I think upon Your goodness and Your faithfulness each day<br/>I'm convinced it's not because I am worthy to receive the kind of love that You give<br/><br/>(Chorus)<br/>Imela, Imela, Okaka, Onyekeruwa<br/>Imela, Imela, Eze mo!"
   },
@@ -423,7 +625,7 @@ const allSongs = [
     category: "Nathaniel Bassey",
     folder: "music/Gospel/Nathaniel_Bassey",
     duration: 370,
-    img: "https://ui-avatars.com/api/?name=Olowogbogboro&background=1e40af&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=500&q=80",
     youtubeId: "nJ4o1q2m_k4",
     lyrics: "Olowogbogboro is turning things around for my good!<br/>The outstretched arm of God is working for me<br/>Turning my shame into glory!"
   },
@@ -435,7 +637,7 @@ const allSongs = [
     category: "Nathaniel Bassey",
     folder: "music/Gospel/Nathaniel_Bassey",
     duration: 410,
-    img: "https://ui-avatars.com/api/?name=Tobechukwu&background=2563eb&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
     youtubeId: "QoFwz1s8f_s",
     lyrics: "See how far He brought us, see what God has done<br/>Tobechukwu, praise the Lord for His loving kindness and tender mercies!"
   },
@@ -447,7 +649,7 @@ const allSongs = [
     category: "Nathaniel Bassey",
     folder: "music/Gospel/Nathaniel_Bassey",
     duration: 385,
-    img: "https://ui-avatars.com/api/?name=Onise+Iyanu&background=1d4ed8&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
     youtubeId: "f0M4P1_O2rM",
     lyrics: "Onise Iyanu, You are the God of awesome wonders<br/>I've tasted of Your power<br/>Onise Iyanu, You have shown me so much love!"
   },
@@ -459,7 +661,7 @@ const allSongs = [
     category: "Nathaniel Bassey",
     folder: "music/Gospel/Nathaniel_Bassey",
     duration: 340,
-    img: "https://ui-avatars.com/api/?name=King+Is+Coming&background=3b82f6&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80",
     youtubeId: "p5k1m_T6k8w",
     lyrics: "Prepare the way of the Lord<br/>Make straight His paths in the wilderness<br/>The King of glory is on the way!"
   },
@@ -475,7 +677,7 @@ const allSongs = [
     category: "Sinach",
     folder: "music/Gospel/Sinach",
     duration: 312,
-    img: "https://ui-avatars.com/api/?name=Way+Maker&background=4c1d95&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
     youtubeId: "n4XWfwLHeLM",
     lyrics: "You are here, moving in our midst<br/>I worship You, I worship You<br/>You are here, working in this place<br/>I worship You, I worship You<br/><br/>(Chorus)<br/>Way Maker, Miracle Worker, Promise Keeper<br/>Light in the darkness, my God, that is who You are!"
   },
@@ -487,7 +689,7 @@ const allSongs = [
     category: "Sinach",
     folder: "music/Gospel/Sinach",
     duration: 320,
-    img: "https://ui-avatars.com/api/?name=I+Know&background=581c87&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=500&q=80",
     youtubeId: "38wT2gV63g8",
     lyrics: "We are a chosen generation<br/>Called forth to show His excellence<br/>All I require for life, God has given me<br/>And I know who I am!<br/><br/>(Chorus)<br/>I know who God says I am<br/>What He says I am, where He says I'm at<br/>I know who I am!"
   },
@@ -499,7 +701,7 @@ const allSongs = [
     category: "Sinach",
     folder: "music/Gospel/Sinach",
     duration: 360,
-    img: "https://ui-avatars.com/api/?name=Great+Lord&background=6b21a8&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
     youtubeId: "bW8X8k2T1f0",
     lyrics: "Holy are You Lord, all creation calls You God<br/>Worthy is Your name, we worship Your majesty<br/>Great are You Lord!"
   },
@@ -511,7 +713,7 @@ const allSongs = [
     category: "Sinach",
     folder: "music/Gospel/Sinach",
     duration: 290,
-    img: "https://ui-avatars.com/api/?name=He+Did+It&background=7e22ce&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80",
     youtubeId: "m7p3X0y2r1A",
     lyrics: "I testify that God is good, He did it again!<br/>When people said it's impossible, God made a way<br/>He did it again!"
   },
@@ -523,7 +725,7 @@ const allSongs = [
     category: "Sinach",
     folder: "music/Gospel/Sinach",
     duration: 315,
-    img: "https://ui-avatars.com/api/?name=Overflow&background=9333ea&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
     youtubeId: "w8j3l_V7t9k",
     lyrics: "There is an overflow of blessings, overflow of grace<br/>Walking in abundance in every single place!"
   },
@@ -539,7 +741,7 @@ const allSongs = [
     category: "Mercy Chinwo",
     folder: "music/Gospel/Mercy_Chinwo",
     duration: 345,
-    img: "https://ui-avatars.com/api/?name=Excess+Love&background=9f1239&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=500&q=80",
     youtubeId: "Fk619W3bV3Y",
     lyrics: "Jesus, You love me too much o<br/>Too much o, too much o, excess love o!<br/>Your love is unconditional, Your grace is overflow!"
   },
@@ -551,7 +753,7 @@ const allSongs = [
     category: "Mercy Chinwo",
     folder: "music/Gospel/Mercy_Chinwo",
     duration: 265,
-    img: "https://ui-avatars.com/api/?name=Chinedum&background=be123c&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80",
     youtubeId: "j4x8q1b9t4M",
     lyrics: "Anywhere You lead me I will go<br/>'Cause You're the way, the truth and the life<br/>Chinedum, God is leading me!"
   },
@@ -563,7 +765,7 @@ const allSongs = [
     category: "Mercy Chinwo",
     folder: "music/Gospel/Mercy_Chinwo",
     duration: 245,
-    img: "https://ui-avatars.com/api/?name=Obinasom&background=e11d48&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80",
     youtubeId: "m8u2n7L5k3Q",
     lyrics: "Obinasom, my heart is glad in the Lord<br/>See the good things Jesus has done in my life!"
   },
@@ -575,7 +777,7 @@ const allSongs = [
     category: "Mercy Chinwo",
     folder: "music/Gospel/Mercy_Chinwo",
     duration: 310,
-    img: "https://ui-avatars.com/api/?name=Na+You+Reign&background=f43f5e&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
     youtubeId: "r9j2p3w8k0Y",
     lyrics: "Na You dey reign, power belongs to You<br/>You are exalted above all the earth!"
   },
@@ -587,7 +789,7 @@ const allSongs = [
     category: "Mercy Chinwo",
     folder: "music/Gospel/Mercy_Chinwo",
     duration: 280,
-    img: "https://ui-avatars.com/api/?name=Trust&background=fb7185&color=000&size=200",
+    img: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=500&q=80",
     youtubeId: "y5w2b8t1x7K",
     lyrics: "I put my trust in You Lord, I will never be put to shame!"
   },
@@ -603,7 +805,7 @@ const allSongs = [
     category: "Don Moen",
     folder: "music/Gospel/Don_Moen",
     duration: 260,
-    img: "https://ui-avatars.com/api/?name=Make+A+Way&background=854d0e&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=500&q=80",
     youtubeId: "1zo3fJYtS-o",
     lyrics: "God will make a way where there seems to be no way<br/>He works in ways we cannot see, He will make a way for me<br/>He will be my guide, hold me closely to His side<br/>With love and strength for each new day, He will make a way!"
   },
@@ -615,7 +817,7 @@ const allSongs = [
     category: "Don Moen",
     folder: "music/Gospel/Don_Moen",
     duration: 215,
-    img: "https://ui-avatars.com/api/?name=Give+Thanks&background=a16207&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
     youtubeId: "X03Y_HqZk5E",
     lyrics: "Give thanks with a grateful heart, give thanks to the Holy One<br/>Give thanks because He's given Jesus Christ His Son<br/>And now let the weak say 'I am strong', let the poor say 'I am rich'<br/>Because of what the Lord has done for us, give thanks!"
   },
@@ -627,7 +829,7 @@ const allSongs = [
     category: "Don Moen",
     folder: "music/Gospel/Don_Moen",
     duration: 320,
-    img: "https://ui-avatars.com/api/?name=Thank+You&background=ca8a04&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
     youtubeId: "k4u2n8y1b9M",
     lyrics: "Thank You Lord, for all that You've done in my life<br/>Thank You for saving my soul, thank You for making me whole!"
   },
@@ -639,7 +841,7 @@ const allSongs = [
     category: "Don Moen",
     folder: "music/Gospel/Don_Moen",
     duration: 285,
-    img: "https://ui-avatars.com/api/?name=Offer+Life&background=eab308&color=000&size=200",
+    img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80",
     youtubeId: "h7p2q5m1w9A",
     lyrics: "Lord, an offering I bring of a heart transformed by grace<br/>Here is my life, I lay it down before Your throne!"
   },
@@ -651,7 +853,7 @@ const allSongs = [
     category: "Don Moen",
     folder: "music/Gospel/Don_Moen",
     duration: 240,
-    img: "https://ui-avatars.com/api/?name=God+Is+Good&background=facc15&color=000&size=200",
+    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=80",
     youtubeId: "z9w3b1x7r2K",
     lyrics: "God is good all the time, He put a song of praise in this heart of mine<br/>Through the darkest night His light will shine, God is good all the time!"
   },
@@ -667,7 +869,7 @@ const allSongs = [
     category: "Gospel Jazz",
     folder: "music/Jazz/Gospel_Jazz",
     duration: 240,
-    img: "https://ui-avatars.com/api/?name=Jazz+Devotion&background=1e40af&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=500&q=80",
     youtubeId: "JV1908_jazz1",
     lyrics: "Instrumental - Smooth Saxophone & Piano Gospel Jazz Melodies"
   },
@@ -679,7 +881,7 @@ const allSongs = [
     category: "Gospel Jazz",
     folder: "music/Jazz/Gospel_Jazz",
     duration: 265,
-    img: "https://ui-avatars.com/api/?name=Sax+Praise&background=1d4ed8&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=500&q=80",
     youtubeId: "gospel_sax_02",
     lyrics: "Instrumental - Melodic Tenor Saxophone Solo over Uplifting Chords"
   },
@@ -691,7 +893,7 @@ const allSongs = [
     category: "Gospel Jazz",
     folder: "music/Jazz/Gospel_Jazz",
     duration: 310,
-    img: "https://ui-avatars.com/api/?name=Midnight+Jazz&background=2563eb&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
     youtubeId: "jazz_prayer_03",
     lyrics: "Instrumental - Warm Rhodes Piano & Upright Bass Devotional Groove"
   },
@@ -703,7 +905,7 @@ const allSongs = [
     category: "Gospel Jazz",
     folder: "music/Jazz/Gospel_Jazz",
     duration: 280,
-    img: "https://ui-avatars.com/api/?name=Hallelujah+Jazz&background=3b82f6&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
     youtubeId: "miles_grace_04",
     lyrics: "Instrumental - Trumpet and Acoustic Trio Reharmonizing Classic Praise"
   },
@@ -715,7 +917,7 @@ const allSongs = [
     category: "Gospel Jazz",
     folder: "music/Jazz/Gospel_Jazz",
     duration: 295,
-    img: "https://ui-avatars.com/api/?name=Sweet+Prayer&background=60a5fa&color=000&size=200",
+    img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=500&q=80",
     youtubeId: "uplift_jazz_05",
     lyrics: "Instrumental - Intimate Piano Trio Arrangement of Classic Hymns"
   },
@@ -731,7 +933,7 @@ const allSongs = [
     category: "Blues Devotional",
     folder: "music/Blues/Gospel_Blues",
     duration: 210,
-    img: "https://ui-avatars.com/api/?name=Delta+Blues&background=b45309&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=500&q=80",
     youtubeId: "BL8890_blues1",
     lyrics: "Instrumental - Soulful Memphis Delta Blues with Resonator Guitar"
   },
@@ -743,7 +945,7 @@ const allSongs = [
     category: "Blues Devotional",
     folder: "music/Blues/Gospel_Blues",
     duration: 245,
-    img: "https://ui-avatars.com/api/?name=Memphis+Praise&background=d97706&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
     youtubeId: "delta_praise_02",
     lyrics: "Lord You picked me up out of the miry clay, set my feet on the rock to stay!"
   },
@@ -755,7 +957,7 @@ const allSongs = [
     category: "Blues Devotional",
     folder: "music/Blues/Gospel_Blues",
     duration: 270,
-    img: "https://ui-avatars.com/api/?name=Crossroad&background=f59e0b&color=000&size=200",
+    img: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=500&q=80",
     youtubeId: "crossroad_03",
     lyrics: "Met the Lord at the crossroad, He washed my burden away!"
   },
@@ -767,7 +969,7 @@ const allSongs = [
     category: "Blues Devotional",
     folder: "music/Blues/Gospel_Blues",
     duration: 225,
-    img: "https://ui-avatars.com/api/?name=Acoustic+Blues&background=fbbf24&color=000&size=200",
+    img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
     youtubeId: "acoustic_blues_04",
     lyrics: "Lord have mercy on the humble soul, make the broken spirit whole."
   },
@@ -779,7 +981,7 @@ const allSongs = [
     category: "Blues Devotional",
     folder: "music/Blues/Gospel_Blues",
     duration: 260,
-    img: "https://ui-avatars.com/api/?name=Slide+Guitar&background=fde68a&color=000&size=200",
+    img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=500&q=80",
     youtubeId: "slide_tabernacle_05",
     lyrics: "Instrumental - Upbeat Gospel Slide Guitar and Foot-Stomping Rhythm"
   },
@@ -795,7 +997,7 @@ const allSongs = [
     category: "Classical Worship",
     folder: "music/Classical/Symphony_Worship",
     duration: 280,
-    img: "https://ui-avatars.com/api/?name=Classical&background=047857&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=500&q=80",
     youtubeId: "d8jcb6I5KGs",
     lyrics: "Instrumental - Full Orchestral Symphony Praise & Classical Strings"
   },
@@ -807,7 +1009,7 @@ const allSongs = [
     category: "Classical Worship",
     folder: "music/Classical/Symphony_Worship",
     duration: 330,
-    img: "https://ui-avatars.com/api/?name=Majesty+Adagio&background=059669&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=500&q=80",
     youtubeId: "philh_adagio_02",
     lyrics: "Instrumental - Sweeping Violins and Woodwinds in Peaceful Devotion"
   },
@@ -819,7 +1021,7 @@ const allSongs = [
     category: "Classical Worship",
     folder: "music/Classical/Symphony_Worship",
     duration: 315,
-    img: "https://ui-avatars.com/api/?name=Holy+Holy&background=10b981&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
     youtubeId: "royal_sym_03",
     lyrics: "Holy, Holy, Holy! Lord God Almighty! Early in the morning our song shall rise to Thee!"
   },
@@ -831,7 +1033,7 @@ const allSongs = [
     category: "Classical Worship",
     folder: "music/Classical/Symphony_Worship",
     duration: 290,
-    img: "https://ui-avatars.com/api/?name=Cello+Solo&background=34d399&color=000&size=200",
+    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
     youtubeId: "cello_worship_04",
     lyrics: "Instrumental - Deep Emotive Cello Solo with Piano Accompaniment"
   },
@@ -843,7 +1045,7 @@ const allSongs = [
     category: "Classical Worship",
     folder: "music/Classical/Symphony_Worship",
     duration: 250,
-    img: "https://ui-avatars.com/api/?name=Brass+Fanfare&background=6ee7b7&color=000&size=200",
+    img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=500&q=80",
     youtubeId: "cathedral_brass_05",
     lyrics: "Instrumental - Glorious Trumpets, French Horns, and Timpani"
   },
@@ -859,7 +1061,7 @@ const allSongs = [
     category: "RnB Worship",
     folder: "music/RnB/RnB_Gospel",
     duration: 250,
-    img: "https://ui-avatars.com/api/?name=RnB+Worship&background=be123c&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=500&q=80",
     youtubeId: "RB4412_rnb1",
     lyrics: "Soulful RnB praise harmonies and smooth vocal runs honoring God."
   },
@@ -871,7 +1073,7 @@ const allSongs = [
     category: "RnB Worship",
     folder: "music/RnB/RnB_Gospel",
     duration: 275,
-    img: "https://ui-avatars.com/api/?name=Heavenly+Harmonies&background=e11d48&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
     youtubeId: "nu_soul_02",
     lyrics: "Your love is sweeter than the morning sun, Jesus You are my number one!"
   },
@@ -883,7 +1085,7 @@ const allSongs = [
     category: "RnB Worship",
     folder: "music/RnB/RnB_Gospel",
     duration: 260,
-    img: "https://ui-avatars.com/api/?name=Unfailing+Melody&background=f43f5e&color=fff&size=200",
+    img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80",
     youtubeId: "urban_gospel_03",
     lyrics: "Can't nobody love me like You do, forever I will stay true to You!"
   },
@@ -895,7 +1097,7 @@ const allSongs = [
     category: "RnB Worship",
     folder: "music/RnB/RnB_Gospel",
     duration: 295,
-    img: "https://ui-avatars.com/api/?name=Late+Night&background=fda4af&color=000&size=200",
+    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
     youtubeId: "neo_gospel_04",
     lyrics: "In the stillness of the midnight hour, I feel Your peace and Your power."
   },
@@ -907,7 +1109,7 @@ const allSongs = [
     category: "RnB Worship",
     folder: "music/RnB/RnB_Gospel",
     duration: 240,
-    img: "https://ui-avatars.com/api/?name=Grace+Soul&background=fecdd3&color=000&size=200",
+    img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=500&q=80",
     youtubeId: "velvet_soul_05",
     lyrics: "Amazing grace, how sweet the sound, saved a soul that was lost and found!"
   }
@@ -952,30 +1154,30 @@ const foldersData = [
   { name: "music/RnB/RnB_Gospel", label: "RnB Worship (5 songs)", filter: "RnB Worship" }
 ];
 
-// Artists metadata
+// Artists metadata with real high-res photography
 const artistsData = [
-  { name: "Hillsong United", songs: 5, img: "https://ui-avatars.com/api/?name=HU&background=312e81&color=fff&size=150" },
-  { name: "Tasha Cobbs", songs: 5, img: "https://ui-avatars.com/api/?name=TC&background=831843&color=fff&size=150" },
-  { name: "Elevation Worship", songs: 5, img: "https://ui-avatars.com/api/?name=EW&background=0284c7&color=fff&size=150" },
-  { name: "Phil Thompson", songs: 5, img: "https://ui-avatars.com/api/?name=PT&background=7c2d12&color=fff&size=150" },
-  { name: "Travis Greene", songs: 5, img: "https://ui-avatars.com/api/?name=TG&background=854d0e&color=fff&size=150" },
-  { name: "CeCe Winans", songs: 5, img: "https://ui-avatars.com/api/?name=CW&background=14532d&color=fff&size=150" },
-  { name: "Nathaniel Bassey", songs: 5, img: "https://ui-avatars.com/api/?name=NB&background=1e40af&color=fff&size=150" },
-  { name: "Sinach", songs: 5, img: "https://ui-avatars.com/api/?name=SI&background=4c1d95&color=fff&size=150" },
-  { name: "Mercy Chinwo", songs: 5, img: "https://ui-avatars.com/api/?name=MC&background=9f1239&color=fff&size=150" },
-  { name: "Don Moen", songs: 5, img: "https://ui-avatars.com/api/?name=DM&background=ca8a04&color=fff&size=150" }
+  { name: "Hillsong United", songs: 5, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=150&q=80" },
+  { name: "Tasha Cobbs", songs: 5, img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=150&q=80" },
+  { name: "Elevation Worship", songs: 5, img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=150&q=80" },
+  { name: "Phil Thompson", songs: 5, img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" },
+  { name: "Travis Greene", songs: 5, img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" },
+  { name: "CeCe Winans", songs: 5, img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" },
+  { name: "Nathaniel Bassey", songs: 5, img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" },
+  { name: "Sinach", songs: 5, img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" },
+  { name: "Mercy Chinwo", songs: 5, img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" },
+  { name: "Don Moen", songs: 5, img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80" }
 ];
 
-// Top Featured Grid Albums
+// Top Featured Grid Albums with High-Res Art
 const featuredAlbums = [
-  { id: 1, title: "Oceans (Where Feet May Fail)", artist: "Hillsong United", img: "https://ui-avatars.com/api/?name=HU&background=312e81&color=fff&size=150" },
-  { id: 6, title: "Break Every Chain", artist: "Tasha Cobbs", img: "https://ui-avatars.com/api/?name=TC&background=831843&color=fff&size=150" },
-  { id: 11, title: "Graves Into Gardens", artist: "Elevation Worship", img: "https://ui-avatars.com/api/?name=EW&background=0284c7&color=fff&size=150" },
-  { id: 16, title: "My Worship", artist: "Phil Thompson", img: "https://ui-avatars.com/api/?name=PT&background=7c2d12&color=fff&size=150" },
-  { id: 21, title: "Made A Way", artist: "Travis Greene", img: "https://ui-avatars.com/api/?name=TG&background=854d0e&color=fff&size=150" },
-  { id: 26, title: "Goodness of God", artist: "CeCe Winans", img: "https://ui-avatars.com/api/?name=CW&background=14532d&color=fff&size=150" },
-  { id: 31, title: "Imela", artist: "Nathaniel Bassey", img: "https://ui-avatars.com/api/?name=NB&background=1e40af&color=fff&size=150" },
-  { id: 36, title: "Way Maker", artist: "Sinach", img: "https://ui-avatars.com/api/?name=SI&background=4c1d95&color=fff&size=150" }
+  { id: 1, title: "Oceans (Where Feet May Fail)", artist: "Hillsong United", img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=300&q=80" },
+  { id: 6, title: "Break Every Chain", artist: "Tasha Cobbs", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=300&q=80" },
+  { id: 11, title: "Graves Into Gardens", artist: "Elevation Worship", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=300&q=80" },
+  { id: 16, title: "My Worship", artist: "Phil Thompson", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=300&q=80" },
+  { id: 21, title: "Made A Way", artist: "Travis Greene", img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=300&q=80" },
+  { id: 26, title: "Goodness of God", artist: "CeCe Winans", img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=300&q=80" },
+  { id: 31, title: "Imela", artist: "Nathaniel Bassey", img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=300&q=80" },
+  { id: 36, title: "Way Maker", artist: "Sinach", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=300&q=80" }
 ];
 
 // -------------------------------------------------------------
@@ -1024,6 +1226,7 @@ let speedIndex = 0;
 let currentSidebarTab = 'playlists';
 let activeCategoryFilter = 'all';
 let searchQuery = '';
+let currentHeroIndex = 0;
 
 let isLyricsOpen = false;
 let savedVolume = localStorage.getItem('playerVolume') ? parseFloat(localStorage.getItem('playerVolume')) : 1.0;
@@ -1091,7 +1294,7 @@ async function init() {
         queue = dbQueue;
       }
     } catch (e) {
-      console.warn("Supabase fetch failed. Using full enriched local queue with 70 songs.");
+      console.warn("Supabase fetch failed. Using local queue with 70 enriched songs.");
     }
   }
 
@@ -1123,7 +1326,7 @@ function updateMediaSessionMetadata(track) {
       title: track.title,
       artist: track.artist,
       album: track.album || 'Gospel Collection',
-      artwork: [ { src: track.img.replace('200', '512'), sizes: '512x512', type: 'image/png' } ]
+      artwork: [ { src: track.img, sizes: '512x512', type: 'image/jpeg' } ]
     });
   }
 }
@@ -1134,30 +1337,34 @@ function updateMediaSessionMetadata(track) {
 function populateSidebar() {
   if (currentSidebarTab === 'playlists') {
     sidebarPlaylistsEl.innerHTML = playlistsData.map(p => `
-      <div onclick="filterByCategory('${p.category}')" class="group flex items-center justify-between px-2.5 py-2 rounded-lg hover:bg-surface-highlight cursor-pointer transition text-gray-300 hover:text-white">
+      <div onclick="filterByCategory('${p.category}')" class="group flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 cursor-pointer transition text-gray-300 hover:text-white">
         <div class="flex items-center gap-3 overflow-hidden">
-          <i data-lucide="disc" class="w-4 h-4 text-brand shrink-0"></i>
+          <div class="w-8 h-8 rounded-lg bg-white/5 group-hover:bg-brand/20 flex items-center justify-center shrink-0 border border-white/5 transition">
+            <i data-lucide="disc" class="w-4 h-4 text-brand"></i>
+          </div>
           <span class="text-xs font-medium truncate">${p.name}</span>
         </div>
-        <span class="text-[10px] text-gray-500 group-hover:text-gray-300 font-mono">${p.count} songs</span>
+        <span class="text-[10px] text-gray-500 group-hover:text-gray-300 font-mono">${p.count} tracks</span>
       </div>
     `).join('');
   } else if (currentSidebarTab === 'artists') {
     sidebarPlaylistsEl.innerHTML = artistsData.map(a => `
-      <div onclick="filterByCategory('${a.name}')" class="group flex items-center gap-3 px-2.5 py-2 rounded-lg hover:bg-surface-highlight cursor-pointer transition text-gray-300 hover:text-white">
-        <img src="${a.img}" class="w-7 h-7 rounded-full object-cover shrink-0 border border-white/10" alt="${a.name}" />
+      <div onclick="filterByCategory('${a.name}')" class="group flex items-center gap-3 px-2.5 py-2 rounded-xl hover:bg-white/10 cursor-pointer transition text-gray-300 hover:text-white">
+        <img src="${a.img}" class="w-8 h-8 rounded-full object-cover shrink-0 border border-white/10 group-hover:border-brand transition" alt="${a.name}" />
         <div class="flex flex-col overflow-hidden">
-          <span class="text-xs font-medium truncate">${a.name}</span>
-          <span class="text-[10px] text-gray-500">${a.songs} songs</span>
+          <span class="text-xs font-semibold truncate group-hover:text-white">${a.name}</span>
+          <span class="text-[10px] text-gray-500">${a.songs} songs • Artist</span>
         </div>
       </div>
     `).join('');
   } else if (currentSidebarTab === 'folders') {
     sidebarPlaylistsEl.innerHTML = foldersData.map(f => `
-      <div onclick="filterByCategory('${f.filter}')" class="group flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-surface-highlight cursor-pointer transition text-gray-300 hover:text-white">
-        <i data-lucide="folder" class="w-4 h-4 text-yellow-500 shrink-0"></i>
+      <div onclick="filterByCategory('${f.filter}')" class="group flex items-center gap-2.5 px-2.5 py-2 rounded-xl hover:bg-white/10 cursor-pointer transition text-gray-300 hover:text-white">
+        <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0 border border-white/5">
+          <i data-lucide="folder" class="w-4 h-4 text-yellow-500"></i>
+        </div>
         <div class="flex flex-col overflow-hidden">
-          <span class="text-xs font-medium truncate">${f.label}</span>
+          <span class="text-xs font-medium truncate group-hover:text-white">${f.label}</span>
           <span class="text-[9px] text-gray-500 truncate font-mono">${f.name}</span>
         </div>
       </div>
@@ -1184,14 +1391,14 @@ function setupSidebarTabListeners() {
 // -------------------------------------------------------------
 function renderFeaturedGrid() {
   featuredGridEl.innerHTML = featuredAlbums.map(album => `
-    <div onclick="playSongById(${album.id})" class="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/5 transition-all duration-300 rounded-xl overflow-hidden flex items-center group cursor-pointer h-16 shadow-lg hover:shadow-[0_4px_20px_rgba(139,92,246,0.25)] hover:-translate-y-0.5">
-      <img src="${album.img}" class="h-16 w-16 object-cover shrink-0" alt="${album.title}" />
+    <div onclick="playSongById(${album.id})" class="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/5 hover:border-white/20 transition-all duration-300 rounded-xl overflow-hidden flex items-center group cursor-pointer h-16 shadow-lg hover:shadow-[0_4px_20px_rgba(139,92,246,0.25)] hover:-translate-y-0.5">
+      <img src="${album.img}" class="h-16 w-16 object-cover shrink-0 group-hover:scale-105 transition duration-500" alt="${album.title}" />
       <div class="flex flex-col px-3 overflow-hidden">
         <span class="font-outfit font-bold text-xs truncate text-white">${album.title}</span>
         <span class="text-[11px] text-gray-400 truncate">${album.artist}</span>
       </div>
       <button class="ml-auto mr-3 bg-brand text-white rounded-full p-2.5 opacity-0 group-hover:opacity-100 hover:scale-110 transition-all shadow-[0_0_15px_rgba(139,92,246,0.6)] shrink-0">
-        <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+        <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
       </button>
     </div>
   `).join('');
@@ -1199,7 +1406,7 @@ function renderFeaturedGrid() {
 }
 
 // -------------------------------------------------------------
-// Dynamic Sections & Category Cards
+// Dynamic Sections, Hero Banners & Category Cards
 // -------------------------------------------------------------
 function getFilteredSongs() {
   let list = allSongs;
@@ -1223,42 +1430,106 @@ function getFilteredSongs() {
   return list;
 }
 
+function playCategory(categoryName, shuffle = false) {
+  const categorySongs = allSongs.filter(s => s.category.toLowerCase().includes(categoryName.toLowerCase()) || s.folder.toLowerCase().includes(categoryName.toLowerCase()));
+  if (categorySongs.length === 0) return;
+  
+  if (shuffle) {
+    const randomIndex = Math.floor(Math.random() * categorySongs.length);
+    playSongById(categorySongs[randomIndex].id);
+  } else {
+    playSongById(categorySongs[0].id);
+  }
+}
+
 function renderMainSections() {
   const songs = getFilteredSongs();
   
   if (activeCategoryFilter !== 'all' || searchQuery.trim() !== '') {
-    // Show Single Filtered View with Track List & Cards
+    // Determine category metadata if single category filtered
+    const catMeta = categoryMetadata[activeCategoryFilter] || {
+      name: activeCategoryFilter,
+      badge: "FEATURED COLLECTION",
+      tagline: "Curated Playlist & Tracks",
+      description: `Explore all ${songs.length} worship tracks in this specialized collection.`,
+      heroImg: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1600&q=80",
+      accentColor: "#8b5cf6",
+      gradient: "from-purple-950/90 via-indigo-950/70 to-[#121212]",
+      listeners: "Featured StreamHub Playlist",
+      songsCount: songs.length
+    };
+
+    // Show Single Filtered View with Cinematic Category Hero Header & Track List
     dynamicSectionsEl.innerHTML = `
       <div>
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-2xl font-bold font-outfit">
-            ${searchQuery ? `Search Results for "${searchQuery}"` : activeCategoryFilter} 
-            <span class="text-sm font-normal text-gray-400">(${songs.length} tracks found)</span>
-          </h2>
-          ${activeCategoryFilter !== 'all' || searchQuery ? `
-            <button onclick="resetFilters()" class="text-xs text-brand hover:underline font-semibold flex items-center gap-1">
+        <!-- Cinematic Category Hero Header -->
+        ${!searchQuery ? `
+          <div class="category-hero-banner relative rounded-2xl overflow-hidden mb-8 border border-white/10 shadow-2xl min-h-[260px] md:min-h-[300px] flex flex-col justify-end p-6 md:p-8" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(18,18,18,0.75) 60%, #121212 100%), url('${catMeta.heroImg}'); background-size: cover; background-position: center;">
+            <div class="relative z-10 max-w-3xl">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-[10px] uppercase tracking-widest font-extrabold px-2.5 py-1 rounded-full text-white bg-black/50 backdrop-blur-md border border-white/20 shadow-md">
+                  <i data-lucide="sparkles" class="w-3 h-3 inline mr-1 text-yellow-400"></i> ${catMeta.badge}
+                </span>
+                <span class="text-xs text-gray-300 font-mono flex items-center gap-1">
+                  <i data-lucide="music" class="w-3 h-3 text-brand"></i> ${songs.length} Tracks
+                </span>
+              </div>
+              <h1 class="text-3xl md:text-5xl font-outfit font-black tracking-tight text-white drop-shadow-lg mb-2">
+                ${catMeta.name}
+              </h1>
+              <p class="text-sm md:text-base font-semibold text-purple-200 drop-shadow mb-2">${catMeta.tagline}</p>
+              <p class="text-xs md:text-sm text-gray-300 leading-relaxed drop-shadow line-clamp-2 max-w-2xl mb-6">${catMeta.description}</p>
+              
+              <!-- Hero Action Buttons -->
+              <div class="flex flex-wrap items-center gap-3">
+                <button onclick="playCategory('${activeCategoryFilter}', false)" class="bg-brand hover:bg-brand-hover text-white font-bold px-6 py-2.5 rounded-full flex items-center gap-2 transition hover:scale-105 shadow-xl shadow-brand/40">
+                  <i data-lucide="play" class="w-4 h-4 fill-current"></i> Play All
+                </button>
+                <button onclick="playCategory('${activeCategoryFilter}', true)" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-semibold px-4 py-2.5 rounded-full flex items-center gap-2 transition hover:scale-105 border border-white/15">
+                  <i data-lucide="shuffle" class="w-4 h-4"></i> Shuffle
+                </button>
+                <button onclick="resetFilters()" class="text-xs text-gray-400 hover:text-white px-3 py-2 rounded-full transition flex items-center gap-1.5 hover:bg-white/5 ml-auto">
+                  <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to All
+                </button>
+              </div>
+            </div>
+          </div>
+        ` : `
+          <div class="flex items-center justify-between mb-6 pb-2 border-b border-white/10">
+            <div>
+              <h2 class="text-2xl font-bold font-outfit text-white">
+                Search Results for "${searchQuery}"
+              </h2>
+              <p class="text-xs text-gray-400 mt-1">${songs.length} tracks found matching your query</p>
+            </div>
+            <button onclick="resetFilters()" class="text-xs text-brand hover:underline font-semibold flex items-center gap-1.5 bg-brand/10 hover:bg-brand/20 px-3 py-1.5 rounded-full border border-brand/30 transition">
               <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset Filter
             </button>
-          ` : ''}
-        </div>
+          </div>
+        `}
 
         ${songs.length === 0 ? `
-          <div class="p-12 text-center text-gray-400 bg-white/5 rounded-2xl border border-white/5">
+          <div class="p-12 text-center text-gray-400 bg-white/5 rounded-2xl border border-white/5 backdrop-blur-md">
             <i data-lucide="music" class="w-12 h-12 mx-auto mb-3 text-gray-600"></i>
-            <p class="text-lg font-semibold">No songs match your search</p>
+            <p class="text-lg font-semibold text-white">No songs match your search</p>
             <p class="text-sm text-gray-500 mt-1">Try another artist name or category filter</p>
           </div>
         ` : `
           <!-- Card Grid -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 mb-8">
-            ${songs.map(song => renderSongCard(song)).join('')}
+          <div class="mb-8">
+            <h3 class="text-lg font-outfit font-bold mb-3 text-white flex items-center gap-2">
+              <i data-lucide="layout-grid" class="w-4 h-4 text-brand"></i> Category Picks
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-4">
+              ${songs.map(song => renderSongCard(song)).join('')}
+            </div>
           </div>
 
           <!-- Song Row Table -->
-          <div class="bg-black/30 backdrop-blur-md rounded-2xl border border-white/5 overflow-hidden p-3">
-            <div class="text-xs text-gray-400 font-semibold px-4 py-2 flex items-center border-b border-white/5">
+          <div class="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/5 overflow-hidden p-4 shadow-xl">
+            <div class="text-xs text-gray-400 font-semibold px-4 py-2.5 flex items-center border-b border-white/10 uppercase tracking-wider">
               <span class="w-8">#</span>
-              <span class="flex-1">Title</span>
+              <span class="flex-1">Title & Artist</span>
               <span class="w-48 hidden md:block">Album / Folder</span>
               <span class="w-16 text-right">Time</span>
             </div>
@@ -1270,50 +1541,108 @@ function renderMainSections() {
       </div>
     `;
   } else {
-    // Show Full Categorized Sections (5 songs each in every section)
-    const sections = [
-      { name: "Hillsong United & Worship", filter: "Hillsong United", folder: "music/Gospel/Hillsong_United" },
-      { name: "Tasha Cobbs Leonard", filter: "Tasha Cobbs", folder: "music/Gospel/Tasha_Cobbs" },
-      { name: "Elevation Worship", filter: "Elevation Worship", folder: "music/Gospel/Elevation_Worship" },
-      { name: "Phil Thompson", filter: "Phil Thompson", folder: "music/Gospel/Phil_Thompson" },
-      { name: "Travis Greene", filter: "Travis Greene", folder: "music/Gospel/Travis_Greene" },
-      { name: "CeCe Winans", filter: "CeCe Winans", folder: "music/Gospel/CeCe_Winans" },
-      { name: "Nathaniel Bassey", filter: "Nathaniel Bassey", folder: "music/Gospel/Nathaniel_Bassey" },
-      { name: "Sinach", filter: "Sinach", folder: "music/Gospel/Sinach" },
-      { name: "Mercy Chinwo", filter: "Mercy Chinwo", folder: "music/Gospel/Mercy_Chinwo" },
-      { name: "Don Moen", filter: "Don Moen", folder: "music/Gospel/Don_Moen" },
-      { name: "Gospel Jazz", filter: "Gospel Jazz", folder: "music/Jazz/Gospel_Jazz" },
-      { name: "Blues Devotional", filter: "Blues Devotional", folder: "music/Blues/Gospel_Blues" },
-      { name: "Classical Symphony Worship", filter: "Classical Worship", folder: "music/Classical/Symphony_Worship" },
-      { name: "RnB Worship", filter: "RnB Worship", folder: "music/RnB/RnB_Gospel" }
-    ];
+    // Show Full Home Showcase: Top Dynamic Hero Banner + Category Explorer Grid + Categorized Sections
+    const categoriesList = Object.keys(categoryMetadata);
+    const spotlightCategory = categoryMetadata["Hillsong United"];
 
-    dynamicSectionsEl.innerHTML = sections.map(sec => {
-      const sectionSongs = allSongs.filter(s => s.category === sec.filter || s.folder === sec.folder);
-
-      return `
-        <section class="space-y-3">
-          <div class="flex items-end justify-between">
-            <div>
-              <h2 class="text-xl font-outfit font-bold text-white hover:text-brand transition cursor-pointer flex items-center gap-2" onclick="filterByCategory('${sec.filter}')">
-                ${sec.name}
-                <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400"></i>
-              </h2>
-              <span class="text-xs text-gray-400 font-mono flex items-center gap-1 mt-0.5">
-                <i data-lucide="folder" class="w-3 h-3 text-yellow-500"></i> ${sec.folder} (5 songs)
-              </span>
-            </div>
-            <button onclick="filterByCategory('${sec.filter}')" class="text-xs text-gray-400 font-semibold hover:text-white hover:underline">
-              Show all (${sectionSongs.length})
+    dynamicSectionsEl.innerHTML = `
+      <!-- Dynamic Featured Spotlight Hero Banner -->
+      <div class="category-hero-banner relative rounded-3xl overflow-hidden mb-10 border border-white/10 shadow-2xl min-h-[280px] md:min-h-[340px] flex flex-col justify-end p-6 md:p-10" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(18,18,18,0.7) 50%, #121212 100%), url('${spotlightCategory.heroImg}'); background-size: cover; background-position: center 30%;">
+        <div class="relative z-10 max-w-3xl">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-[10px] uppercase tracking-widest font-extrabold px-3 py-1 rounded-full text-white bg-gradient-to-r from-brand to-purple-600 shadow-lg shadow-purple-900/50">
+              <i data-lucide="flame" class="w-3 h-3 inline mr-1 text-yellow-300"></i> FEATURED SPOTLIGHT
+            </span>
+            <span class="text-xs text-purple-200/90 font-medium">3.4M Monthly Listeners</span>
+          </div>
+          <h1 class="text-3xl md:text-5xl font-outfit font-black tracking-tight text-white drop-shadow-xl mb-2">
+            ${spotlightCategory.name}
+          </h1>
+          <p class="text-sm md:text-base font-semibold text-purple-200 drop-shadow mb-2">${spotlightCategory.tagline}</p>
+          <p class="text-xs md:text-sm text-gray-300 leading-relaxed drop-shadow line-clamp-2 max-w-2xl mb-6">${spotlightCategory.description}</p>
+          
+          <div class="flex flex-wrap items-center gap-3">
+            <button onclick="playCategory('Hillsong United', false)" class="bg-brand hover:bg-brand-hover text-white font-bold px-7 py-3 rounded-full flex items-center gap-2.5 transition hover:scale-105 shadow-xl shadow-brand/40 text-sm">
+              <i data-lucide="play" class="w-4 h-4 fill-current"></i> Listen Now
+            </button>
+            <button onclick="filterByCategory('Hillsong United')" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-semibold px-5 py-3 rounded-full flex items-center gap-2 transition hover:scale-105 border border-white/15 text-sm">
+              <i data-lucide="sparkles" class="w-4 h-4 text-purple-300"></i> View All Tracks
             </button>
           </div>
+        </div>
+      </div>
 
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            ${sectionSongs.map(song => renderSongCard(song)).join('')}
+      <!-- Category Hero Showcase Grid (Browse by Category) -->
+      <div class="mb-12">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-2xl font-outfit font-black text-white flex items-center gap-2">
+              <i data-lucide="compass" class="w-5 h-5 text-brand"></i> Explore Categories & Genres
+            </h2>
+            <p class="text-xs text-gray-400 mt-0.5">Select a category to view high-definition showcases & complete track collections</p>
           </div>
-        </section>
-      `;
-    }).join('');
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
+          ${categoriesList.map(catKey => {
+            const meta = categoryMetadata[catKey];
+            return `
+              <div onclick="filterByCategory('${catKey}')" class="category-card-hover group relative rounded-2xl overflow-hidden cursor-pointer h-36 border border-white/10 shadow-lg" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%), url('${meta.heroImg}'); background-size: cover; background-position: center;">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:via-brand/20 transition-all duration-300"></div>
+                <div class="absolute top-2.5 left-2.5">
+                  <span class="text-[8px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full text-white bg-black/60 backdrop-blur-md border border-white/10">
+                    ${meta.badge}
+                  </span>
+                </div>
+                <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+                  <div class="overflow-hidden pr-2">
+                    <span class="font-outfit font-bold text-xs text-white block truncate drop-shadow group-hover:text-purple-200 transition">${meta.shortName}</span>
+                    <span class="text-[10px] text-gray-300 font-mono block mt-0.5">5 tracks</span>
+                  </div>
+                  <div class="w-7 h-7 rounded-full bg-brand text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 shadow-lg shrink-0">
+                    <i data-lucide="play" class="w-3.5 h-3.5 fill-current ml-0.5"></i>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+
+      <!-- Categorized Sections (5 songs each in every section) -->
+      <div class="space-y-12">
+        ${categoriesList.map(catKey => {
+          const meta = categoryMetadata[catKey];
+          const sectionSongs = allSongs.filter(s => s.category === catKey || s.folder === meta.folder);
+
+          return `
+            <section class="space-y-3">
+              <div class="flex items-end justify-between">
+                <div>
+                  <h2 class="text-xl font-outfit font-bold text-white hover:text-brand transition cursor-pointer flex items-center gap-2 group" onclick="filterByCategory('${catKey}')">
+                    <span>${meta.name}</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-1"></i>
+                  </h2>
+                  <div class="flex items-center gap-2 mt-1 text-xs text-gray-400">
+                    <span class="text-[10px] uppercase font-bold text-brand bg-brand/10 border border-brand/20 px-2 py-0.5 rounded-full">${meta.badge}</span>
+                    <span class="font-mono text-gray-400 flex items-center gap-1">
+                      <i data-lucide="folder" class="w-3 h-3 text-yellow-500"></i> ${meta.folder} (5 tracks)
+                    </span>
+                  </div>
+                </div>
+                <button onclick="filterByCategory('${catKey}')" class="text-xs text-gray-400 font-semibold hover:text-white hover:underline flex items-center gap-1">
+                  Show all (${sectionSongs.length}) <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                </button>
+              </div>
+
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                ${sectionSongs.map(song => renderSongCard(song)).join('')}
+              </div>
+            </section>
+          `;
+        }).join('')}
+      </div>
+    `;
   }
 
   lucide.createIcons();
@@ -1322,15 +1651,16 @@ function renderMainSections() {
 function renderSongCard(song) {
   const isCurrent = queue[currentTrackIndex]?.id === song.id;
   return `
-    <div onclick="playSongById(${song.id})" class="bg-white/5 hover:bg-white/10 backdrop-blur-md border ${isCurrent ? 'border-brand shadow-[0_0_15px_rgba(139,92,246,0.3)]' : 'border-white/5'} transition-all duration-300 p-3.5 rounded-xl cursor-pointer group flex flex-col gap-2.5 shadow-lg hover:shadow-[0_8px_25px_rgba(0,0,0,0.5)] hover:-translate-y-1">
-      <div class="relative w-full aspect-square bg-surface-highlight rounded-lg shadow-inner overflow-hidden">
+    <div onclick="playSongById(${song.id})" class="bg-white/5 hover:bg-white/10 backdrop-blur-md border ${isCurrent ? 'border-brand shadow-[0_0_20px_rgba(139,92,246,0.35)]' : 'border-white/5'} transition-all duration-300 p-3.5 rounded-2xl cursor-pointer group flex flex-col gap-2.5 shadow-lg hover:shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:-translate-y-1">
+      <div class="relative w-full aspect-square bg-surface-highlight rounded-xl shadow-inner overflow-hidden">
         <img src="${song.img}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="${song.title}" />
-        <button class="absolute bottom-2 right-2 bg-brand text-white rounded-full p-2.5 ${isCurrent && isPlaying ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 group-hover:-translate-y-1'} hover:scale-110 transition-all shadow-[0_0_15px_rgba(139,92,246,0.6)] duration-300">
-          <i data-lucide="${isCurrent && isPlaying ? 'pause' : 'play'}" class="w-4 h-4 fill-current"></i>
+        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <button class="absolute bottom-2.5 right-2.5 bg-brand text-white rounded-full p-3 ${isCurrent && isPlaying ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 group-hover:-translate-y-1'} hover:scale-110 transition-all shadow-[0_0_20px_rgba(139,92,246,0.7)] duration-300">
+          <i data-lucide="${isCurrent && isPlaying ? 'pause' : 'play'}" class="w-4 h-4 fill-current ${isCurrent && isPlaying ? '' : 'ml-0.5'}"></i>
         </button>
       </div>
       <div class="flex flex-col overflow-hidden">
-        <span class="font-outfit font-bold text-xs truncate tracking-wide text-white ${isCurrent ? 'text-brand' : ''}">${song.title}</span>
+        <span class="font-outfit font-bold text-xs truncate tracking-wide text-white ${isCurrent ? 'text-brand font-extrabold' : ''}">${song.title}</span>
         <span class="text-[11px] text-gray-400 truncate mt-0.5">${song.artist}</span>
       </div>
     </div>
@@ -1340,12 +1670,18 @@ function renderSongCard(song) {
 function renderSongRow(song, index) {
   const isCurrent = queue[currentTrackIndex]?.id === song.id;
   return `
-    <div onclick="playSongById(${song.id})" class="flex items-center px-4 py-2.5 hover:bg-white/10 cursor-pointer rounded-lg transition group ${isCurrent ? 'bg-brand/10 text-brand' : 'text-gray-200'}">
-      <span class="w-8 text-xs text-gray-400 group-hover:hidden">${index}</span>
+    <div onclick="playSongById(${song.id})" class="flex items-center px-4 py-3 hover:bg-white/10 cursor-pointer rounded-xl transition group ${isCurrent ? 'bg-brand/15 text-brand' : 'text-gray-200'}">
+      <span class="w-8 text-xs text-gray-400 group-hover:hidden">
+        ${isCurrent && isPlaying ? `
+          <div class="playing-equalizer">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        ` : index}
+      </span>
       <span class="w-8 text-xs text-white hidden group-hover:inline-block"><i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i></span>
       
       <div class="flex items-center gap-3 flex-1 overflow-hidden">
-        <img src="${song.img}" class="w-8 h-8 rounded object-cover shrink-0 border border-white/10" alt="${song.title}" />
+        <img src="${song.img}" class="w-9 h-9 rounded-lg object-cover shrink-0 border border-white/10" alt="${song.title}" />
         <div class="flex flex-col overflow-hidden pr-2">
           <span class="text-xs font-semibold truncate ${isCurrent ? 'text-brand font-bold' : 'text-white'}">${song.title}</span>
           <span class="text-[10px] text-gray-400 truncate">${song.artist}</span>
@@ -1383,6 +1719,7 @@ function filterByCategory(cat) {
   categoryChips.querySelectorAll('.chip').forEach(c => {
     if (c.dataset.filter.toLowerCase() === cat.toLowerCase()) {
       c.className = 'chip active bg-white text-black font-semibold text-xs px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap shadow';
+      c.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     } else {
       c.className = 'chip bg-surface-highlight hover:bg-gray-700 text-gray-200 text-xs font-semibold px-3.5 py-1.5 rounded-full transition hover:scale-105 whitespace-nowrap';
     }
@@ -1395,7 +1732,9 @@ function resetFilters() {
   searchQuery = '';
   searchInput.value = '';
   searchClear.classList.add('hidden');
-  categoryChips.querySelector('[data-filter="all"]').click();
+  const allChip = categoryChips.querySelector('[data-filter="all"]');
+  if (allChip) allChip.click();
+  else renderMainSections();
 }
 
 function setupSearchListeners() {
