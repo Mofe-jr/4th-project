@@ -607,15 +607,15 @@ const allSongs = [
   // ===========================================================
   {
     id: 31,
-    title: "Imela",
+    title: "Yahweh Sabaoth",
     artist: "Nathaniel Bassey",
-    album: "Someone's at the Door",
+    album: "Hallelujah Live",
     category: "Nathaniel Bassey",
     folder: "music/Gospel/Nathaniel_Bassey",
     duration: 326,
     img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=500&q=80",
     youtubeId: "EnYZQfS3SVE",
-    lyrics: "When I think upon Your goodness and Your faithfulness each day<br/>I'm convinced it's not because I am worthy to receive the kind of love that You give<br/><br/>(Chorus)<br/>Imela, Imela, Okaka, Onyekeruwa<br/>Imela, Imela, Eze mo!"
+    lyrics: "A worship anthem from Nathaniel Bassey."
   },
   {
     id: 32,
@@ -1115,8 +1115,31 @@ const allSongs = [
   }
 ];
 
-// Local tracks are used first. This keeps playback working even when a
-// YouTube video is unavailable or a visitor has restricted YouTube access.
+// Every catalogue item is played through the native audio element using a
+// tracked local file, so playback never depends on an embedded third party player.
+const additionalGospelTracks = [
+  { id: 77, title: "Hosanna", artist: "Hillsong United", album: "All of the Above", category: "Hillsong United", folder: "music/Gospel/Hillsong_United", duration: 360, img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 78, title: "Mighty to Save", artist: "Hillsong Worship", album: "Mighty to Save", category: "Hillsong United", folder: "music/Gospel/Hillsong_United", duration: 330, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 79, title: "For Your Glory", artist: "Tasha Cobbs Leonard", album: "Grace", category: "Tasha Cobbs", folder: "music/Gospel/Tasha_Cobbs", duration: 350, img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 80, title: "You Know My Name", artist: "Tasha Cobbs Leonard", album: "Heart. Passion. Pursuit.", category: "Tasha Cobbs", folder: "music/Gospel/Tasha_Cobbs", duration: 420, img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 81, title: "O Come to the Altar", artist: "Elevation Worship", album: "Here as in Heaven", category: "Elevation Worship", folder: "music/Gospel/Elevation_Worship", duration: 290, img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 82, title: "Do It Again", artist: "Elevation Worship", album: "There Is a Cloud", category: "Elevation Worship", folder: "music/Gospel/Elevation_Worship", duration: 400, img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 83, title: "All of My Worship", artist: "Phil Thompson", album: "My Worship", category: "Phil Thompson", folder: "music/Gospel/Phil_Thompson", duration: 300, img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 84, title: "Jesus", artist: "Phil Thompson", album: "My Worship", category: "Phil Thompson", folder: "music/Gospel/Phil_Thompson", duration: 275, img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 85, title: "Intentional", artist: "Travis Greene", album: "The Hill", category: "Travis Greene", folder: "music/Gospel/Travis_Greene", duration: 285, img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 86, title: "Won't Let Go", artist: "Travis Greene", album: "Crossover: Live from Music City", category: "Travis Greene", folder: "music/Gospel/Travis_Greene", duration: 310, img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 87, title: "Believe For It", artist: "CeCe Winans", album: "Believe For It", category: "CeCe Winans", folder: "music/Gospel/CeCe_Winans", duration: 340, img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 88, title: "Alabaster Box", artist: "CeCe Winans", album: "Alabaster Box", category: "CeCe Winans", folder: "music/Gospel/CeCe_Winans", duration: 300, img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 89, title: "See What the Lord Has Done", artist: "Nathaniel Bassey", album: "Hallelujah Live", category: "Nathaniel Bassey", folder: "music/Gospel/Nathaniel_Bassey", duration: 330, img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 90, title: "Yeshua Hamashiach", artist: "Nathaniel Bassey", album: "Hallelujah Live", category: "Nathaniel Bassey", folder: "music/Gospel/Nathaniel_Bassey", duration: 380, img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 91, title: "I Know Who I Am", artist: "Sinach", album: "Shout It Loud", category: "Sinach", folder: "music/Gospel/Sinach", duration: 320, img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 92, title: "The Name of Jesus", artist: "Sinach", album: "The Name of Jesus", category: "Sinach", folder: "music/Gospel/Sinach", duration: 305, img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 93, title: "Wonder", artist: "Mercy Chinwo", album: "Satisfied", category: "Mercy Chinwo", folder: "music/Gospel/Mercy_Chinwo", duration: 290, img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 94, title: "Akamdinelu", artist: "Mercy Chinwo", album: "Satisfied", category: "Mercy Chinwo", folder: "music/Gospel/Mercy_Chinwo", duration: 335, img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 95, title: "God Will Make a Way", artist: "Don Moen", album: "God Will Make a Way", category: "Don Moen", folder: "music/Gospel/Don_Moen", duration: 255, img: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=500&q=80", lyrics: "" },
+  { id: 96, title: "Thank You Lord", artist: "Don Moen", album: "Thank You Lord", category: "Don Moen", folder: "music/Gospel/Don_Moen", duration: 275, img: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=500&q=80", lyrics: "" }
+];
+
 const localGospelTracks = [
   { id: 71, title: "Hillsong Worship", artist: "Hillsong", album: "Worship Sessions", category: "Hillsong United", folder: "music/Gospel/Hillsong", duration: 0, img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3", lyrics: "Local worship recording" },
   { id: 72, title: "Hillsong United", artist: "Hillsong", album: "Live Worship", category: "Hillsong United", folder: "music/Gospel/Hillsong", duration: 0, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3", lyrics: "Local worship recording" },
@@ -1126,7 +1149,7 @@ const localGospelTracks = [
   { id: 76, title: "Olowogbogboro Praise", artist: "Nathaniel Bassey", album: "Praise Collection", category: "Nathaniel Bassey", folder: "music/Gospel/Nathaniel_Bassey", duration: 0, img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro Praise.mp3", lyrics: "Local worship recording" }
 ];
 
-allSongs.push(...localGospelTracks);
+allSongs.push(...additionalGospelTracks, ...localGospelTracks);
 
 Object.assign(allSongs.find(song => song.id === 1), { audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3" });
 Object.assign(allSongs.find(song => song.id === 2), { audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3" });
@@ -1208,7 +1231,7 @@ const featuredAlbums = [
   { id: 16, title: "My Worship", artist: "Phil Thompson", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=300&q=80" },
   { id: 21, title: "Made A Way", artist: "Travis Greene", img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=300&q=80" },
   { id: 26, title: "Goodness of God", artist: "CeCe Winans", img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=300&q=80" },
-  { id: 31, title: "Imela", artist: "Nathaniel Bassey", img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=300&q=80" },
+  { id: 31, title: "Yahweh Sabaoth", artist: "Nathaniel Bassey", img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=300&q=80" },
   { id: 36, title: "Way Maker", artist: "Sinach", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=300&q=80" }
 ];
 
@@ -1266,10 +1289,7 @@ let currentHeroIndex = 0;
 let isLyricsOpen = false;
 let savedVolume = localStorage.getItem('playerVolume') ? parseFloat(localStorage.getItem('playerVolume')) : 1.0;
 
-let ytPlayer = null;
-let ytInterval = null;
-let ytReady = false;
-let activePlayback = 'youtube';
+let activePlayback = 'audio';
 let uploadedSongs = [];
 let nextUploadedSongId = 1000;
 
@@ -1293,54 +1313,11 @@ audioPlayer.addEventListener('timeupdate', () => {
 audioPlayer.addEventListener('play', () => { isPlaying = true; syncUI(); });
 audioPlayer.addEventListener('pause', () => { isPlaying = false; syncUI(); });
 audioPlayer.addEventListener('ended', () => { isRepeat ? audioPlayer.play() : playNext(); });
-
-// -------------------------------------------------------------
-// YouTube IFrame Initialization
-// -------------------------------------------------------------
-window.onYouTubeIframeAPIReady = function() {
-  ytPlayer = new YT.Player('youtube-player', {
-    videoId: '',
-    playerVars: { 'autoplay': 0, 'controls': 0, 'disablekb': 1, 'playsinline': 1 },
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange,
-      'onError': onPlayerError
-    }
-  });
-};
-
-function onPlayerReady(event) {
-  ytReady = true;
-  if (ytPlayer && ytPlayer.setVolume) ytPlayer.setVolume(Math.round(savedVolume * 100));
-  loadTrack(currentTrackIndex);
-}
-
-function onPlayerStateChange(event) {
-  if (event.data === YT.PlayerState.PLAYING) {
-    isPlaying = true;
-    startProgressInterval();
-    syncUI();
-  } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.CUED) {
-    isPlaying = false;
-    stopProgressInterval();
-    syncUI();
-  } else if (event.data === YT.PlayerState.ENDED) {
-    if (isRepeat) {
-      if (ytPlayer && ytPlayer.seekTo) ytPlayer.seekTo(0);
-      if (ytPlayer && ytPlayer.playVideo) ytPlayer.playVideo();
-    } else {
-      playNext();
-    }
-  }
-}
-
-function onPlayerError() {
-  const track = queue[currentTrackIndex];
-  if (!track || activePlayback === 'audio') return;
-  track.audioSrc = track.fallbackAudioSrc;
-  loadTrack(currentTrackIndex);
-  togglePlay(true);
-}
+audioPlayer.addEventListener('error', () => {
+  isPlaying = false;
+  syncUI();
+  console.warn('The selected local audio file could not be loaded.');
+});
 
 function syncUI() {
   if (isPlaying) {
@@ -1933,52 +1910,21 @@ function loadTrack(index) {
   progressBar.style.width = '0%';
   timeCurrentEl.innerText = '0:00';
   
-  if (track.audioSrc) {
-    activePlayback = 'audio';
-    if (ytReady && ytPlayer && ytPlayer.pauseVideo) ytPlayer.pauseVideo();
-    audioPlayer.pause();
-    audioPlayer.src = encodeURI(track.audioSrc);
-    audioPlayer.load();
-  } else if (ytReady && ytPlayer && track.youtubeId) {
-    activePlayback = 'youtube';
-    audioPlayer.pause();
-    if (isPlaying) {
-      ytPlayer.loadVideoById(track.youtubeId);
-    } else {
-      ytPlayer.cueVideoById(track.youtubeId);
-    }
-  }
+  activePlayback = 'audio';
+  audioPlayer.pause();
+  audioPlayer.src = encodeURI(track.audioSrc || track.fallbackAudioSrc);
+  audioPlayer.load();
 }
 
 function togglePlay(forcePlay) {
-  if (activePlayback === 'audio') {
-    if (typeof forcePlay === 'boolean') {
-      if (forcePlay) audioPlayer.play().catch(() => {});
-      else audioPlayer.pause();
-    } else if (audioPlayer.paused) {
-      audioPlayer.play().catch(() => {});
-    } else {
-      audioPlayer.pause();
-    }
+  if (typeof forcePlay === 'boolean') {
+    if (forcePlay) audioPlayer.play().catch(() => {});
+    else audioPlayer.pause();
     return;
   }
 
-  if (!ytReady || !ytPlayer) return;
-  
-  if (typeof forcePlay === 'boolean') {
-    if (forcePlay && !isPlaying) {
-       if (ytPlayer.playVideo) ytPlayer.playVideo();
-    } else if (!forcePlay && isPlaying) {
-       if (ytPlayer.pauseVideo) ytPlayer.pauseVideo();
-    }
-    return;
-  }
-  
-  if (isPlaying) {
-    if (ytPlayer.pauseVideo) ytPlayer.pauseVideo();
-  } else {
-    if (ytPlayer.playVideo) ytPlayer.playVideo();
-  }
+  if (audioPlayer.paused) audioPlayer.play().catch(() => {});
+  else audioPlayer.pause();
 }
 
 function playNext() {
@@ -1990,18 +1936,14 @@ function playNext() {
 }
 
 function playPrev() {
-  if (activePlayback === 'audio' && audioPlayer.currentTime > 3) {
+  if (audioPlayer.currentTime > 3) {
     audioPlayer.currentTime = 0;
     return;
   }
-  if (ytReady && ytPlayer && ytPlayer.getCurrentTime && ytPlayer.getCurrentTime() > 3) {
-    ytPlayer.seekTo(0);
-  } else {
-    const wasPlaying = isPlaying;
-    currentTrackIndex = currentTrackIndex === 0 ? queue.length - 1 : currentTrackIndex - 1;
-    loadTrack(currentTrackIndex);
-    if (wasPlaying) togglePlay(true);
-  }
+  const wasPlaying = isPlaying;
+  currentTrackIndex = currentTrackIndex === 0 ? queue.length - 1 : currentTrackIndex - 1;
+  loadTrack(currentTrackIndex);
+  if (wasPlaying) togglePlay(true);
   renderMainSections();
 }
 
@@ -2051,49 +1993,15 @@ btnRepeat.addEventListener('click', () => {
 btnSpeed.addEventListener('click', () => {
   speedIndex = (speedIndex + 1) % playbackSpeeds.length;
   const speed = playbackSpeeds[speedIndex];
-  if (ytReady && ytPlayer && ytPlayer.setPlaybackRate) {
-    ytPlayer.setPlaybackRate(speed);
-  }
   audioPlayer.playbackRate = speed;
   btnSpeed.innerText = speed + 'x';
 });
 
-// YouTube Interval Sync Logic
-function startProgressInterval() {
-  stopProgressInterval();
-  ytInterval = setInterval(updateProgress, 500);
-}
-
-function stopProgressInterval() {
-  if (ytInterval) clearInterval(ytInterval);
-}
-
-function updateProgress() {
-  if (activePlayback === 'audio') return;
-  if (!ytReady || !ytPlayer || !ytPlayer.getCurrentTime) return;
-  const currentTime = ytPlayer.getCurrentTime() || 0;
-  let duration = queue[currentTrackIndex]?.duration || 0;
-  if (ytPlayer.getDuration && ytPlayer.getDuration() > 0) duration = ytPlayer.getDuration();
-  
-  if (duration > 0) {
-    const progressPercent = (currentTime / duration) * 100;
-    progressBar.style.width = `${progressPercent}%`;
-    timeCurrentEl.innerText = formatTime(currentTime);
-    timeTotalEl.innerText = formatTime(duration);
-  }
-}
-
 progressContainer.addEventListener('click', (e) => {
   const width = progressContainer.clientWidth;
   const clickX = e.offsetX;
-  let duration = queue[currentTrackIndex]?.duration || 0;
-  if (ytReady && ytPlayer && ytPlayer.getDuration && ytPlayer.getDuration() > 0) duration = ytPlayer.getDuration();
-  
-  if (activePlayback === 'audio' && audioPlayer.duration > 0) {
+  if (audioPlayer.duration > 0) {
     audioPlayer.currentTime = (clickX / width) * audioPlayer.duration;
-  } else if (duration > 0 && ytReady && ytPlayer) {
-    const newTime = (clickX / width) * duration;
-    ytPlayer.seekTo(newTime, true);
   }
 });
 
@@ -2143,9 +2051,6 @@ function updateVolume(e) {
   clickX = Math.max(0, Math.min(clickX, width)); 
   const newVol = clickX / width;
   
-  if (ytReady && ytPlayer && ytPlayer.setVolume) {
-     ytPlayer.setVolume(Math.round(newVol * 100));
-  }
   audioPlayer.volume = newVol;
   
   volumeBar.style.width = `${newVol * 100}%`;
