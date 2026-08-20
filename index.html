@@ -85,6 +85,14 @@
           </div>
           <button class="hover:bg-white/10 p-1.5 rounded-full transition text-gray-400 hover:text-white"><i data-lucide="plus" class="w-4 h-4"></i></button>
         </div>
+
+        <div class="px-2 mt-4">
+          <input id="music-file-input" type="file" accept="audio/*,.mp3,.wav,.ogg,.m4a,.aac,.flac" multiple class="hidden" />
+          <button type="button" onclick="document.getElementById('music-file-input').click()" class="w-full flex items-center justify-center gap-2 rounded-xl border border-brand/35 bg-brand/10 hover:bg-brand/20 px-3 py-2 text-xs font-bold text-purple-100 transition">
+            <i data-lucide="folder-plus" class="w-4 h-4"></i> Add music files
+          </button>
+          <p class="mt-1.5 px-1 text-[10px] leading-tight text-gray-500">Choose audio files from your music folder to play them here.</p>
+        </div>
         
         <!-- Filter Pills -->
         <div class="flex gap-1.5 p-2 mt-1" id="sidebar-filter-tabs">
@@ -125,7 +133,6 @@
 
         <!-- Profile / Account -->
         <div class="flex items-center gap-3 shrink-0">
-          <button class="bg-gradient-to-r from-purple-500 to-brand text-white font-bold px-4 py-1.5 rounded-full text-xs hover:scale-105 transition shadow-lg shadow-purple-900/30 hidden sm:block">Explore Premium</button>
           <button class="bg-black/50 hover:bg-black p-2 rounded-full text-gray-300 hover:text-white transition border border-white/5">
             <i data-lucide="bell" class="w-4 h-4"></i>
           </button>
@@ -195,6 +202,9 @@
         <div id="dynamic-sections" class="space-y-8">
           <!-- Populated by JS -->
         </div>
+
+        <!-- Imported local music is rendered here by the player -->
+        <section id="local-files-section" class="mt-10 mb-6"></section>
       </div>
     </main>
     
@@ -273,6 +283,7 @@
   <!-- YouTube Wrapper (Invisible) -->
   <script src="https://www.youtube.com/iframe_api"></script>
   <div id="youtube-player" style="position: absolute; width: 0px; height: 0px; pointer-events: none; opacity: 0; overflow: hidden; z-index: -999;"></div>
+  <audio id="audio-player" preload="metadata"></audio>
 
   <!-- Application Logic -->
   <script src="app.js"></script>

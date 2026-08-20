@@ -1115,6 +1115,37 @@ const allSongs = [
   }
 ];
 
+// Local tracks are used first. This keeps playback working even when a
+// YouTube video is unavailable or a visitor has restricted YouTube access.
+const localGospelTracks = [
+  { id: 71, title: "Hillsong Worship", artist: "Hillsong", album: "Worship Sessions", category: "Hillsong United", folder: "music/Gospel/Hillsong", duration: 0, img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3", lyrics: "Local worship recording" },
+  { id: 72, title: "Hillsong United", artist: "Hillsong", album: "Live Worship", category: "Hillsong United", folder: "music/Gospel/Hillsong", duration: 0, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3", lyrics: "Local worship recording" },
+  { id: 73, title: "Integrity's iWorship 247", artist: "Hillsong", album: "iWorship", category: "Hillsong United", folder: "music/Gospel/Hillsong", duration: 0, img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3", lyrics: "Local worship recording" },
+  { id: 74, title: "Sound Trip na Yah", artist: "Hillsong", album: "Worship Sessions", category: "Hillsong United", folder: "music/Gospel/Hillsong", duration: 0, img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3", lyrics: "Local worship recording" },
+  { id: 75, title: "Way Maker Devotion", artist: "Sinach", album: "Devotion", category: "Sinach", folder: "music/Gospel/Sinach", duration: 0, img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Sinach/Way Maker Devotion.mp3", lyrics: "Local worship recording" },
+  { id: 76, title: "Olowogbogboro Praise", artist: "Nathaniel Bassey", album: "Praise Collection", category: "Nathaniel Bassey", folder: "music/Gospel/Nathaniel_Bassey", duration: 0, img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro Praise.mp3", lyrics: "Local worship recording" }
+];
+
+allSongs.push(...localGospelTracks);
+
+Object.assign(allSongs.find(song => song.id === 1), { audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3" });
+Object.assign(allSongs.find(song => song.id === 2), { audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3" });
+Object.assign(allSongs.find(song => song.id === 3), { audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3" });
+Object.assign(allSongs.find(song => song.id === 4), { audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3" });
+Object.assign(allSongs.find(song => song.id === 5), { audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3" });
+Object.assign(allSongs.find(song => song.id === 31), { audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro Praise.mp3" });
+Object.assign(allSongs.find(song => song.id === 36), { audioSrc: "music/Gospel/Sinach/Way Maker Devotion.mp3" });
+
+const fallbackAudioByCategory = {
+  "Gospel Jazz": "music/Jazz/Jelly Roll Morton Black Bottom Stomp.mp3",
+  "Blues Devotional": "music/Blues/Memphis Blues.mp3",
+  "RnB Worship": "music/Gospel/Hillsong/Hillsong - Worship.mp3"
+};
+
+allSongs.forEach(song => {
+  song.fallbackAudioSrc = song.audioSrc || fallbackAudioByCategory[song.category] || "music/Gospel/Hillsong/Hillsong - Worship.mp3";
+});
+
 // Active queue initialized with all songs
 let queue = [...allSongs];
 
@@ -1214,6 +1245,9 @@ const lyricsContent = document.getElementById('lyrics-content');
 
 const volumeContainer = document.getElementById('volume-container');
 const volumeBar = document.getElementById('volume-bar');
+const audioPlayer = document.getElementById('audio-player');
+const musicFileInput = document.getElementById('music-file-input');
+const localFilesSection = document.getElementById('local-files-section');
 
 // -------------------------------------------------------------
 // Application State
@@ -1234,6 +1268,30 @@ let savedVolume = localStorage.getItem('playerVolume') ? parseFloat(localStorage
 let ytPlayer = null;
 let ytInterval = null;
 let ytReady = false;
+let activePlayback = 'youtube';
+let uploadedSongs = [];
+let nextUploadedSongId = 1000;
+
+audioPlayer.addEventListener('loadedmetadata', () => {
+  if (activePlayback !== 'audio') return;
+  const track = queue[currentTrackIndex];
+  if (track && Number.isFinite(audioPlayer.duration)) {
+    track.duration = audioPlayer.duration;
+    timeTotalEl.innerText = formatTime(audioPlayer.duration);
+  }
+});
+
+audioPlayer.addEventListener('timeupdate', () => {
+  if (activePlayback !== 'audio' || !audioPlayer.duration) return;
+  const progressPercent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+  progressBar.style.width = `${progressPercent}%`;
+  timeCurrentEl.innerText = formatTime(audioPlayer.currentTime);
+  timeTotalEl.innerText = formatTime(audioPlayer.duration);
+});
+
+audioPlayer.addEventListener('play', () => { isPlaying = true; syncUI(); });
+audioPlayer.addEventListener('pause', () => { isPlaying = false; syncUI(); });
+audioPlayer.addEventListener('ended', () => { isRepeat ? audioPlayer.play() : playNext(); });
 
 // -------------------------------------------------------------
 // YouTube IFrame Initialization
@@ -1244,7 +1302,8 @@ window.onYouTubeIframeAPIReady = function() {
     playerVars: { 'autoplay': 0, 'controls': 0, 'disablekb': 1, 'playsinline': 1 },
     events: {
       'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
+      'onStateChange': onPlayerStateChange,
+      'onError': onPlayerError
     }
   });
 };
@@ -1274,6 +1333,14 @@ function onPlayerStateChange(event) {
   }
 }
 
+function onPlayerError() {
+  const track = queue[currentTrackIndex];
+  if (!track || activePlayback === 'audio') return;
+  track.audioSrc = track.fallbackAudioSrc;
+  loadTrack(currentTrackIndex);
+  togglePlay(true);
+}
+
 function syncUI() {
   if (isPlaying) {
     btnPlay.innerHTML = '<i data-lucide="pause" class="w-5 h-5 fill-current ml-0"></i>';
@@ -1301,13 +1368,75 @@ async function init() {
   populateSidebar();
   renderFeaturedGrid();
   renderMainSections();
+  renderLocalFilesSection();
   setGreeting();
   setupSidebarTabListeners();
   setupFilterChipListeners();
   setupSearchListeners();
+  setupLocalFileImport();
   
   volumeBar.style.width = `${Math.round(savedVolume * 100)}%`;
+  audioPlayer.volume = savedVolume;
+  loadTrack(currentTrackIndex);
   setupMediaSession();
+  lucide.createIcons();
+}
+
+function setupLocalFileImport() {
+  musicFileInput.addEventListener('change', event => {
+    const supportedFiles = [...event.target.files].filter(file =>
+      file.type.startsWith('audio/') || /\.(mp3|wav|ogg|m4a|aac|flac)$/i.test(file.name)
+    );
+
+    if (!supportedFiles.length) return;
+
+    const newSongs = supportedFiles.map(file => ({
+      id: nextUploadedSongId++,
+      title: file.name.replace(/\.[^/.]+$/, ''),
+      artist: 'Local library',
+      album: 'Imported music',
+      category: 'Local Library',
+      folder: 'Your device',
+      duration: 0,
+      img: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80',
+      audioSrc: URL.createObjectURL(file),
+      lyrics: 'Imported from your device. Lyrics are not available for local files.'
+    }));
+
+    uploadedSongs.push(...newSongs);
+    allSongs.push(...newSongs);
+    queue.push(...newSongs);
+    renderLocalFilesSection();
+    event.target.value = '';
+  });
+}
+
+function renderLocalFilesSection() {
+  if (!localFilesSection) return;
+
+  localFilesSection.innerHTML = `
+    <div class="flex items-end justify-between gap-4 mb-4">
+      <div>
+        <p class="text-[10px] font-extrabold tracking-[0.16em] text-brand uppercase">Your device</p>
+        <h2 class="font-outfit text-2xl font-black text-white">Local music library</h2>
+        <p class="mt-1 text-xs text-gray-400">Add MP3, WAV, M4A, AAC, OGG or FLAC files and play them instantly.</p>
+      </div>
+      <button type="button" onclick="document.getElementById('music-file-input').click()" class="shrink-0 rounded-full bg-white px-4 py-2 text-xs font-bold text-black transition hover:scale-105">
+        Add files
+      </button>
+    </div>
+    ${uploadedSongs.length ? `
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        ${uploadedSongs.map(song => renderSongCard(song)).join('')}
+      </div>
+    ` : `
+      <button type="button" onclick="document.getElementById('music-file-input').click()" class="w-full rounded-2xl border border-dashed border-white/20 bg-white/[0.03] px-6 py-9 text-left transition hover:border-brand/60 hover:bg-brand/5">
+        <span class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-brand/15 text-brand"><i data-lucide="music-2" class="w-5 h-5"></i></span>
+        <span class="block text-sm font-bold text-white">Add songs from your music folder</span>
+        <span class="mt-1 block text-xs text-gray-400">Select one or more audio files to add them to this listening session.</span>
+      </button>
+    `}
+  `;
   lucide.createIcons();
 }
 
@@ -1802,7 +1931,15 @@ function loadTrack(index) {
   progressBar.style.width = '0%';
   timeCurrentEl.innerText = '0:00';
   
-  if (ytReady && ytPlayer && track.youtubeId) {
+  if (track.audioSrc) {
+    activePlayback = 'audio';
+    if (ytReady && ytPlayer && ytPlayer.pauseVideo) ytPlayer.pauseVideo();
+    audioPlayer.pause();
+    audioPlayer.src = encodeURI(track.audioSrc);
+    audioPlayer.load();
+  } else if (ytReady && ytPlayer && track.youtubeId) {
+    activePlayback = 'youtube';
+    audioPlayer.pause();
     if (isPlaying) {
       ytPlayer.loadVideoById(track.youtubeId);
     } else {
@@ -1812,6 +1949,18 @@ function loadTrack(index) {
 }
 
 function togglePlay(forcePlay) {
+  if (activePlayback === 'audio') {
+    if (typeof forcePlay === 'boolean') {
+      if (forcePlay) audioPlayer.play().catch(() => {});
+      else audioPlayer.pause();
+    } else if (audioPlayer.paused) {
+      audioPlayer.play().catch(() => {});
+    } else {
+      audioPlayer.pause();
+    }
+    return;
+  }
+
   if (!ytReady || !ytPlayer) return;
   
   if (typeof forcePlay === 'boolean') {
@@ -1831,20 +1980,26 @@ function togglePlay(forcePlay) {
 }
 
 function playNext() {
+  const wasPlaying = isPlaying;
   currentTrackIndex = (currentTrackIndex + 1) % queue.length;
   loadTrack(currentTrackIndex);
-  if (isPlaying) togglePlay(true);
+  if (wasPlaying) togglePlay(true);
   renderMainSections();
 }
 
 function playPrev() {
+  if (activePlayback === 'audio' && audioPlayer.currentTime > 3) {
+    audioPlayer.currentTime = 0;
+    return;
+  }
   if (ytReady && ytPlayer && ytPlayer.getCurrentTime && ytPlayer.getCurrentTime() > 3) {
     ytPlayer.seekTo(0);
   } else {
+    const wasPlaying = isPlaying;
     currentTrackIndex = currentTrackIndex === 0 ? queue.length - 1 : currentTrackIndex - 1;
     loadTrack(currentTrackIndex);
+    if (wasPlaying) togglePlay(true);
   }
-  if (isPlaying) togglePlay(true);
   renderMainSections();
 }
 
@@ -1896,6 +2051,7 @@ btnSpeed.addEventListener('click', () => {
   if (ytReady && ytPlayer && ytPlayer.setPlaybackRate) {
     ytPlayer.setPlaybackRate(speed);
   }
+  audioPlayer.playbackRate = speed;
   btnSpeed.innerText = speed + 'x';
 });
 
@@ -1910,6 +2066,7 @@ function stopProgressInterval() {
 }
 
 function updateProgress() {
+  if (activePlayback === 'audio') return;
   if (!ytReady || !ytPlayer || !ytPlayer.getCurrentTime) return;
   const currentTime = ytPlayer.getCurrentTime() || 0;
   let duration = queue[currentTrackIndex]?.duration || 0;
@@ -1929,7 +2086,9 @@ progressContainer.addEventListener('click', (e) => {
   let duration = queue[currentTrackIndex]?.duration || 0;
   if (ytReady && ytPlayer && ytPlayer.getDuration && ytPlayer.getDuration() > 0) duration = ytPlayer.getDuration();
   
-  if (duration > 0 && ytReady && ytPlayer) {
+  if (activePlayback === 'audio' && audioPlayer.duration > 0) {
+    audioPlayer.currentTime = (clickX / width) * audioPlayer.duration;
+  } else if (duration > 0 && ytReady && ytPlayer) {
     const newTime = (clickX / width) * duration;
     ytPlayer.seekTo(newTime, true);
   }
@@ -1984,6 +2143,7 @@ function updateVolume(e) {
   if (ytReady && ytPlayer && ytPlayer.setVolume) {
      ytPlayer.setVolume(Math.round(newVol * 100));
   }
+  audioPlayer.volume = newVol;
   
   volumeBar.style.width = `${newVol * 100}%`;
   localStorage.setItem('playerVolume', newVol);
