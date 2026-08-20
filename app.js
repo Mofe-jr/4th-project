@@ -1922,10 +1922,11 @@ function loadTrack(index) {
   // Track Favorite State
   let favs = JSON.parse(localStorage.getItem('favs') || '[]');
   const isFav = favs.includes(track.id);
-  btnFav.classList.toggle('text-brand', isFav);
-  const icon = btnFav.querySelector('i');
-  if (isFav) icon.classList.add('fill-brand');
-  else icon.classList.remove('fill-brand');
+  if (btnFav) {
+    btnFav.classList.toggle('text-brand', isFav);
+    const icon = btnFav.querySelector('i');
+    if (icon) icon.classList.toggle('fill-brand', isFav);
+  }
   
   timeTotalEl.innerText = formatTime(track.duration);
   progressBar.style.width = '0%';
@@ -2017,28 +2018,29 @@ btnPlay.addEventListener('click', () => togglePlay());
 btnNext.addEventListener('click', playNext);
 btnPrev.addEventListener('click', playPrev);
 
-btnFav.addEventListener('click', async () => {
-  const currentTrackId = queue[currentTrackIndex].id;
-  btnFav.classList.toggle('text-brand');
-  const isNowFav = btnFav.classList.contains('text-brand');
-  const icon = btnFav.querySelector('i');
-  
-  if (isNowFav) {
-    icon.classList.add('fill-brand');
-    let favs = JSON.parse(localStorage.getItem('favs') || '[]');
-    if (!favs.includes(currentTrackId)) favs.push(currentTrackId);
-    localStorage.setItem('favs', JSON.stringify(favs));
+if (btnFav) {
+  btnFav.addEventListener('click', async () => {
+    const currentTrackId = queue[currentTrackIndex].id;
+    btnFav.classList.toggle('text-brand');
+    const isNowFav = btnFav.classList.contains('text-brand');
+    const icon = btnFav.querySelector('i');
+    if (icon) icon.classList.toggle('fill-brand', isNowFav);
     
-    if (supabaseClient) supabaseClient.from('favorites').insert([{ device_id: deviceId, song_id: currentTrackId }]).catch(()=>{});
-  } else {
-    icon.classList.remove('fill-brand');
-    let favs = JSON.parse(localStorage.getItem('favs') || '[]');
-    favs = favs.filter(id => id !== currentTrackId);
-    localStorage.setItem('favs', JSON.stringify(favs));
-    
-    if (supabaseClient) supabaseClient.from('favorites').delete().match({ device_id: deviceId, song_id: currentTrackId }).catch(()=>{});
-  }
-});
+    if (isNowFav) {
+      let favs = JSON.parse(localStorage.getItem('favs') || '[]');
+      if (!favs.includes(currentTrackId)) favs.push(currentTrackId);
+      localStorage.setItem('favs', JSON.stringify(favs));
+      
+      if (supabaseClient) supabaseClient.from('favorites').insert([{ device_id: deviceId, song_id: currentTrackId }]).catch(()=>{});
+    } else {
+      let favs = JSON.parse(localStorage.getItem('favs') || '[]');
+      favs = favs.filter(id => id !== currentTrackId);
+      localStorage.setItem('favs', JSON.stringify(favs));
+      
+      if (supabaseClient) supabaseClient.from('favorites').delete().match({ device_id: deviceId, song_id: currentTrackId }).catch(()=>{});
+    }
+  });
+}
 
 btnRepeat.addEventListener('click', () => {
   isRepeat = !isRepeat;
