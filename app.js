@@ -1,7 +1,7 @@
 // Supabase Configuration
 const SUPABASE_URL = 'YOUR_SUPABASE_URL'; // <-- INSERT YOUR URL HERE
 const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY'; // <-- INSERT YOUR KEY HERE
-const supabase = (window.supabase && SUPABASE_URL !== 'YOUR_SUPABASE_URL') 
+const supabaseClient = (window.supabase && SUPABASE_URL !== 'YOUR_SUPABASE_URL')
   ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) 
   : null;
 
@@ -1354,9 +1354,9 @@ function syncUI() {
 // Initialization
 // -------------------------------------------------------------
 async function init() {
-  if (supabase) {
+  if (supabaseClient) {
     try {
-      const { data: dbQueue } = await supabase.from('queue').select('*');
+      const { data: dbQueue } = await supabaseClient.from('queue').select('*');
       if (dbQueue && dbQueue.length > 0) {
         queue = dbQueue;
       }
@@ -2029,14 +2029,14 @@ btnFav.addEventListener('click', async () => {
     if (!favs.includes(currentTrackId)) favs.push(currentTrackId);
     localStorage.setItem('favs', JSON.stringify(favs));
     
-    if (supabase) supabase.from('favorites').insert([{ device_id: deviceId, song_id: currentTrackId }]).catch(()=>{});
+    if (supabaseClient) supabaseClient.from('favorites').insert([{ device_id: deviceId, song_id: currentTrackId }]).catch(()=>{});
   } else {
     icon.classList.remove('fill-brand');
     let favs = JSON.parse(localStorage.getItem('favs') || '[]');
     favs = favs.filter(id => id !== currentTrackId);
     localStorage.setItem('favs', JSON.stringify(favs));
     
-    if (supabase) supabase.from('favorites').delete().match({ device_id: deviceId, song_id: currentTrackId }).catch(()=>{});
+    if (supabaseClient) supabaseClient.from('favorites').delete().match({ device_id: deviceId, song_id: currentTrackId }).catch(()=>{});
   }
 });
 
