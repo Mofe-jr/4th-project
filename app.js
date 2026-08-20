@@ -1144,6 +1144,7 @@ const fallbackAudioByCategory = {
 
 allSongs.forEach(song => {
   song.fallbackAudioSrc = song.audioSrc || fallbackAudioByCategory[song.category] || "music/Gospel/Hillsong/Hillsong - Worship.mp3";
+  song.audioSrc = song.audioSrc || song.fallbackAudioSrc;
 });
 
 // Active queue initialized with all songs
