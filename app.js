@@ -227,6 +227,7 @@ Object.assign(categoryMetadata, {
 });
 categoryMetadata["Ragtime"] = { ...categoryMetadata["Jazz"], name: "Ragtime", shortName: "Ragtime", badge: "PUBLIC DOMAIN", tagline: "Classic piano ragtime", description: "Openly licensed piano ragtime recordings.", songsCount: 2, folder: "music/Public_Domain/Ragtime/Scott_Joplin" };
 categoryMetadata["Classical"] = { ...categoryMetadata["Jazz"], name: "Classical", shortName: "Classical", badge: "PUBLIC DOMAIN", tagline: "Classical essentials", description: "Public-domain classical recordings.", songsCount: 1, folder: "music/Public_Domain/Classical/Ludwig_van_Beethoven" };
+categoryMetadata["Hillsong"] = { ...categoryMetadata["Hillsong Worship"], name: "Hillsong", shortName: "Hillsong", badge: "WORSHIP", tagline: "Worship recordings", description: "Worship recordings stored in the Hillsong collection.", songsCount: 1, folder: "music/Gospel/Hillsong" };
 
 // -------------------------------------------------------------
 // Comprehensive Song Catalog (70 Songs)
@@ -237,11 +238,12 @@ const allSongs = [
   { id: 3, title: "Let There Be Light", artist: "Hillsong Worship", album: "Let There Be Light", category: "Hillsong Worship", folder: "music/Gospel/Hillsong_Worship", duration: 0, img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Hillsong_Worship/Let There Be Light.mp3" },
   { id: 4, title: "Hosanna (Live)", artist: "Paul Baloche", album: "iWorship 24:7", category: "Paul Baloche", folder: "music/Gospel/Paul_Baloche", duration: 0, img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Paul_Baloche/Hosanna (Live).mp3" },
   { id: 5, title: "Olowogbogboro", artist: "Nathaniel Bassey feat. Wale Adenuga", album: "Olowogbogboro", category: "Nathaniel Bassey", folder: "music/Gospel/Nathaniel_Bassey", duration: 0, img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro (feat. Wale Adenuga).mp3" },
-  { id: 6, title: "Black Bottom Stomp", artist: "Jelly Roll Morton", album: "Black Bottom Stomp", category: "Jazz", folder: "music/Jazz", duration: 0, img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Jazz/Jelly Roll Morton Black Bottom Stomp.mp3" },
+  { id: 6, title: "Black Bottom Stomp", artist: "The Red Heads", album: "Pathé Actuelle 11289", category: "Jazz", folder: "music/Jazz/The_Red_Heads", duration: 138, img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Jazz/The_Red_Heads/Black Bottom Stomp.mp3" },
   { id: 7, title: "Memphis Blues", artist: "W. C. Handy", album: "Memphis Blues", category: "Blues", folder: "music/Blues", duration: 0, img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Blues/Memphis Blues.mp3" },
   { id: 8, title: "The Entertainer", artist: "Scott Joplin · performed by I.E.", album: "Public-Domain Recording", category: "Ragtime", folder: "music/Public_Domain/Ragtime/Scott_Joplin", duration: 234, img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Public_Domain/Ragtime/Scott_Joplin/The Entertainer.ogg" },
   { id: 9, title: "Maple Leaf Rag", artist: "Scott Joplin · performed by William J. Leslie", album: "Public-Domain Composition", category: "Ragtime", folder: "music/Public_Domain/Ragtime/Scott_Joplin", duration: 194, img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Public_Domain/Ragtime/Scott_Joplin/Maple Leaf Rag.ogg" },
-  { id: 10, title: "Ode to Joy", artist: "Ludwig van Beethoven", album: "Symphony No. 9", category: "Classical", folder: "music/Public_Domain/Classical/Ludwig_van_Beethoven", duration: 39, img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Public_Domain/Classical/Ludwig_van_Beethoven/Ode to Joy.ogg" }
+  { id: 10, title: "Ode to Joy", artist: "Ludwig van Beethoven", album: "Symphony No. 9", category: "Classical", folder: "music/Public_Domain/Classical/Ludwig_van_Beethoven", duration: 39, img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Public_Domain/Classical/Ludwig_van_Beethoven/Ode to Joy.ogg" },
+  { id: 11, title: "Sound Trip na Yah!!!!!", artist: "Hillsong", album: "Hillsong Collection", category: "Hillsong", folder: "music/Gospel/Hillsong", duration: 122, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3" }
 ];
 
 /* Legacy placeholder catalogue retained for reference only.
@@ -1215,15 +1217,18 @@ const artistsData = [
 
 playlistsData.push(
   { name: "Scott Joplin Ragtime", category: "Ragtime", count: 2 },
-  { name: "Beethoven Classical", category: "Classical", count: 1 }
+  { name: "Beethoven Classical", category: "Classical", count: 1 },
+  { name: "Hillsong Collection", category: "Hillsong", count: 1 }
 );
 foldersData.push(
   { name: "music/Public_Domain/Ragtime/Scott_Joplin", label: "Scott Joplin Ragtime (2 songs)", filter: "Ragtime" },
-  { name: "music/Public_Domain/Classical/Ludwig_van_Beethoven", label: "Beethoven Classical (1 song)", filter: "Classical" }
+  { name: "music/Public_Domain/Classical/Ludwig_van_Beethoven", label: "Beethoven Classical (1 song)", filter: "Classical" },
+  { name: "music/Gospel/Hillsong", label: "Hillsong Collection (1 song)", filter: "Hillsong" }
 );
 artistsData.push(
   { name: "Scott Joplin", songs: 2, img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=150&q=80" },
-  { name: "Ludwig van Beethoven", songs: 1, img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=150&q=80" }
+  { name: "Ludwig van Beethoven", songs: 1, img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=150&q=80" },
+  { name: "Hillsong", songs: 1, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=150&q=80" }
 );
 
 /* Legacy playlist, folder, and artist data retained for reference only.
