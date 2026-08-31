@@ -1,33 +1,62 @@
-/* Custom scrollbar to match the slick design */
+/* StreamHub Master Styles & Mobile Responsiveness */
+
+/* Custom scrollbars */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   background-color: transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 9999px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
 }
 
-.custom-scrollbar:hover::-webkit-scrollbar-thumb,
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.35);
 }
 
-/* Ensure body doesn't bounce/scroll */
+/* Hide scrollbar on category chips and horizontal touch strips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Ensure smooth touch scrolling and prevent body bounce */
 html, body {
   overscroll-behavior: none;
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
 }
 
 /* Typography Headings */
 h1, h2, h3, h4, .font-outfit {
   font-family: 'Outfit', sans-serif;
+}
+
+/* Animations & Glass Effects */
+.glass-panel {
+  background: rgba(18, 18, 18, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Hero Section Gradients & Glass Effects */
@@ -49,25 +78,36 @@ h1, h2, h3, h4, .font-outfit {
 }
 
 .category-card-hover {
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 }
 
 .category-card-hover:hover {
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-3px) scale(1.02);
 }
 
-/* Homepage visual anchor */
+.category-card-hover:active {
+  transform: scale(0.98);
+}
+
+/* Homepage visual hero anchor */
 .home-hero {
   position: relative;
-  min-height: 275px;
+  min-height: 240px;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
   isolation: isolate;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 1.5rem;
+  border-radius: 1.25rem;
   background: #251242;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 640px) {
+  .home-hero {
+    min-height: 280px;
+    border-radius: 1.5rem;
+  }
 }
 
 .home-hero-image {
@@ -84,22 +124,28 @@ h1, h2, h3, h4, .font-outfit {
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: linear-gradient(90deg, rgba(18, 8, 39, 0.96) 0%, rgba(26, 12, 55, 0.75) 43%, rgba(14, 8, 25, 0.16) 100%), linear-gradient(0deg, rgba(18, 18, 18, 0.52), transparent 58%);
+  background: linear-gradient(90deg, rgba(18, 8, 39, 0.96) 0%, rgba(26, 12, 55, 0.78) 45%, rgba(14, 8, 25, 0.2) 100%), linear-gradient(0deg, rgba(18, 18, 18, 0.6), transparent 60%);
 }
 
 .home-hero-content {
-  padding: 2rem;
+  padding: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .home-hero-content {
+    padding: 2rem;
+  }
 }
 
 .home-hero-kicker {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  margin-bottom: 0.75rem;
-  padding: 0.38rem 0.7rem;
+  margin-bottom: 0.6rem;
+  padding: 0.3rem 0.65rem;
   border: 1px solid rgba(216, 180, 254, 0.35);
   border-radius: 9999px;
-  background: rgba(24, 13, 48, 0.52);
+  background: rgba(24, 13, 48, 0.6);
   color: #e9d5ff;
   font-size: 0.62rem;
   font-weight: 800;
@@ -111,19 +157,29 @@ h1, h2, h3, h4, .font-outfit {
   align-items: center;
   gap: 0.45rem;
   border-radius: 9999px;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
   transition: transform 180ms ease, background-color 180ms ease;
 }
 
 .home-hero-play {
-  padding: 0.7rem 1rem;
+  padding: 0.65rem 1.1rem;
   background: #fff;
   color: #1d1037;
 }
 
-.home-hero-link { color: #fff; padding: 0.7rem 0.25rem; }
-.home-hero-play:hover, .home-hero-link:hover { transform: translateY(-2px); }
+.home-hero-link {
+  color: #fff;
+  padding: 0.65rem 0.5rem;
+}
+
+.home-hero-play:hover, .home-hero-link:hover {
+  transform: translateY(-2px);
+}
+
+.home-hero-play:active, .home-hero-link:active {
+  transform: scale(0.96);
+}
 
 .home-hero-stat {
   position: absolute;
@@ -136,24 +192,21 @@ h1, h2, h3, h4, .font-outfit {
   padding: 0.85rem 1rem;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 0.9rem;
-  background: rgba(10, 8, 18, 0.48);
+  background: rgba(10, 8, 18, 0.6);
   backdrop-filter: blur(12px);
 }
 
 @media (max-width: 640px) {
-  .home-hero { min-height: 315px; }
-  .home-hero-content { padding: 1.5rem; }
   .home-hero-stat { display: none; }
-  .home-hero-image { object-position: 64% center; }
 }
 
-/* Smooth Image Transitions */
+/* Smooth transitions */
 img {
   will-change: transform;
   transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
-/* Equalizer Bars Animation for Playing Item */
+/* Equalizer Bars Animation for Playing Track */
 .playing-equalizer {
   display: flex;
   align-items: flex-end;
@@ -178,28 +231,45 @@ img {
   100% { height: 100%; }
 }
 
-/* Gradient Fade Mask for Lyrics text so it doesn't clip harshly */
-#lyrics-content {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+/* Gradient Fade Mask for Lyrics text */
+#lyrics-content, #mobile-lyrics-content {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%);
 }
 
-/* Glassmorphism utility */
-.glass-panel {
-  background: rgba(18, 18, 18, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Mobile Player Sheet & Modal transitions */
+#mobile-player-sheet {
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.3s ease;
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+#mobile-player-sheet.sheet-open {
+  transform: translateY(0%);
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.glass-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
+#mobile-player-sheet.sheet-closed {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Pulse animation for synth / playback live indicator */
+@keyframes audioPulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+.audio-pulse {
+  animation: audioPulse 2.5s infinite ease-in-out;
+}
+
+/* Touch feedback helper */
+.touch-press:active {
+  transform: scale(0.95);
+}
+
+/* Safe area insets for iOS notch / Home bar */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
