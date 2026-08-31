@@ -214,10 +214,32 @@ const categoryMetadata = {
   }
 };
 
+// Only expose artists and tracks that are present in the repository.  The
+// previous catalogue listed 70 songs, but most pointed at unrelated audio.
+for (const category of Object.keys(categoryMetadata)) delete categoryMetadata[category];
+Object.assign(categoryMetadata, {
+  "Hillsong United": { name: "Hillsong United", shortName: "Hillsong United", badge: "WORSHIP", tagline: "Contemporary worship", description: "Contemporary worship from Hillsong United.", heroImg: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1600&q=80", avatarImg: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=300&q=80", accentColor: "#8b5cf6", gradient: "from-purple-900/90 via-indigo-950/70 to-[#121212]", listeners: "", songsCount: 1, folder: "music/Gospel/Hillsong_United" },
+  "Hillsong Worship": { name: "Hillsong Worship", shortName: "Hillsong Worship", badge: "WORSHIP", tagline: "Live worship recordings", description: "Live worship recordings by Hillsong Worship.", heroImg: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1600&q=80", avatarImg: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=300&q=80", accentColor: "#8b5cf6", gradient: "from-purple-900/90 via-indigo-950/70 to-[#121212]", listeners: "", songsCount: 2, folder: "music/Gospel/Hillsong_Worship" },
+  "Paul Baloche": { name: "Paul Baloche", shortName: "Paul Baloche", badge: "WORSHIP", tagline: "Contemporary worship", description: "Contemporary worship by Paul Baloche.", heroImg: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1600&q=80", avatarImg: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=300&q=80", accentColor: "#ec4899", gradient: "from-pink-950/90 via-rose-950/70 to-[#121212]", listeners: "", songsCount: 1, folder: "music/Gospel/Paul_Baloche" },
+  "Nathaniel Bassey": { name: "Nathaniel Bassey", shortName: "Nathaniel Bassey", badge: "GOSPEL", tagline: "Nigerian gospel worship", description: "Gospel worship by Nathaniel Bassey.", heroImg: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=1600&q=80", avatarImg: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80", accentColor: "#3b82f6", gradient: "from-blue-950/90 via-indigo-950/70 to-[#121212]", listeners: "", songsCount: 1, folder: "music/Gospel/Nathaniel_Bassey" },
+  "Jazz": { name: "Jazz", shortName: "Jazz", badge: "JAZZ", tagline: "Early jazz classics", description: "Early jazz classics.", heroImg: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=1600&q=80", avatarImg: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=300&q=80", accentColor: "#d97706", gradient: "from-amber-950/90 via-yellow-950/70 to-[#121212]", listeners: "", songsCount: 1, folder: "music/Jazz" },
+  "Blues": { name: "Blues", shortName: "Blues", badge: "BLUES", tagline: "Blues classics", description: "Blues classics.", heroImg: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1600&q=80", avatarImg: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=300&q=80", accentColor: "#b45309", gradient: "from-amber-950/90 via-orange-950/70 to-[#121212]", listeners: "", songsCount: 1, folder: "music/Blues" }
+});
+
 // -------------------------------------------------------------
 // Comprehensive Song Catalog (70 Songs)
 // -------------------------------------------------------------
 const allSongs = [
+  { id: 1, title: "So Will I (100 Billion X)", artist: "Hillsong United", album: "Wonder", category: "Hillsong United", folder: "music/Gospel/Hillsong_United", duration: 0, img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Hillsong_United/So Will I (100 Billion X).mp3" },
+  { id: 2, title: "Hosanna (Live)", artist: "Hillsong Worship", album: "Saviour King (Live)", category: "Hillsong Worship", folder: "music/Gospel/Hillsong_Worship", duration: 0, img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Hillsong_Worship/Hosanna (Live).mp3" },
+  { id: 3, title: "Let There Be Light", artist: "Hillsong Worship", album: "Let There Be Light", category: "Hillsong Worship", folder: "music/Gospel/Hillsong_Worship", duration: 0, img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Hillsong_Worship/Let There Be Light.mp3" },
+  { id: 4, title: "Hosanna (Live)", artist: "Paul Baloche", album: "iWorship 24:7", category: "Paul Baloche", folder: "music/Gospel/Paul_Baloche", duration: 0, img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Paul_Baloche/Hosanna (Live).mp3" },
+  { id: 5, title: "Olowogbogboro", artist: "Nathaniel Bassey", album: "Olowogbogboro", category: "Nathaniel Bassey", folder: "music/Gospel/Nathaniel_Bassey", duration: 0, img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro Praise.mp3" },
+  { id: 6, title: "Black Bottom Stomp", artist: "Jelly Roll Morton", album: "Black Bottom Stomp", category: "Jazz", folder: "music/Jazz", duration: 0, img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Jazz/Jelly Roll Morton Black Bottom Stomp.mp3" },
+  { id: 7, title: "Memphis Blues", artist: "W. C. Handy", album: "Memphis Blues", category: "Blues", folder: "music/Blues", duration: 0, img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Blues/Memphis Blues.mp3" }
+];
+
+/* Legacy placeholder catalogue retained for reference only.
   // 1. Hillsong United
   {
     id: 1,
@@ -1156,8 +1178,37 @@ const allSongs = [
     lyrics: "Deep neo-soul chord progressions and comforting spiritual lyrics."
   }
 ];
+*/
 
 // Playlists metadata
+const playlistsData = [
+  { name: "Hillsong United", category: "Hillsong United", count: 1 },
+  { name: "Hillsong Worship", category: "Hillsong Worship", count: 2 },
+  { name: "Paul Baloche", category: "Paul Baloche", count: 1 },
+  { name: "Nathaniel Bassey", category: "Nathaniel Bassey", count: 1 },
+  { name: "Jazz Classics", category: "Jazz", count: 1 },
+  { name: "Blues Classics", category: "Blues", count: 1 }
+];
+
+const foldersData = [
+  { name: "music/Gospel/Hillsong_United", label: "Hillsong United (1 song)", filter: "Hillsong United" },
+  { name: "music/Gospel/Hillsong_Worship", label: "Hillsong Worship (2 songs)", filter: "Hillsong Worship" },
+  { name: "music/Gospel/Paul_Baloche", label: "Paul Baloche (1 song)", filter: "Paul Baloche" },
+  { name: "music/Gospel/Nathaniel_Bassey", label: "Nathaniel Bassey (1 song)", filter: "Nathaniel Bassey" },
+  { name: "music/Jazz", label: "Jazz (1 song)", filter: "Jazz" },
+  { name: "music/Blues", label: "Blues (1 song)", filter: "Blues" }
+];
+
+const artistsData = [
+  { name: "Hillsong United", songs: 1, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=150&q=80" },
+  { name: "Hillsong Worship", songs: 2, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=150&q=80" },
+  { name: "Paul Baloche", songs: 1, img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=150&q=80" },
+  { name: "Nathaniel Bassey", songs: 1, img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" },
+  { name: "Jelly Roll Morton", songs: 1, img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=150&q=80" },
+  { name: "W. C. Handy", songs: 1, img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=150&q=80" }
+];
+
+/* Legacy playlist, folder, and artist data retained for reference only.
 const playlistsData = [
   { name: "Hillsong United & Worship", category: "Hillsong United", count: 5 },
   { name: "Tasha Cobbs Anointed Anthems", category: "Tasha Cobbs", count: 5 },
@@ -1211,16 +1262,17 @@ const artistsData = [
   { name: "RnB Worship", songs: 5, img: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=150&q=80" }
 ];
 
+*/
+
 // Top Featured Grid Albums
 const featuredAlbums = [
-  { id: 1, title: "Oceans (Where Feet May Fail)", artist: "Hillsong United", img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=300&q=80" },
-  { id: 6, title: "Break Every Chain", artist: "Tasha Cobbs", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=300&q=80" },
-  { id: 11, title: "Graves Into Gardens", artist: "Elevation Worship", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=300&q=80" },
-  { id: 16, title: "My Worship", artist: "Phil Thompson", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=300&q=80" },
-  { id: 21, title: "Made A Way", artist: "Travis Greene", img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=300&q=80" },
-  { id: 26, title: "Goodness of God", artist: "CeCe Winans", img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=300&q=80" },
-  { id: 31, title: "Yahweh Sabaoth", artist: "Nathaniel Bassey", img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=300&q=80" },
-  { id: 36, title: "Way Maker", artist: "Sinach", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=300&q=80" }
+  { id: 1, title: "So Will I (100 Billion X)", artist: "Hillsong United", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=300&q=80" },
+  { id: 2, title: "Hosanna (Live)", artist: "Hillsong Worship", img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=300&q=80" },
+  { id: 3, title: "Let There Be Light", artist: "Hillsong Worship", img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=300&q=80" },
+  { id: 4, title: "Hosanna (Live)", artist: "Paul Baloche", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=300&q=80" },
+  { id: 5, title: "Olowogbogboro", artist: "Nathaniel Bassey", img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=300&q=80" },
+  { id: 6, title: "Black Bottom Stomp", artist: "Jelly Roll Morton", img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=300&q=80" },
+  { id: 7, title: "Memphis Blues", artist: "W. C. Handy", img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=300&q=80" }
 ];
 
 // -------------------------------------------------------------
@@ -1588,7 +1640,7 @@ function loadTrack(index) {
   clearInterval(synthTimer);
   synthPlayer.pause();
   
-  const srcToLoad = track.audioSrc || track.fallbackAudioSrc || "music/Gospel/Hillsong/Hillsong United - So Will I.mp3";
+  const srcToLoad = track.audioSrc || track.fallbackAudioSrc || "music/Gospel/Hillsong_United/So Will I (100 Billion X).mp3";
   audioPlayer.pause();
   audioPlayer.src = encodeURI(srcToLoad);
   audioPlayer.load();
@@ -2288,7 +2340,7 @@ function setupLocalFileImport() {
       duration: 200,
       img: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80',
       audioSrc: URL.createObjectURL(file),
-      fallbackAudioSrc: 'music/Gospel/Hillsong/Hillsong United - So Will I.mp3',
+      fallbackAudioSrc: 'music/Gospel/Hillsong_United/So Will I (100 Billion X).mp3',
       lyrics: 'Imported from your device storage.'
     }));
 
