@@ -225,6 +225,8 @@ Object.assign(categoryMetadata, {
   "Jazz": { name: "Jazz", shortName: "Jazz", badge: "JAZZ", tagline: "Early jazz classics", description: "Early jazz classics.", heroImg: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=1600&q=80", avatarImg: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=300&q=80", accentColor: "#d97706", gradient: "from-amber-950/90 via-yellow-950/70 to-[#121212]", listeners: "", songsCount: 1, folder: "music/Jazz" },
   "Blues": { name: "Blues", shortName: "Blues", badge: "BLUES", tagline: "Blues classics", description: "Blues classics.", heroImg: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1600&q=80", avatarImg: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=300&q=80", accentColor: "#b45309", gradient: "from-amber-950/90 via-orange-950/70 to-[#121212]", listeners: "", songsCount: 1, folder: "music/Blues" }
 });
+categoryMetadata["Ragtime"] = { ...categoryMetadata["Jazz"], name: "Ragtime", shortName: "Ragtime", badge: "PUBLIC DOMAIN", tagline: "Classic piano ragtime", description: "Openly licensed piano ragtime recordings.", songsCount: 2, folder: "music/Public_Domain/Ragtime/Scott_Joplin" };
+categoryMetadata["Classical"] = { ...categoryMetadata["Jazz"], name: "Classical", shortName: "Classical", badge: "PUBLIC DOMAIN", tagline: "Classical essentials", description: "Public-domain classical recordings.", songsCount: 1, folder: "music/Public_Domain/Classical/Ludwig_van_Beethoven" };
 
 // -------------------------------------------------------------
 // Comprehensive Song Catalog (70 Songs)
@@ -236,7 +238,10 @@ const allSongs = [
   { id: 4, title: "Hosanna (Live)", artist: "Paul Baloche", album: "iWorship 24:7", category: "Paul Baloche", folder: "music/Gospel/Paul_Baloche", duration: 0, img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Paul_Baloche/Hosanna (Live).mp3" },
   { id: 5, title: "Olowogbogboro", artist: "Nathaniel Bassey feat. Wale Adenuga", album: "Olowogbogboro", category: "Nathaniel Bassey", folder: "music/Gospel/Nathaniel_Bassey", duration: 0, img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro (feat. Wale Adenuga).mp3" },
   { id: 6, title: "Black Bottom Stomp", artist: "Jelly Roll Morton", album: "Black Bottom Stomp", category: "Jazz", folder: "music/Jazz", duration: 0, img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Jazz/Jelly Roll Morton Black Bottom Stomp.mp3" },
-  { id: 7, title: "Memphis Blues", artist: "W. C. Handy", album: "Memphis Blues", category: "Blues", folder: "music/Blues", duration: 0, img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Blues/Memphis Blues.mp3" }
+  { id: 7, title: "Memphis Blues", artist: "W. C. Handy", album: "Memphis Blues", category: "Blues", folder: "music/Blues", duration: 0, img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Blues/Memphis Blues.mp3" },
+  { id: 8, title: "The Entertainer", artist: "Scott Joplin · performed by I.E.", album: "Public-Domain Recording", category: "Ragtime", folder: "music/Public_Domain/Ragtime/Scott_Joplin", duration: 234, img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Public_Domain/Ragtime/Scott_Joplin/The Entertainer.ogg" },
+  { id: 9, title: "Maple Leaf Rag", artist: "Scott Joplin · performed by William J. Leslie", album: "Public-Domain Composition", category: "Ragtime", folder: "music/Public_Domain/Ragtime/Scott_Joplin", duration: 194, img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Public_Domain/Ragtime/Scott_Joplin/Maple Leaf Rag.ogg" },
+  { id: 10, title: "Ode to Joy", artist: "Ludwig van Beethoven", album: "Symphony No. 9", category: "Classical", folder: "music/Public_Domain/Classical/Ludwig_van_Beethoven", duration: 39, img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Public_Domain/Classical/Ludwig_van_Beethoven/Ode to Joy.ogg" }
 ];
 
 /* Legacy placeholder catalogue retained for reference only.
@@ -1207,6 +1212,19 @@ const artistsData = [
   { name: "Jelly Roll Morton", songs: 1, img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=150&q=80" },
   { name: "W. C. Handy", songs: 1, img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=150&q=80" }
 ];
+
+playlistsData.push(
+  { name: "Scott Joplin Ragtime", category: "Ragtime", count: 2 },
+  { name: "Beethoven Classical", category: "Classical", count: 1 }
+);
+foldersData.push(
+  { name: "music/Public_Domain/Ragtime/Scott_Joplin", label: "Scott Joplin Ragtime (2 songs)", filter: "Ragtime" },
+  { name: "music/Public_Domain/Classical/Ludwig_van_Beethoven", label: "Beethoven Classical (1 song)", filter: "Classical" }
+);
+artistsData.push(
+  { name: "Scott Joplin", songs: 2, img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=150&q=80" },
+  { name: "Ludwig van Beethoven", songs: 1, img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=150&q=80" }
+);
 
 /* Legacy playlist, folder, and artist data retained for reference only.
 const playlistsData = [
