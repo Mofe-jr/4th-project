@@ -630,7 +630,7 @@ const allSongs = [
     folder: "music/Gospel/Nathaniel_Bassey",
     duration: 326,
     img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro Praise.mp3",
+    audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
     fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
     lyrics: "The Lord of Hosts is with us, Yahweh Sabaoth!<br/>High praise and blessings to the Most High!"
   },
@@ -638,12 +638,12 @@ const allSongs = [
     id: 32,
     title: "Olowogbogboro",
     artist: "Nathaniel Bassey",
-    album: "Jesus: The Resurrection",
+    album: "Jesus: The Resurrection & The Life",
     category: "Nathaniel Bassey",
     folder: "music/Gospel/Nathaniel_Bassey",
     duration: 370,
     img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro Praise.mp3",
+    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
     fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
     lyrics: "Olowogbogboro is turning things around for my good!<br/>The outstretched arm of God is working for me!"
   },
@@ -656,8 +656,8 @@ const allSongs = [
     folder: "music/Gospel/Nathaniel_Bassey",
     duration: 410,
     img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro Praise.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
+    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
+    fallbackAudioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
     lyrics: "See how far He brought us, see what God has done<br/>Tobechukwu, praise the Lord for His loving kindness!"
   },
   {
@@ -669,8 +669,8 @@ const allSongs = [
     folder: "music/Gospel/Nathaniel_Bassey",
     duration: 385,
     img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro Praise.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
+    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
+    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
     lyrics: "Onise Iyanu, You are the God of awesome wonders<br/>I've tasted of Your power!"
   },
   {
@@ -682,8 +682,8 @@ const allSongs = [
     folder: "music/Gospel/Nathaniel_Bassey",
     duration: 340,
     img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro Praise.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
+    audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
+    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
     lyrics: "Prepare the way of the Lord<br/>The King of glory is on the way!"
   },
 
@@ -697,8 +697,8 @@ const allSongs = [
     folder: "music/Gospel/Sinach",
     duration: 312,
     img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Sinach/Way Maker Devotion.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
+    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
+    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
     lyrics: "Way Maker, Miracle Worker, Promise Keeper<br/>Light in the darkness, my God, that is who You are!"
   },
   {
@@ -710,8 +710,8 @@ const allSongs = [
     folder: "music/Gospel/Sinach",
     duration: 320,
     img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Sinach/Way Maker Devotion.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
+    audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
+    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
     lyrics: "We are a chosen generation<br/>Called forth to show His excellence<br/>I know who I am!"
   },
   {
@@ -723,8 +723,8 @@ const allSongs = [
     folder: "music/Gospel/Sinach",
     duration: 360,
     img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Sinach/Way Maker Devotion.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
+    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
+    fallbackAudioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
     lyrics: "Holy are You Lord, all creation calls You God<br/>Great are You Lord!"
   },
   {
@@ -736,8 +736,8 @@ const allSongs = [
     folder: "music/Gospel/Sinach",
     duration: 290,
     img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Sinach/Way Maker Devotion.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
+    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
+    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
     lyrics: "I testify that God is good, He did it again!"
   },
   {
@@ -749,8 +749,8 @@ const allSongs = [
     folder: "music/Gospel/Sinach",
     duration: 315,
     img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Sinach/Way Maker Devotion.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
+    audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
+    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
     lyrics: "There is an overflow of blessings, overflow of grace!"
   },
 
@@ -764,8 +764,8 @@ const allSongs = [
     folder: "music/Gospel/Mercy_Chinwo",
     duration: 345,
     img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro Praise.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
+    audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
+    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
     lyrics: "Jesus, You love me too much o<br/>Too much o, excess love o!"
   },
   {
@@ -777,8 +777,8 @@ const allSongs = [
     folder: "music/Gospel/Mercy_Chinwo",
     duration: 260,
     img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro Praise.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
+    audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
+    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
     lyrics: "Chinedum, God is leading me<br/>Anywhere You lead, I will follow!"
   },
   {
@@ -790,8 +790,8 @@ const allSongs = [
     folder: "music/Gospel/Mercy_Chinwo",
     duration: 245,
     img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro Praise.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
+    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
+    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
     lyrics: "My heart is happy, Obinasom<br/>See the love that Jesus has given me!"
   },
   {
@@ -803,8 +803,8 @@ const allSongs = [
     folder: "music/Gospel/Mercy_Chinwo",
     duration: 320,
     img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro Praise.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
+    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
+    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
     lyrics: "Na You dey reign forevermore, King of Kings!"
   },
   {
@@ -816,8 +816,8 @@ const allSongs = [
     folder: "music/Gospel/Mercy_Chinwo",
     duration: 298,
     img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Nathaniel_Bassey/Olowogbogboro Praise.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
+    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
+    fallbackAudioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
     lyrics: "You are an amazing God, miracle worker, faithful friend!"
   },
 
@@ -1204,7 +1204,11 @@ const artistsData = [
   { name: "Nathaniel Bassey", songs: 5, img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" },
   { name: "Sinach", songs: 5, img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" },
   { name: "Mercy Chinwo", songs: 5, img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" },
-  { name: "Don Moen", songs: 5, img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80" }
+  { name: "Don Moen", songs: 5, img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80" },
+  { name: "Gospel Jazz", songs: 5, img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=150&q=80" },
+  { name: "Blues Devotional", songs: 5, img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=150&q=80" },
+  { name: "Classical Worship", songs: 5, img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=150&q=80" },
+  { name: "RnB Worship", songs: 5, img: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=150&q=80" }
 ];
 
 // Top Featured Grid Albums
