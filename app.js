@@ -13,13 +13,153 @@ if (!deviceId) {
 }
 
 // -------------------------------------------------------------
-// Category Metadata & Strong Hero Visuals
+// Category Metadata & Hero Visuals
 // -------------------------------------------------------------
 const categoryMetadata = {
+  "Trending Online": {
+    name: "Audius Global Trending",
+    shortName: "Trending Online",
+    badge: "LIVE CLOUD STREAM",
+    tagline: "Top Viral Tracks & Anthems Across the Open Audius Network",
+    description: "Stream the most popular live tracks, indie artists, and trending releases updated continuously in real-time.",
+    heroImg: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#06b6d4",
+    gradient: "from-cyan-950/90 via-blue-950/70 to-[#121212]",
+    listeners: "Global Live Stream",
+    songsCount: 15,
+    isOnline: true
+  },
+  "Gospel Stream": {
+    name: "Gospel & Worship Cloud Stream",
+    shortName: "Gospel Stream",
+    badge: "CLOUD WORSHIP",
+    tagline: "Inspiring Devotional Melodies & Global Christian Praise",
+    description: "Live gospel, choir vocals, acoustic reverence, and prayerful worship streamed directly from independent artists.",
+    heroImg: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#8b5cf6",
+    gradient: "from-purple-950/90 via-indigo-950/70 to-[#121212]",
+    listeners: "Curated Live Cloud",
+    songsCount: 12,
+    isOnline: true
+  },
+  "Ambient Stream": {
+    name: "Ambient & Peaceful Meditation",
+    shortName: "Ambient Stream",
+    badge: "PEACE & CHILL",
+    tagline: "Atmospheric Textures, Warm Pads & Deep Reflection",
+    description: "Gentle soundscapes designed for focus, prayer, reading, and deep restorative tranquility.",
+    heroImg: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#6366f1",
+    gradient: "from-indigo-950/90 via-slate-950/70 to-[#121212]",
+    listeners: "Calm Stream",
+    songsCount: 12,
+    isOnline: true
+  },
+  "Jazz Stream": {
+    name: "Jazz & Smooth Lounge Cloud",
+    shortName: "Jazz Stream",
+    badge: "JAZZ LOUNGE",
+    tagline: "Velvet Brass, Soulful Keys & Modern Jazz Improvisations",
+    description: "Relaxed grooves, sax solos, and syncopated harmony recordings from musicians worldwide.",
+    heroImg: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#d97706",
+    gradient: "from-amber-950/90 via-yellow-950/70 to-[#121212]",
+    listeners: "Lounge Stream",
+    songsCount: 12,
+    isOnline: true
+  },
+  "Classical Stream": {
+    name: "Classical Symphony Cloud",
+    shortName: "Classical Stream",
+    badge: "PHILHARMONIC",
+    tagline: "Grand Concertos, Lush Strings & Masterful Solos",
+    description: "Timeless orchestral masterpieces and new classical works recorded with concert hall acoustic depth.",
+    heroImg: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#3b82f6",
+    gradient: "from-blue-950/90 via-indigo-950/70 to-[#121212]",
+    listeners: "Philharmonic Stream",
+    songsCount: 12,
+    isOnline: true
+  },
+  "Lofi Stream": {
+    name: "Lo-Fi Study & Chill Cloud",
+    shortName: "Lo-Fi Chill",
+    badge: "CHILL & FOCUS",
+    tagline: "Dusty Vinyl, Warm Rhodes & Relaxing Beats",
+    description: "Cozy lo-fi hip hop, mellow keyboards, and gentle rhythm loops crafted for study, coding, and peaceful downtime.",
+    heroImg: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#10b981",
+    gradient: "from-emerald-950/90 via-teal-950/70 to-[#121212]",
+    listeners: "Study & Chill Stream",
+    songsCount: 12,
+    isOnline: true
+  },
+  "Acoustic Stream": {
+    name: "Acoustic Folk & Devotion",
+    shortName: "Acoustic & Folk",
+    badge: "RAW ACOUSTIC",
+    tagline: "Heartfelt Fingerpicking & Intimate Songwriting",
+    description: "Pure acoustic wooden guitars, subtle cello strings, and soulful organic vocals.",
+    heroImg: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#f97316",
+    gradient: "from-amber-950/90 via-orange-950/70 to-[#121212]",
+    listeners: "Acoustic Stream",
+    songsCount: 12,
+    isOnline: true
+  },
+  "RnB Stream": {
+    name: "Neo-Soul & RnB Sanctuary",
+    shortName: "Neo-Soul & R&B",
+    badge: "NEO-SOUL & RNB",
+    tagline: "Velvet Grooves, Lush Harmonies & Soulful Keys",
+    description: "Smooth contemporary R&B rhythms, rich chord changes, and comforting modern gospel soul.",
+    heroImg: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#ec4899",
+    gradient: "from-pink-950/90 via-purple-950/70 to-[#121212]",
+    listeners: "Neo-Soul Stream",
+    songsCount: 12,
+    isOnline: true
+  },
+  "Electronic Stream": {
+    name: "Melodic Electronic & Synthwave",
+    shortName: "Electronic & EDM",
+    badge: "SYNTHWAVE",
+    tagline: "Uplifting Arpeggiators, Dreamy Synths & Energy",
+    description: "Vibrant electronic soundscapes, atmospheric synthwave, and positive melodic energy.",
+    heroImg: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#06b6d4",
+    gradient: "from-cyan-950/90 via-indigo-950/70 to-[#121212]",
+    listeners: "Electronic Stream",
+    songsCount: 12,
+    isOnline: true
+  },
+  "Afrobeats Stream": {
+    name: "Afrobeats & African Praise",
+    shortName: "Afrobeats Praise",
+    badge: "AFRO GOSPEL",
+    tagline: "Joyous West African Grooves & High Energy Praise",
+    description: "Infectious celebratory rhythms, radiant brass, and joyous uplifting African gospel anthems.",
+    heroImg: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#eab308",
+    gradient: "from-yellow-950/90 via-amber-950/70 to-[#121212]",
+    listeners: "Afrobeats Stream",
+    songsCount: 12,
+    isOnline: true
+  },
   "Hillsong United": {
-    name: "Hillsong United & Worship",
+    name: "Hillsong United",
     shortName: "Hillsong United",
-    badge: "GLOBAL ANTHEM",
+    badge: "WORSHIP",
     tagline: "Atmospheric Arena Worship & Oceans of Faith",
     description: "Soaring guitars, heartfelt congregational devotion, and timeless anthems of faith that unite millions worldwide.",
     heroImg: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1600&q=80",
@@ -27,210 +167,111 @@ const categoryMetadata = {
     accentColor: "#8b5cf6",
     gradient: "from-purple-900/90 via-indigo-950/70 to-[#121212]",
     listeners: "3.4M monthly listeners",
-    songsCount: 5,
+    songsCount: 1,
     folder: "music/Gospel/Hillsong_United"
   },
-  "Tasha Cobbs": {
-    name: "Tasha Cobbs Leonard",
-    shortName: "Tasha Cobbs",
-    badge: "GRAMMY® WINNER",
-    tagline: "Powerhouse Gospel & Anointed Praise",
-    description: "High-impact gospel anthems that break every chain with transcendent vocal resonance and glorious choir arrangements.",
-    heroImg: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1600&q=80",
-    avatarImg: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=300&q=80",
-    accentColor: "#ec4899",
-    gradient: "from-pink-950/90 via-rose-950/70 to-[#121212]",
-    listeners: "2.1M monthly listeners",
-    songsCount: 5,
-    folder: "music/Gospel/Tasha_Cobbs"
-  },
-  "Elevation Worship": {
-    name: "Elevation Worship",
-    shortName: "Elevation Worship",
-    badge: "ARENA LIVE",
-    tagline: "Dynamic Stadium Praise & Faith Anthems",
-    description: "Electrifying live worship recordings, vibrant energetic declarations, and unforgettable melodies transforming graves into gardens.",
+  "Hillsong Worship": {
+    name: "Hillsong Worship",
+    shortName: "Hillsong Worship",
+    badge: "WORSHIP",
+    tagline: "Live Congregational Praise",
+    description: "Live worship recordings by Hillsong Worship.",
     heroImg: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1600&q=80",
-    avatarImg: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=300&q=80",
-    accentColor: "#06b6d4",
-    gradient: "from-cyan-950/90 via-blue-950/70 to-[#121212]",
-    listeners: "4.2M monthly listeners",
-    songsCount: 5,
-    folder: "music/Gospel/Elevation_Worship"
-  },
-  "Phil Thompson": {
-    name: "Phil Thompson",
-    shortName: "Phil Thompson",
-    badge: "DEVOTIONAL",
-    tagline: "Heartfelt Intimacy & Authentic Worship",
-    description: "Deeply personal, acoustic-infused declarations of devotion and grace that usher listeners into peaceful reflection.",
-    heroImg: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1600&q=80",
-    avatarImg: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
-    accentColor: "#f97316",
-    gradient: "from-amber-950/90 via-orange-950/70 to-[#121212]",
-    listeners: "1.2M monthly listeners",
-    songsCount: 5,
-    folder: "music/Gospel/Phil_Thompson"
-  },
-  "Travis Greene": {
-    name: "Travis Greene",
-    shortName: "Travis Greene",
-    badge: "CONTEMPORARY GOSPEL",
-    tagline: "Bold Modern Sound & Energetic Praise",
-    description: "Fusing contemporary brass, gospel roots, and explosive stage energy with infectious messages of triumph.",
-    heroImg: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1600&q=80",
-    avatarImg: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80",
-    accentColor: "#eab308",
-    gradient: "from-yellow-950/90 via-amber-950/70 to-[#121212]",
-    listeners: "1.5M monthly listeners",
-    songsCount: 5,
-    folder: "music/Gospel/Travis_Greene"
-  },
-  "CeCe Winans": {
-    name: "CeCe Winans",
-    shortName: "CeCe Winans",
-    badge: "LIVING LEGEND",
-    tagline: "Legendary Voice of Grace & Devotion",
-    description: "Timeless gospel excellence and celestial harmonies from one of the most celebrated and decorated voices in music history.",
-    heroImg: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1600&q=80",
-    avatarImg: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
-    accentColor: "#10b981",
-    gradient: "from-emerald-950/90 via-teal-950/70 to-[#121212]",
+    avatarImg: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#8b5cf6",
+    gradient: "from-purple-900/90 via-indigo-950/70 to-[#121212]",
     listeners: "2.8M monthly listeners",
-    songsCount: 5,
-    folder: "music/Gospel/CeCe_Winans"
+    songsCount: 2,
+    folder: "music/Gospel/Hillsong_Worship"
   },
   "Nathaniel Bassey": {
     name: "Nathaniel Bassey",
     shortName: "Nathaniel Bassey",
-    badge: "SPIRITUAL PRAISE",
+    badge: "GOSPEL",
     tagline: "Sound of the Trumpet & High Praise",
-    description: "Spiritual revival, trumpet fanfares, and deeply moving melodies of gratitude that awaken heartfelt devotion.",
+    description: "Spiritual revival, trumpet fanfares, and deeply moving melodies of gratitude.",
     heroImg: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=1600&q=80",
     avatarImg: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80",
     accentColor: "#3b82f6",
     gradient: "from-blue-950/90 via-indigo-950/70 to-[#121212]",
     listeners: "1.9M monthly listeners",
-    songsCount: 5,
+    songsCount: 1,
     folder: "music/Gospel/Nathaniel_Bassey"
   },
-  "Sinach": {
-    name: "Sinach",
-    shortName: "Sinach",
-    badge: "GLOBAL WORSHIP",
-    tagline: "Global Anthems of Faith & Victory",
-    description: "World-renowned worship songwriter behind transformative anthems sung in hundreds of languages across the globe.",
-    heroImg: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=80",
-    avatarImg: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80",
-    accentColor: "#a855f7",
-    gradient: "from-purple-950/90 via-violet-950/70 to-[#121212]",
-    listeners: "2.5M monthly listeners",
-    songsCount: 5,
-    folder: "music/Gospel/Sinach"
+  "Paul Baloche": {
+    name: "Paul Baloche",
+    shortName: "Paul Baloche",
+    badge: "WORSHIP",
+    tagline: "Contemporary Worship Classics",
+    description: "Inspiring acoustic worship compositions by Paul Baloche.",
+    heroImg: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#ec4899",
+    gradient: "from-pink-950/90 via-rose-950/70 to-[#121212]",
+    listeners: "950K monthly listeners",
+    songsCount: 1,
+    folder: "music/Gospel/Paul_Baloche"
   },
-  "Mercy Chinwo": {
-    name: "Mercy Chinwo",
-    shortName: "Mercy Chinwo",
-    badge: "AFRO GOSPEL",
-    tagline: "Radiant Afro-Gospel & Celebration",
-    description: "Joyous rhythms, infectious celebratory grooves, and passionate praise full of rich African cultural vibrancy.",
-    heroImg: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1600&q=80",
-    avatarImg: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80",
-    accentColor: "#f43f5e",
-    gradient: "from-rose-950/90 via-pink-950/70 to-[#121212]",
-    listeners: "1.7M monthly listeners",
-    songsCount: 5,
-    folder: "music/Gospel/Mercy_Chinwo"
-  },
-  "Don Moen": {
-    name: "Don Moen",
-    shortName: "Don Moen",
-    badge: "PEACE & WORSHIP",
-    tagline: "Peaceful Reflections & Timeless Hymns",
-    description: "Gentle piano compositions, comforting acoustic melodies, and inspirational arrangements of hope for every soul.",
-    heroImg: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=1600&q=80",
-    avatarImg: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80",
-    accentColor: "#fbbf24",
-    gradient: "from-amber-950/90 via-yellow-950/70 to-[#121212]",
-    listeners: "1.4M monthly listeners",
-    songsCount: 5,
-    folder: "music/Gospel/Don_Moen"
-  },
-  "Gospel Jazz": {
-    name: "Gospel Jazz Café",
-    shortName: "Gospel Jazz",
-    badge: "JAZZ LOUNGE",
-    tagline: "Velvet Saxophone, Smooth Grooves & Ambient Keys",
-    description: "Warm candlelit lounge ambiance, golden brass improvisation, and soulful reharmonized spiritual melodies.",
+  "Ragtime": {
+    name: "Classic Ragtime",
+    shortName: "Ragtime",
+    badge: "PUBLIC DOMAIN",
+    tagline: "Classic Piano Ragtime",
+    description: "Openly licensed piano ragtime recordings by Scott Joplin and pioneers.",
     heroImg: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=1600&q=80",
-    avatarImg: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=300&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=300&q=80",
     accentColor: "#d97706",
     gradient: "from-amber-950/90 via-yellow-950/70 to-[#121212]",
-    listeners: "950K monthly listeners",
-    songsCount: 5,
-    folder: "music/Jazz/Gospel_Jazz"
+    listeners: "Public Domain",
+    songsCount: 2,
+    folder: "music/Public_Domain/Ragtime/Scott_Joplin"
   },
-  "Blues Devotional": {
-    name: "Delta Blues Devotional",
-    shortName: "Blues Devotional",
-    badge: "ROOTS & BLUES",
-    tagline: "Raw Acoustic Resonator & Deep Southern Soul",
-    description: "Rustic resonator slide guitar, raw harmonica notes, and heartfelt southern blues ballads filled with spiritual emotion.",
-    heroImg: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1600&q=80",
-    avatarImg: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=300&q=80",
-    accentColor: "#b45309",
-    gradient: "from-amber-950/90 via-orange-950/70 to-[#121212]",
-    listeners: "680K monthly listeners",
-    songsCount: 5,
-    folder: "music/Blues/Gospel_Blues"
-  },
-  "Classical Worship": {
-    name: "Classical Symphony Worship",
-    shortName: "Classical Worship",
-    badge: "PHILHARMONIC",
-    tagline: "Grand Philharmonic Symphony & Majestic Strings",
-    description: "Awe-inspiring orchestral arrangements, lush concert violins, and grand piano concertos recorded in historic acoustic halls.",
+  "Classical": {
+    name: "Classical Essentials",
+    shortName: "Classical",
+    badge: "PUBLIC DOMAIN",
+    tagline: "Symphonic & Chamber Essentials",
+    description: "Public-domain classical recordings from Beethoven, Bach, and Mozart.",
     heroImg: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=1600&q=80",
     avatarImg: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=300&q=80",
     accentColor: "#6366f1",
     gradient: "from-indigo-950/90 via-slate-950/70 to-[#121212]",
-    listeners: "1.1M monthly listeners",
-    songsCount: 5,
-    folder: "music/Classical/Symphony_Worship"
+    listeners: "Public Domain",
+    songsCount: 1,
+    folder: "music/Public_Domain/Classical/Ludwig_van_Beethoven"
   },
-  "RnB Worship": {
-    name: "RnB Soul Sanctuary",
-    shortName: "RnB Worship",
-    badge: "NEO-SOUL & RNB",
-    tagline: "Smooth Soul, Neo-Gospel & Midnight Harmonies",
-    description: "Warm vintage Rhodes keys, lush vocal stacks, contemporary 808 rhythms, and deep neo-soul devotional grooves.",
-    heroImg: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1600&q=80",
-    avatarImg: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=300&q=80",
-    accentColor: "#ec4899",
-    gradient: "from-pink-950/90 via-purple-950/70 to-[#121212]",
-    listeners: "1.3M monthly listeners",
-    songsCount: 5,
-    folder: "music/RnB/RnB_Gospel"
+  "Blues": {
+    name: "Delta Blues",
+    shortName: "Blues",
+    badge: "ROOTS & BLUES",
+    tagline: "Roots, Blues & Slide Guitars",
+    description: "Classic Blues recordings by W.C. Handy and acoustic pioneers.",
+    heroImg: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#b45309",
+    gradient: "from-amber-950/90 via-orange-950/70 to-[#121212]",
+    listeners: "Classic Blues",
+    songsCount: 1,
+    folder: "music/Blues"
+  },
+  "Jazz": {
+    name: "Early Jazz Classics",
+    shortName: "Jazz",
+    badge: "JAZZ",
+    tagline: "New Orleans Stomp & Early Syncopation",
+    description: "Classic brass improvisations and early jazz recordings.",
+    heroImg: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=1600&q=80",
+    avatarImg: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=300&q=80",
+    accentColor: "#d97706",
+    gradient: "from-amber-950/90 via-yellow-950/70 to-[#121212]",
+    listeners: "Early Jazz",
+    songsCount: 1,
+    folder: "music/Jazz"
   }
 };
 
-// Only expose artists and tracks that are present in the repository.  The
-// previous catalogue listed 70 songs, but most pointed at unrelated audio.
-for (const category of Object.keys(categoryMetadata)) delete categoryMetadata[category];
-Object.assign(categoryMetadata, {
-  "Hillsong United": { name: "Hillsong United", shortName: "Hillsong United", badge: "WORSHIP", tagline: "Contemporary worship", description: "Contemporary worship from Hillsong United.", heroImg: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1600&q=80", avatarImg: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=300&q=80", accentColor: "#8b5cf6", gradient: "from-purple-900/90 via-indigo-950/70 to-[#121212]", listeners: "", songsCount: 1, folder: "music/Gospel/Hillsong_United" },
-  "Hillsong Worship": { name: "Hillsong Worship", shortName: "Hillsong Worship", badge: "WORSHIP", tagline: "Live worship recordings", description: "Live worship recordings by Hillsong Worship.", heroImg: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1600&q=80", avatarImg: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=300&q=80", accentColor: "#8b5cf6", gradient: "from-purple-900/90 via-indigo-950/70 to-[#121212]", listeners: "", songsCount: 2, folder: "music/Gospel/Hillsong_Worship" },
-  "Paul Baloche": { name: "Paul Baloche", shortName: "Paul Baloche", badge: "WORSHIP", tagline: "Contemporary worship", description: "Contemporary worship by Paul Baloche.", heroImg: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1600&q=80", avatarImg: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=300&q=80", accentColor: "#ec4899", gradient: "from-pink-950/90 via-rose-950/70 to-[#121212]", listeners: "", songsCount: 1, folder: "music/Gospel/Paul_Baloche" },
-  "Nathaniel Bassey": { name: "Nathaniel Bassey", shortName: "Nathaniel Bassey", badge: "GOSPEL", tagline: "Nigerian gospel worship", description: "Gospel worship by Nathaniel Bassey.", heroImg: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=1600&q=80", avatarImg: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80", accentColor: "#3b82f6", gradient: "from-blue-950/90 via-indigo-950/70 to-[#121212]", listeners: "", songsCount: 1, folder: "music/Gospel/Nathaniel_Bassey" },
-  "Jazz": { name: "Jazz", shortName: "Jazz", badge: "JAZZ", tagline: "Early jazz classics", description: "Early jazz classics.", heroImg: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=1600&q=80", avatarImg: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=300&q=80", accentColor: "#d97706", gradient: "from-amber-950/90 via-yellow-950/70 to-[#121212]", listeners: "", songsCount: 1, folder: "music/Jazz" },
-  "Blues": { name: "Blues", shortName: "Blues", badge: "BLUES", tagline: "Blues classics", description: "Blues classics.", heroImg: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1600&q=80", avatarImg: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=300&q=80", accentColor: "#b45309", gradient: "from-amber-950/90 via-orange-950/70 to-[#121212]", listeners: "", songsCount: 1, folder: "music/Blues" }
-});
-categoryMetadata["Ragtime"] = { ...categoryMetadata["Jazz"], name: "Ragtime", shortName: "Ragtime", badge: "PUBLIC DOMAIN", tagline: "Classic piano ragtime", description: "Openly licensed piano ragtime recordings.", songsCount: 2, folder: "music/Public_Domain/Ragtime/Scott_Joplin" };
-categoryMetadata["Classical"] = { ...categoryMetadata["Jazz"], name: "Classical", shortName: "Classical", badge: "PUBLIC DOMAIN", tagline: "Classical essentials", description: "Public-domain classical recordings.", songsCount: 1, folder: "music/Public_Domain/Classical/Ludwig_van_Beethoven" };
-categoryMetadata["Hillsong"] = { ...categoryMetadata["Hillsong Worship"], name: "Hillsong", shortName: "Hillsong", badge: "WORSHIP", tagline: "Worship recordings", description: "Worship recordings stored in the Hillsong collection.", songsCount: 1, folder: "music/Gospel/Hillsong" };
-
 // -------------------------------------------------------------
-// Comprehensive Song Catalog (70 Songs)
+// Base Local Song Catalog
 // -------------------------------------------------------------
 const allSongs = [
   { id: 1, title: "So Will I (100 Billion X)", artist: "Hillsong United", album: "Wonder", category: "Hillsong United", folder: "music/Gospel/Hillsong_United", duration: 0, img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Hillsong_United/So Will I (100 Billion X).mp3" },
@@ -246,1061 +287,253 @@ const allSongs = [
   { id: 11, title: "Sound Trip na Yah!!!!!", artist: "Hillsong", album: "Hillsong Collection", category: "Hillsong", folder: "music/Gospel/Hillsong", duration: 122, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80", audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3" }
 ];
 
-/* Legacy placeholder catalogue retained for reference only.
-  // 1. Hillsong United
-  {
-    id: 1,
-    title: "Oceans (Where Feet May Fail)",
-    artist: "Hillsong United",
-    album: "Zion",
-    category: "Hillsong United",
-    folder: "music/Gospel/Hillsong_United",
-    duration: 538,
-    img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    lyrics: "You call me out upon the waters<br/>The great unknown where feet may fail<br/>And there I find You in the mystery<br/>In oceans deep, my faith will stand<br/><br/>(Chorus)<br/>And I will call upon Your name<br/>And keep my eyes above the waves<br/>When oceans rise, my soul will rest in Your embrace<br/>For I am Yours and You are mine"
-  },
-  {
-    id: 2,
-    title: "So Will I (100 Billion X)",
-    artist: "Hillsong United",
-    album: "Empires / Wonder",
-    category: "Hillsong United",
-    folder: "music/Gospel/Hillsong_United",
-    duration: 428,
-    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    lyrics: "God of creation, there at the start<br/>Before the beginning of time<br/>With no point of reference, You spoke to the dark<br/>And fleshed out the wonder of light<br/><br/>(Chorus)<br/>And as You speak<br/>A hundred billion galaxies are born<br/>In the vapour of Your breath the planets form<br/>If the stars were made to worship so will I"
-  },
-  {
-    id: 3,
-    title: "Touch of Heaven",
-    artist: "Hillsong Worship",
-    album: "There Is More",
-    category: "Hillsong United",
-    folder: "music/Gospel/Hillsong_United",
-    duration: 427,
-    img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    lyrics: "How I live for the moments where I'm still in Your presence<br/>All the noise dies down<br/>Lord, speak to me now<br/><br/>(Chorus)<br/>All I want is just a touch of Heaven<br/>Just a moment in Your embrace"
-  },
-  {
-    id: 4,
-    title: "What A Beautiful Name",
-    artist: "Hillsong Worship",
-    album: "Let There Be Light",
-    category: "Hillsong United",
-    folder: "music/Gospel/Hillsong_United",
-    duration: 341,
-    img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "You were the Word at the beginning<br/>One with God the Lord Most High<br/>Your hidden glory in creation<br/>Now revealed in You our Christ<br/><br/>(Chorus)<br/>What a beautiful Name it is<br/>What a beautiful Name it is<br/>The Name of Jesus Christ my King"
-  },
-  {
-    id: 5,
-    title: "Good Grace",
-    artist: "Hillsong United",
-    album: "People",
-    category: "Hillsong United",
-    folder: "music/Gospel/Hillsong_United",
-    duration: 358,
-    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    lyrics: "People come together<br/>Strange as neighbours, our souls feel like friends<br/>We've got one hope, one foundation<br/><br/>(Chorus)<br/>Don't let your heart be troubled<br/>Hold your head up high, don't fear no evil<br/>God is so good, His grace is enough!"
-  },
-
-  // 2. Tasha Cobbs
-  {
-    id: 6,
-    title: "Break Every Chain",
-    artist: "Tasha Cobbs",
-    album: "Grace",
-    category: "Tasha Cobbs",
-    folder: "music/Gospel/Tasha_Cobbs",
-    duration: 485,
-    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    lyrics: "There is power in the name of Jesus<br/>To break every chain, break every chain, break every chain!"
-  },
-  {
-    id: 7,
-    title: "You Know My Name",
-    artist: "Tasha Cobbs",
-    album: "Heart. Passion. Pursuit.",
-    category: "Tasha Cobbs",
-    folder: "music/Gospel/Tasha_Cobbs",
-    duration: 524,
-    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "He knows my name, He knows my name<br/>And oh how He walks with me, and oh how He talks with me!"
-  },
-  {
-    id: 8,
-    title: "For Your Glory",
-    artist: "Tasha Cobbs",
-    album: "Grace",
-    category: "Tasha Cobbs",
-    folder: "music/Gospel/Tasha_Cobbs",
-    duration: 400,
-    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    lyrics: "Lord, if I find favor in Your sight<br/>For Your glory, I will do anything<br/>Just to see You, to behold You as my King!"
-  },
-  {
-    id: 9,
-    title: "Fill Me Up / Overflow",
-    artist: "Tasha Cobbs",
-    album: "One Place Live",
-    category: "Tasha Cobbs",
-    folder: "music/Gospel/Tasha_Cobbs",
-    duration: 354,
-    img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "You provide the fire, I'll provide the sacrifice<br/>Fill me up God, fill me up God!"
-  },
-  {
-    id: 10,
-    title: "In Spite of Me (feat. Ciara)",
-    artist: "Tasha Cobbs",
-    album: "Royalty: Live at The Ryman",
-    category: "Tasha Cobbs",
-    folder: "music/Gospel/Tasha_Cobbs",
-    duration: 266,
-    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    lyrics: "Every time I look back over my life<br/>All I can see is Your mercy and grace<br/>Loving me, in spite of me!"
-  },
-
-  // 3. Elevation Worship
-  {
-    id: 11,
-    title: "Graves Into Gardens",
-    artist: "Elevation Worship",
-    album: "Graves Into Gardens",
-    category: "Elevation Worship",
-    folder: "music/Gospel/Elevation_Worship",
-    duration: 452,
-    img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    lyrics: "You turn mourning to dancing<br/>You give beauty for ashes<br/>You turn shame into glory<br/>You turn graves into gardens!"
-  },
-  {
-    id: 12,
-    title: "The Blessing (Live)",
-    artist: "Elevation Worship",
-    album: "Graves Into Gardens",
-    category: "Elevation Worship",
-    folder: "music/Gospel/Elevation_Worship",
-    duration: 507,
-    img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    lyrics: "The Lord bless you and keep you<br/>Make His face shine upon you and be gracious to you<br/>Amen, amen, amen!"
-  },
-  {
-    id: 13,
-    title: "Jireh (feat. Maverick City)",
-    artist: "Elevation Worship",
-    album: "Old Church Basement",
-    category: "Elevation Worship",
-    folder: "music/Gospel/Elevation_Worship",
-    duration: 590,
-    img: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "Jireh, You are enough<br/>And I will be content in every circumstance<br/>Jireh, You are enough!"
-  },
-  {
-    id: 14,
-    title: "RATTLE!",
-    artist: "Elevation Worship",
-    album: "Graves Into Gardens",
-    category: "Elevation Worship",
-    folder: "music/Gospel/Elevation_Worship",
-    duration: 453,
-    img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    lyrics: "This is the sound of dry bones rattling!<br/>This is the praise make a dead man walk again<br/>Open the graves, I'm coming out!"
-  },
-  {
-    id: 15,
-    title: "Praise (feat. Brandon Lake)",
-    artist: "Elevation Worship",
-    album: "CAN YOU IMAGINE?",
-    category: "Elevation Worship",
-    folder: "music/Gospel/Elevation_Worship",
-    duration: 312,
-    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    lyrics: "Let everything that has breath praise the Lord!<br/>I'll praise in the valley, praise on the mountain!"
-  },
-
-  // 4. Phil Thompson
-  {
-    id: 16,
-    title: "My Worship",
-    artist: "Phil Thompson",
-    album: "My Worship",
-    category: "Phil Thompson",
-    folder: "music/Gospel/Phil_Thompson",
-    duration: 615,
-    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    lyrics: "Here is my worship, all of my worship<br/>Receive my worship, all of my worship<br/>As long as I am breathing, I will not keep silent!"
-  },
-  {
-    id: 17,
-    title: "Atmosphere Shift",
-    artist: "Phil Thompson",
-    album: "My Worship",
-    category: "Phil Thompson",
-    folder: "music/Gospel/Phil_Thompson",
-    duration: 344,
-    img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    lyrics: "Atmosphere shift now, chains be broken<br/>Holy Spirit come, overflow this place!"
-  },
-  {
-    id: 18,
-    title: "Lion of Judah",
-    artist: "Phil Thompson",
-    album: "Lion of Judah",
-    category: "Phil Thompson",
-    folder: "music/Gospel/Phil_Thompson",
-    duration: 380,
-    img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    lyrics: "The Lion of Judah has conquered the grave<br/>He is high and lifted up!"
-  },
-  {
-    id: 19,
-    title: "Jesus",
-    artist: "Phil Thompson",
-    album: "My Worship",
-    category: "Phil Thompson",
-    folder: "music/Gospel/Phil_Thompson",
-    duration: 322,
-    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "Jesus, Jesus, sweetest name I know<br/>Fills my every longing, keeps me singing as I go!"
-  },
-  {
-    id: 20,
-    title: "You Ransom Me",
-    artist: "Phil Thompson",
-    album: "Lion of Judah",
-    category: "Phil Thompson",
-    folder: "music/Gospel/Phil_Thompson",
-    duration: 350,
-    img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    lyrics: "You paid the ultimate price for my freedom<br/>You ransom me, You rescued me!"
-  },
-
-  // 5. Travis Greene
-  {
-    id: 21,
-    title: "Made A Way",
-    artist: "Travis Greene",
-    album: "The Hill",
-    category: "Travis Greene",
-    folder: "music/Gospel/Travis_Greene",
-    duration: 595,
-    img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    lyrics: "You made a way when our backs were against the wall<br/>And we're standing here only because You made a way!"
-  },
-  {
-    id: 22,
-    title: "Intentional",
-    artist: "Travis Greene",
-    album: "The Hill",
-    category: "Travis Greene",
-    folder: "music/Gospel/Travis_Greene",
-    duration: 315,
-    img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    lyrics: "All things are working for my good<br/>He's intentional, never failing!"
-  },
-  {
-    id: 23,
-    title: "You Waited",
-    artist: "Travis Greene",
-    album: "Crossover",
-    category: "Travis Greene",
-    folder: "music/Gospel/Travis_Greene",
-    duration: 408,
-    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    lyrics: "When I was far away, You waited for me<br/>When I was lost in sin, You called my name!"
-  },
-  {
-    id: 24,
-    title: "Won't Let Go",
-    artist: "Travis Greene",
-    album: "Broken Record",
-    category: "Travis Greene",
-    folder: "music/Gospel/Travis_Greene",
-    duration: 324,
-    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    lyrics: "Your love won't let go, Your hands won't let go<br/>Even in the fire, even in the flood!"
-  },
-  {
-    id: 25,
-    title: "Good & Loved",
-    artist: "Travis Greene",
-    album: "Broken Record",
-    category: "Travis Greene",
-    folder: "music/Gospel/Travis_Greene",
-    duration: 385,
-    img: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "I am good and loved, You are kind and true<br/>My soul will rest securely in You!"
-  },
-
-  // 6. CeCe Winans
-  {
-    id: 26,
-    title: "Goodness of God",
-    artist: "CeCe Winans",
-    album: "Believe For It",
-    category: "CeCe Winans",
-    folder: "music/Gospel/CeCe_Winans",
-    duration: 300,
-    img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    lyrics: "'Cause all my life You have been faithful<br/>And all my life You have been so, so good<br/>With every breath that I am able<br/>Oh, I will sing of the goodness of God!"
-  },
-  {
-    id: 27,
-    title: "Believe For It",
-    artist: "CeCe Winans",
-    album: "Believe For It",
-    category: "CeCe Winans",
-    folder: "music/Gospel/CeCe_Winans",
-    duration: 242,
-    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    lyrics: "Move the impossible, break every chain<br/>I will believe for it!"
-  },
-  {
-    id: 28,
-    title: "Alabaster Box",
-    artist: "CeCe Winans",
-    album: "Alabaster Box",
-    category: "CeCe Winans",
-    folder: "music/Gospel/CeCe_Winans",
-    duration: 336,
-    img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "And you don't know the cost of the oil in my alabaster box!"
-  },
-  {
-    id: 29,
-    title: "Mercy Said No",
-    artist: "CeCe Winans",
-    album: "Throne Room",
-    category: "CeCe Winans",
-    folder: "music/Gospel/CeCe_Winans",
-    duration: 290,
-    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    lyrics: "Sin had demanded my soul, but mercy said no<br/>I am not gonna let you go!"
-  },
-  {
-    id: 30,
-    title: "That's My King",
-    artist: "CeCe Winans",
-    album: "More Than This",
-    category: "CeCe Winans",
-    folder: "music/Gospel/CeCe_Winans",
-    duration: 284,
-    img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    lyrics: "He's the Lion and the Lamb, the Alpha and Omega<br/>That's my King, that's my Lord!"
-  },
-
-  // 7. Nathaniel Bassey
-  {
-    id: 31,
-    title: "Yahweh Sabaoth",
-    artist: "Nathaniel Bassey",
-    album: "Hallelujah Live",
-    category: "Nathaniel Bassey",
-    folder: "music/Gospel/Nathaniel_Bassey",
-    duration: 326,
-    img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    lyrics: "The Lord of Hosts is with us, Yahweh Sabaoth!<br/>High praise and blessings to the Most High!"
-  },
-  {
-    id: 32,
-    title: "Olowogbogboro",
-    artist: "Nathaniel Bassey",
-    album: "Jesus: The Resurrection & The Life",
-    category: "Nathaniel Bassey",
-    folder: "music/Gospel/Nathaniel_Bassey",
-    duration: 370,
-    img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "Olowogbogboro is turning things around for my good!<br/>The outstretched arm of God is working for me!"
-  },
-  {
-    id: 33,
-    title: "Tobechukwu",
-    artist: "Nathaniel Bassey & Mercy Chinwo",
-    album: "Hallelujah Live",
-    category: "Nathaniel Bassey",
-    folder: "music/Gospel/Nathaniel_Bassey",
-    duration: 410,
-    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    lyrics: "See how far He brought us, see what God has done<br/>Tobechukwu, praise the Lord for His loving kindness!"
-  },
-  {
-    id: 34,
-    title: "Onise Iyanu (Awesome Wonder)",
-    artist: "Nathaniel Bassey",
-    album: "This God is Too Good",
-    category: "Nathaniel Bassey",
-    folder: "music/Gospel/Nathaniel_Bassey",
-    duration: 385,
-    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    lyrics: "Onise Iyanu, You are the God of awesome wonders<br/>I've tasted of Your power!"
-  },
-  {
-    id: 35,
-    title: "The King Is On The Way",
-    artist: "Nathaniel Bassey",
-    album: "Names of God",
-    category: "Nathaniel Bassey",
-    folder: "music/Gospel/Nathaniel_Bassey",
-    duration: 340,
-    img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    lyrics: "Prepare the way of the Lord<br/>The King of glory is on the way!"
-  },
-
-  // 8. Sinach
-  {
-    id: 36,
-    title: "Way Maker - Live",
-    artist: "Sinach",
-    album: "Way Maker",
-    category: "Sinach",
-    folder: "music/Gospel/Sinach",
-    duration: 312,
-    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    lyrics: "Way Maker, Miracle Worker, Promise Keeper<br/>Light in the darkness, my God, that is who You are!"
-  },
-  {
-    id: 37,
-    title: "I Know Who I Am",
-    artist: "Sinach",
-    album: "Shout It Loud",
-    category: "Sinach",
-    folder: "music/Gospel/Sinach",
-    duration: 320,
-    img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    lyrics: "We are a chosen generation<br/>Called forth to show His excellence<br/>I know who I am!"
-  },
-  {
-    id: 38,
-    title: "Great Are You Lord",
-    artist: "Sinach",
-    album: "The Name of Jesus",
-    category: "Sinach",
-    folder: "music/Gospel/Sinach",
-    duration: 360,
-    img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    lyrics: "Holy are You Lord, all creation calls You God<br/>Great are You Lord!"
-  },
-  {
-    id: 39,
-    title: "He Did It Again",
-    artist: "Sinach",
-    album: "Greatest Hits",
-    category: "Sinach",
-    folder: "music/Gospel/Sinach",
-    duration: 290,
-    img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    lyrics: "I testify that God is good, He did it again!"
-  },
-  {
-    id: 40,
-    title: "There's An Overflow",
-    artist: "Sinach",
-    album: "There's An Overflow",
-    category: "Sinach",
-    folder: "music/Gospel/Sinach",
-    duration: 315,
-    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "There is an overflow of blessings, overflow of grace!"
-  },
-
-  // 9. Mercy Chinwo
-  {
-    id: 41,
-    title: "Excess Love",
-    artist: "Mercy Chinwo",
-    album: "The Cross: My Gaze",
-    category: "Mercy Chinwo",
-    folder: "music/Gospel/Mercy_Chinwo",
-    duration: 345,
-    img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    lyrics: "Jesus, You love me too much o<br/>Too much o, excess love o!"
-  },
-  {
-    id: 42,
-    title: "Chinedum",
-    artist: "Mercy Chinwo",
-    album: "The Cross: My Gaze",
-    category: "Mercy Chinwo",
-    folder: "music/Gospel/Mercy_Chinwo",
-    duration: 260,
-    img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    lyrics: "Chinedum, God is leading me<br/>Anywhere You lead, I will follow!"
-  },
-  {
-    id: 43,
-    title: "Obinasom",
-    artist: "Mercy Chinwo",
-    album: "Satisfied",
-    category: "Mercy Chinwo",
-    folder: "music/Gospel/Mercy_Chinwo",
-    duration: 245,
-    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "My heart is happy, Obinasom<br/>See the love that Jesus has given me!"
-  },
-  {
-    id: 44,
-    title: "Na You Dey Reign",
-    artist: "Mercy Chinwo",
-    album: "Satisfied",
-    category: "Mercy Chinwo",
-    folder: "music/Gospel/Mercy_Chinwo",
-    duration: 320,
-    img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    lyrics: "Na You dey reign forevermore, King of Kings!"
-  },
-  {
-    id: 45,
-    title: "Amazing God",
-    artist: "Mercy Chinwo",
-    album: "Overwhelming Victory",
-    category: "Mercy Chinwo",
-    folder: "music/Gospel/Mercy_Chinwo",
-    duration: 298,
-    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    lyrics: "You are an amazing God, miracle worker, faithful friend!"
-  },
-
-  // 10. Don Moen
-  {
-    id: 46,
-    title: "God Will Make A Way",
-    artist: "Don Moen",
-    album: "God Will Make A Way",
-    category: "Don Moen",
-    folder: "music/Gospel/Don_Moen",
-    duration: 280,
-    img: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    lyrics: "God will make a way where there seems to be no way<br/>He works in ways we cannot see, He will make a way for me!"
-  },
-  {
-    id: 47,
-    title: "Give Thanks",
-    artist: "Don Moen",
-    album: "Give Thanks",
-    category: "Don Moen",
-    folder: "music/Gospel/Don_Moen",
-    duration: 240,
-    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    lyrics: "Give thanks with a grateful heart, give thanks to the Holy One!"
-  },
-  {
-    id: 48,
-    title: "Thank You Lord",
-    artist: "Don Moen",
-    album: "Thank You Lord",
-    category: "Don Moen",
-    folder: "music/Gospel/Don_Moen",
-    duration: 310,
-    img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    lyrics: "Thank You Lord for the trials that come my way<br/>In that way I can see Your power!"
-  },
-  {
-    id: 49,
-    title: "I Will Sing",
-    artist: "Don Moen",
-    album: "I Will Sing",
-    category: "Don Moen",
-    folder: "music/Gospel/Don_Moen",
-    duration: 295,
-    img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "Lord You seem so far away, a million miles or more it feels today<br/>Yet I will sing of Your steadfast love!"
-  },
-  {
-    id: 50,
-    title: "Our Father",
-    artist: "Don Moen",
-    album: "Praise & Worship",
-    category: "Don Moen",
-    folder: "music/Gospel/Don_Moen",
-    duration: 330,
-    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    lyrics: "Our Father in heaven, hallowed be Your name<br/>Your kingdom come, Your will be done!"
-  },
-
-  // 11. Gospel Jazz
-  {
-    id: 51,
-    title: "Black Bottom Stomp Jazz Session",
-    artist: "Jelly Roll Morton",
-    album: "Classic Jazz Gems",
-    category: "Gospel Jazz",
-    folder: "music/Jazz/Gospel_Jazz",
-    duration: 195,
-    img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Jazz/Jelly Roll Morton Black Bottom Stomp.mp3",
-    fallbackAudioSrc: "music/Jazz/Jelly Roll Morton Black Bottom Stomp.mp3",
-    lyrics: "Smooth instrumental jazz with lively syncopation and rich brass horns."
-  },
-  {
-    id: 52,
-    title: "Midnight Gospel Saxophone",
-    artist: "Gospel Jazz Quartet",
-    album: "Velvet Sanctuary",
-    category: "Gospel Jazz",
-    folder: "music/Jazz/Gospel_Jazz",
-    duration: 240,
-    img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Jazz/Jelly Roll Morton Black Bottom Stomp.mp3",
-    fallbackAudioSrc: "music/RnB/Rhythm and Blues Classic.mp3",
-    lyrics: "Soothing saxophone notes over warm Rhodes piano chords."
-  },
-  {
-    id: 53,
-    title: "Soulful Brass Improvisation",
-    artist: "Blue Horizon Brass",
-    album: "New Orleans Praise",
-    category: "Gospel Jazz",
-    folder: "music/Jazz/Gospel_Jazz",
-    duration: 210,
-    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Jazz/Jelly Roll Morton Black Bottom Stomp.mp3",
-    fallbackAudioSrc: "music/Blues/Memphis Blues.mp3",
-    lyrics: "Improvisational jazz horn lines and spiritual rhythmic swing."
-  },
-  {
-    id: 54,
-    title: "Ambient Keys & Sunday Morning",
-    artist: "Quiet Waters Trio",
-    album: "Acoustic Lounge",
-    category: "Gospel Jazz",
-    folder: "music/Jazz/Gospel_Jazz",
-    duration: 275,
-    img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Jazz/Jelly Roll Morton Black Bottom Stomp.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    lyrics: "Gentle upright bass and brush drums ushering in a peaceful morning."
-  },
-  {
-    id: 55,
-    title: "Café Devotion Grooves",
-    artist: "Harbor Light Collective",
-    album: "Jazz at Twilight",
-    category: "Gospel Jazz",
-    folder: "music/Jazz/Gospel_Jazz",
-    duration: 230,
-    img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Jazz/Jelly Roll Morton Black Bottom Stomp.mp3",
-    fallbackAudioSrc: "music/RnB/Rhythm and Blues Classic.mp3",
-    lyrics: "Rich harmony changes with mellow guitar fingerpicking and jazz piano."
-  },
-
-  // 12. Blues Devotional
-  {
-    id: 56,
-    title: "Memphis Blues Devotion",
-    artist: "Delta Blues Ensemble",
-    album: "Southern Heritage",
-    category: "Blues Devotional",
-    folder: "music/Blues/Gospel_Blues",
-    duration: 188,
-    img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Blues/Memphis Blues.mp3",
-    fallbackAudioSrc: "music/Blues/Memphis Blues.mp3",
-    lyrics: "Raw resonator slide guitar and Mississippi delta acoustic blues."
-  },
-  {
-    id: 57,
-    title: "Crossroads Gospel Slide",
-    artist: "Old River Band",
-    album: "Dusty Roads",
-    category: "Blues Devotional",
-    folder: "music/Blues/Gospel_Blues",
-    duration: 215,
-    img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Blues/Memphis Blues.mp3",
-    fallbackAudioSrc: "music/RnB/Rhythm and Blues Classic.mp3",
-    lyrics: "Acoustic harmonica and slide guitar testifying of redemption."
-  },
-  {
-    id: 58,
-    title: "Muddy River Spiritual",
-    artist: "Bayou Bluesmen",
-    album: "Deep Roots",
-    category: "Blues Devotional",
-    folder: "music/Blues/Gospel_Blues",
-    duration: 240,
-    img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Blues/Memphis Blues.mp3",
-    fallbackAudioSrc: "music/Jazz/Jelly Roll Morton Black Bottom Stomp.mp3",
-    lyrics: "Soul-stirring southern blues spiritual sung with raw passion."
-  },
-  {
-    id: 59,
-    title: "Morning Sun Blues",
-    artist: "Cedar Hill Blues",
-    album: "Sunday Reverie",
-    category: "Blues Devotional",
-    folder: "music/Blues/Gospel_Blues",
-    duration: 195,
-    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Blues/Memphis Blues.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "Warm acoustic fingerstyle picking and comforting blues rhythms."
-  },
-  {
-    id: 60,
-    title: "Precious Grace Ballad",
-    artist: "Delta Blues Ensemble",
-    album: "Southern Heritage",
-    category: "Blues Devotional",
-    folder: "music/Blues/Gospel_Blues",
-    duration: 220,
-    img: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Blues/Memphis Blues.mp3",
-    fallbackAudioSrc: "music/Blues/Memphis Blues.mp3",
-    lyrics: "Heartfelt acoustic ballad celebrating grace through all trials."
-  },
-
-  // 13. Classical Worship
-  {
-    id: 61,
-    title: "Philharmonic Praise & Strings",
-    artist: "Symphony of Praise Orchestra",
-    album: "Cathedral Strings",
-    category: "Classical Worship",
-    folder: "music/Classical/Symphony_Worship",
-    duration: 360,
-    img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    lyrics: "Majestic concert orchestra featuring grand violins, cellos, and brass fanfares."
-  },
-  {
-    id: 62,
-    title: "Sanctuary Grand Piano Concerto",
-    artist: "London Worship Philharmonic",
-    album: "Acoustic Halls",
-    category: "Classical Worship",
-    folder: "music/Classical/Symphony_Worship",
-    duration: 410,
-    img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    lyrics: "Grand piano soloist performing soaring spiritual melodies with full strings."
-  },
-  {
-    id: 63,
-    title: "Adagio for Solitude and Prayer",
-    artist: "Royal Chamber Players",
-    album: "Peaceful Reflections",
-    category: "Classical Worship",
-    folder: "music/Classical/Symphony_Worship",
-    duration: 380,
-    img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong United - So Will I.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "Serene string adagio fostering quiet prayer and contemplative meditation."
-  },
-  {
-    id: 64,
-    title: "Ode to Joy Symphonic Overture",
-    artist: "Heritage Philharmonic",
-    album: "Anthems of the Ages",
-    category: "Classical Worship",
-    folder: "music/Classical/Symphony_Worship",
-    duration: 320,
-    img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Integrity's iWorship 247.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Hillsong United.mp3",
-    lyrics: "Triumphant full orchestra arrangement echoing through sacred halls."
-  },
-  {
-    id: 65,
-    title: "Lullaby of Grace (Violin & Flute)",
-    artist: "Grace Chamber Ensemble",
-    album: "Quiet Waters",
-    category: "Classical Worship",
-    folder: "music/Classical/Symphony_Worship",
-    duration: 290,
-    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/Gospel/Hillsong/Hillsong - Worship.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "Delicate solo flute and acoustic violin weaving peaceful harmonies."
-  },
-
-  // 14. RnB Worship
-  {
-    id: 66,
-    title: "Rhythm & Blues Gospel Classic",
-    artist: "Neo-Soul Sanctuary",
-    album: "Midnight Worship",
-    category: "RnB Worship",
-    folder: "music/RnB/RnB_Gospel",
-    duration: 330,
-    img: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/RnB/Rhythm and Blues Classic.mp3",
-    fallbackAudioSrc: "music/RnB/Rhythm and Blues Classic.mp3",
-    lyrics: "Lush electric piano chords, silky basslines, and smooth contemporary gospel harmonies."
-  },
-  {
-    id: 67,
-    title: "Midnight Soul Devotion",
-    artist: "Sanctuary Vocal Stack",
-    album: "Neo-Gospel Chronicles",
-    category: "RnB Worship",
-    folder: "music/RnB/RnB_Gospel",
-    duration: 295,
-    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/RnB/Rhythm and Blues Classic.mp3",
-    fallbackAudioSrc: "music/Jazz/Jelly Roll Morton Black Bottom Stomp.mp3",
-    lyrics: "Vintage Rhodes warmth, layered choir stacks, and uplifting lyrics of faith."
-  },
-  {
-    id: 68,
-    title: "Golden Hour Harmonies",
-    artist: "Soul Symphony",
-    album: "Afternoon Light",
-    category: "RnB Worship",
-    folder: "music/RnB/RnB_Gospel",
-    duration: 310,
-    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/RnB/Rhythm and Blues Classic.mp3",
-    fallbackAudioSrc: "music/Blues/Memphis Blues.mp3",
-    lyrics: "Smooth syncopated grooves and rich multi-voice harmonies."
-  },
-  {
-    id: 69,
-    title: "Velvet Groove Praise",
-    artist: "Urban Light Project",
-    album: "Higher Frequency",
-    category: "RnB Worship",
-    folder: "music/RnB/RnB_Gospel",
-    duration: 280,
-    img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/RnB/Rhythm and Blues Classic.mp3",
-    fallbackAudioSrc: "music/Gospel/Hillsong/Sound Trip na Yah!!!!!.mp3",
-    lyrics: "Rhythmic bass and warm keys crafting an intimate worship experience."
-  },
-  {
-    id: 70,
-    title: "Rivers of Grace (Neo-Soul)",
-    artist: "Neo-Soul Sanctuary",
-    album: "Midnight Worship",
-    category: "RnB Worship",
-    folder: "music/RnB/RnB_Gospel",
-    duration: 340,
-    img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=500&q=80",
-    audioSrc: "music/RnB/Rhythm and Blues Classic.mp3",
-    fallbackAudioSrc: "music/RnB/Rhythm and Blues Classic.mp3",
-    lyrics: "Deep neo-soul chord progressions and comforting spiritual lyrics."
-  }
-];
-*/
-
 // Playlists metadata
 const playlistsData = [
+  { name: "Audius Global Trending", category: "Trending Online", count: "Live", isOnline: true },
+  { name: "Gospel & Worship Cloud", category: "Gospel Stream", count: "Live", isOnline: true },
+  { name: "Ambient & Peaceful Pad", category: "Ambient Stream", count: "Live", isOnline: true },
+  { name: "Lo-Fi Study & Chill", category: "Lofi Stream", count: "Live", isOnline: true },
+  { name: "Acoustic Folk & Devotion", category: "Acoustic Stream", count: "Live", isOnline: true },
+  { name: "Neo-Soul & R&B", category: "RnB Stream", count: "Live", isOnline: true },
+  { name: "Electronic & EDM", category: "Electronic Stream", count: "Live", isOnline: true },
+  { name: "Afrobeats Praise", category: "Afrobeats Stream", count: "Live", isOnline: true },
+  { name: "Jazz & Smooth Lounge", category: "Jazz Stream", count: "Live", isOnline: true },
+  { name: "Classical Symphony", category: "Classical Stream", count: "Live", isOnline: true },
   { name: "Hillsong United", category: "Hillsong United", count: 1 },
   { name: "Hillsong Worship", category: "Hillsong Worship", count: 2 },
-  { name: "Paul Baloche", category: "Paul Baloche", count: 1 },
   { name: "Nathaniel Bassey", category: "Nathaniel Bassey", count: 1 },
-  { name: "Jazz Classics", category: "Jazz", count: 1 },
-  { name: "Blues Classics", category: "Blues", count: 1 }
-];
-
-const foldersData = [
-  { name: "music/Gospel/Hillsong_United", label: "Hillsong United (1 song)", filter: "Hillsong United" },
-  { name: "music/Gospel/Hillsong_Worship", label: "Hillsong Worship (2 songs)", filter: "Hillsong Worship" },
-  { name: "music/Gospel/Paul_Baloche", label: "Paul Baloche (1 song)", filter: "Paul Baloche" },
-  { name: "music/Gospel/Nathaniel_Bassey", label: "Nathaniel Bassey (1 song)", filter: "Nathaniel Bassey" },
-  { name: "music/Jazz", label: "Jazz (1 song)", filter: "Jazz" },
-  { name: "music/Blues", label: "Blues (1 song)", filter: "Blues" }
-];
-
-const artistsData = [
-  { name: "Hillsong United", songs: 1, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=150&q=80" },
-  { name: "Hillsong Worship", songs: 2, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=150&q=80" },
-  { name: "Paul Baloche", songs: 1, img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=150&q=80" },
-  { name: "Nathaniel Bassey", songs: 1, img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" },
-  { name: "Jelly Roll Morton", songs: 1, img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=150&q=80" },
-  { name: "W. C. Handy", songs: 1, img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=150&q=80" }
-];
-
-playlistsData.push(
+  { name: "Paul Baloche", category: "Paul Baloche", count: 1 },
   { name: "Scott Joplin Ragtime", category: "Ragtime", count: 2 },
   { name: "Beethoven Classical", category: "Classical", count: 1 },
-  { name: "Hillsong Collection", category: "Hillsong", count: 1 }
-);
-foldersData.push(
-  { name: "music/Public_Domain/Ragtime/Scott_Joplin", label: "Scott Joplin Ragtime (2 songs)", filter: "Ragtime" },
-  { name: "music/Public_Domain/Classical/Ludwig_van_Beethoven", label: "Beethoven Classical (1 song)", filter: "Classical" },
-  { name: "music/Gospel/Hillsong", label: "Hillsong Collection (1 song)", filter: "Hillsong" }
-);
-artistsData.push(
-  { name: "Scott Joplin", songs: 2, img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=150&q=80" },
-  { name: "Ludwig van Beethoven", songs: 1, img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=150&q=80" },
-  { name: "Hillsong", songs: 1, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=150&q=80" }
-);
-
-/* Legacy playlist, folder, and artist data retained for reference only.
-const playlistsData = [
-  { name: "Hillsong United & Worship", category: "Hillsong United", count: 5 },
-  { name: "Tasha Cobbs Anointed Anthems", category: "Tasha Cobbs", count: 5 },
-  { name: "Elevation Worship Anthems", category: "Elevation Worship", count: 5 },
-  { name: "Phil Thompson Worship Room", category: "Phil Thompson", count: 5 },
-  { name: "Travis Greene Essentials", category: "Travis Greene", count: 5 },
-  { name: "CeCe Winans Devotional", category: "CeCe Winans", count: 5 },
-  { name: "Nathaniel Bassey Praise", category: "Nathaniel Bassey", count: 5 },
-  { name: "Sinach Worship Collection", category: "Sinach", count: 5 },
-  { name: "Mercy Chinwo Hits", category: "Mercy Chinwo", count: 5 },
-  { name: "Don Moen Hymns & Praises", category: "Don Moen", count: 5 },
-  { name: "Gospel Jazz Café", category: "Gospel Jazz", count: 5 },
-  { name: "Delta Blues Devotional", category: "Blues Devotional", count: 5 },
-  { name: "Symphony & Classical Worship", category: "Classical Worship", count: 5 },
-  { name: "RnB Soul Sanctuary", category: "RnB Worship", count: 5 }
+  { name: "Delta Blues", category: "Blues", count: 1 }
 ];
 
-// Folders metadata
 const foldersData = [
-  { name: "music/Gospel/Hillsong_United", label: "Hillsong United (5 songs)", filter: "Hillsong United" },
-  { name: "music/Gospel/Tasha_Cobbs", label: "Tasha Cobbs (5 songs)", filter: "Tasha Cobbs" },
-  { name: "music/Gospel/Elevation_Worship", label: "Elevation Worship (5 songs)", filter: "Elevation Worship" },
-  { name: "music/Gospel/Phil_Thompson", label: "Phil Thompson (5 songs)", filter: "Phil Thompson" },
-  { name: "music/Gospel/Travis_Greene", label: "Travis Greene (5 songs)", filter: "Travis Greene" },
-  { name: "music/Gospel/CeCe_Winans", label: "CeCe Winans (5 songs)", filter: "CeCe Winans" },
-  { name: "music/Gospel/Nathaniel_Bassey", label: "Nathaniel Bassey (5 songs)", filter: "Nathaniel Bassey" },
-  { name: "music/Gospel/Sinach", label: "Sinach (5 songs)", filter: "Sinach" },
-  { name: "music/Gospel/Mercy_Chinwo", label: "Mercy Chinwo (5 songs)", filter: "Mercy Chinwo" },
-  { name: "music/Gospel/Don_Moen", label: "Don Moen (5 songs)", filter: "Don Moen" },
-  { name: "music/Jazz/Gospel_Jazz", label: "Gospel Jazz (5 songs)", filter: "Gospel Jazz" },
-  { name: "music/Blues/Gospel_Blues", label: "Blues Devotional (5 songs)", filter: "Blues Devotional" },
-  { name: "music/Classical/Symphony_Worship", label: "Classical Symphony (5 songs)", filter: "Classical Worship" },
-  { name: "music/RnB/RnB_Gospel", label: "RnB Worship (5 songs)", filter: "RnB Worship" }
+  { name: "cloud/Audius/Trending", label: "Audius Global Trending (Live)", filter: "Trending Online" },
+  { name: "cloud/Audius/Gospel", label: "Gospel Cloud Stream (Live)", filter: "Gospel Stream" },
+  { name: "cloud/Audius/Ambient", label: "Ambient Cloud Stream (Live)", filter: "Ambient Stream" },
+  { name: "cloud/Audius/Lofi", label: "Lo-Fi Beats (Live)", filter: "Lofi Stream" },
+  { name: "cloud/Audius/Acoustic", label: "Acoustic & Folk (Live)", filter: "Acoustic Stream" },
+  { name: "cloud/Audius/RnB", label: "Neo-Soul & R&B (Live)", filter: "RnB Stream" },
+  { name: "cloud/Audius/Electronic", label: "Electronic & EDM (Live)", filter: "Electronic Stream" },
+  { name: "cloud/Audius/Afrobeats", label: "Afrobeats Praise (Live)", filter: "Afrobeats Stream" },
+  { name: "cloud/Audius/Jazz", label: "Jazz Cloud Stream (Live)", filter: "Jazz Stream" },
+  { name: "music/Gospel/Hillsong_United", label: "Hillsong United (1 song)", filter: "Hillsong United" },
+  { name: "music/Gospel/Hillsong_Worship", label: "Hillsong Worship (2 songs)", filter: "Hillsong Worship" },
+  { name: "music/Gospel/Nathaniel_Bassey", label: "Nathaniel Bassey (1 song)", filter: "Nathaniel Bassey" },
+  { name: "music/Public_Domain/Ragtime", label: "Scott Joplin Ragtime (2 songs)", filter: "Ragtime" },
+  { name: "music/Public_Domain/Classical", label: "Beethoven Classical (1 song)", filter: "Classical" },
+  { name: "music/Blues", label: "Delta Blues (1 song)", filter: "Blues" }
 ];
 
-// Artists metadata
 const artistsData = [
-  { name: "Hillsong United", songs: 5, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=150&q=80" },
-  { name: "Tasha Cobbs", songs: 5, img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=150&q=80" },
-  { name: "Elevation Worship", songs: 5, img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=150&q=80" },
-  { name: "Phil Thompson", songs: 5, img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" },
-  { name: "Travis Greene", songs: 5, img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" },
-  { name: "CeCe Winans", songs: 5, img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" },
-  { name: "Nathaniel Bassey", songs: 5, img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" },
-  { name: "Sinach", songs: 5, img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" },
-  { name: "Mercy Chinwo", songs: 5, img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" },
-  { name: "Don Moen", songs: 5, img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80" },
-  { name: "Gospel Jazz", songs: 5, img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=150&q=80" },
-  { name: "Blues Devotional", songs: 5, img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=150&q=80" },
-  { name: "Classical Worship", songs: 5, img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=150&q=80" },
-  { name: "RnB Worship", songs: 5, img: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=150&q=80" }
+  { name: "Audius Creators", songs: "Millions", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=150&q=80" },
+  { name: "Hillsong United", songs: 1, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=150&q=80" },
+  { name: "Hillsong Worship", songs: 2, img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=150&q=80" },
+  { name: "Nathaniel Bassey", songs: 1, img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" },
+  { name: "Paul Baloche", songs: 1, img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=150&q=80" },
+  { name: "Scott Joplin", songs: 2, img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=150&q=80" },
+  { name: "Ludwig van Beethoven", songs: 1, img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=150&q=80" }
 ];
 
-*/
-
-// Top Featured Grid Albums
+// Top Featured Grid
 const featuredAlbums = [
   { id: 1, title: "So Will I (100 Billion X)", artist: "Hillsong United", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=300&q=80" },
   { id: 2, title: "Hosanna (Live)", artist: "Hillsong Worship", img: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=300&q=80" },
-  { id: 3, title: "Let There Be Light", artist: "Hillsong Worship", img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=300&q=80" },
-  { id: 4, title: "Hosanna (Live)", artist: "Paul Baloche", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=300&q=80" },
-  { id: 5, title: "Olowogbogboro", artist: "Nathaniel Bassey feat. Wale Adenuga", img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=300&q=80" },
-  { id: 6, title: "Black Bottom Stomp", artist: "Jelly Roll Morton", img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=300&q=80" },
-  { id: 7, title: "Memphis Blues", artist: "W. C. Handy", img: "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=300&q=80" }
+  { id: 5, title: "Olowogbogboro", artist: "Nathaniel Bassey", img: "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=300&q=80" },
+  { id: 8, title: "The Entertainer", artist: "Scott Joplin", img: "https://images.unsplash.com/photo-1525994886773-080587e161c2?auto=format&fit=crop&w=300&q=80" }
 ];
 
 // -------------------------------------------------------------
+// Audius API Client & Service
+// -------------------------------------------------------------
+const AUDIUS_APP_NAME = 'STREAMHUB_APP';
+let audiusEndpoint = 'https://api.audius.co';
+let audiusTrendingTracks = [];
+let audiusGenreTracks = {
+  "Gospel Stream": [],
+  "Ambient Stream": [],
+  "Lofi Stream": [],
+  "Acoustic Stream": [],
+  "RnB Stream": [],
+  "Electronic Stream": [],
+  "Afrobeats Stream": [],
+  "Jazz Stream": [],
+  "Classical Stream": []
+};
+let audiusSearchResults = [];
+let searchDebounceTimer = null;
+
+async function initAudiusService() {
+  try {
+    const res = await fetch('https://api.audius.co', { cache: 'no-cache' });
+    const data = await res.json();
+    if (data && data.data && data.data.length > 0) {
+      audiusEndpoint = data.data[0];
+    }
+  } catch (e) {
+    audiusEndpoint = 'https://discoveryprovider.audius.co';
+  }
+  console.log('Connected to Audius Discovery Node:', audiusEndpoint);
+
+  loadAudiusFeeds();
+}
+
+function formatAudiusTrack(t, customCategory = 'Trending Online') {
+  const artwork = t.artwork ? (t.artwork['480x480'] || t.artwork['1000x1000'] || t.artwork['150x150']) : null;
+  const defaultImg = "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80";
+  const streamUrl = `${audiusEndpoint}/v1/tracks/${t.id}/stream?app_name=${AUDIUS_APP_NAME}`;
+
+  return {
+    id: `audius_${t.id}`,
+    audiusId: t.id,
+    title: t.title || 'Untitled Track',
+    artist: (t.user && t.user.name) ? t.user.name : (t.user?.handle || 'Audius Artist'),
+    album: t.genre ? `${t.genre} • Audius Cloud` : 'Audius Cloud Stream',
+    category: customCategory,
+    folder: 'Audius Live Stream',
+    duration: Math.round(t.duration || 180),
+    img: artwork || defaultImg,
+    audioSrc: streamUrl,
+    fallbackAudioSrc: streamUrl,
+    isAudius: true,
+    genre: t.genre || 'Music',
+    playCount: t.play_count || 0,
+    lyrics: `Streamed live from Audius Open Music Protocol.<br/>Artist: <strong>${t.user?.name || 'Artist'}</strong> (@${t.user?.handle || 'creator'})<br/>Genre: ${t.genre || 'Independent'}`
+  };
+}
+
+async function fetchAudiusTrending(genre = '', limit = 15) {
+  try {
+    const genreParam = genre ? `&genre=${encodeURIComponent(genre)}` : '';
+    const url = `${audiusEndpoint}/v1/tracks/trending?app_name=${AUDIUS_APP_NAME}&limit=${limit}${genreParam}`;
+    const res = await fetch(url);
+    const json = await res.json();
+    if (json && json.data) {
+      return json.data.filter(t => t.is_streamable !== false).map(t => formatAudiusTrack(t, genre || 'Trending Online'));
+    }
+  } catch (err) {
+    console.warn('Audius trending fetch notice:', err);
+  }
+  return [];
+}
+
+async function searchAudiusTracks(query, limit = 12) {
+  if (!query || query.trim().length === 0) return [];
+  try {
+    const url = `${audiusEndpoint}/v1/tracks/search?query=${encodeURIComponent(query)}&app_name=${AUDIUS_APP_NAME}&limit=${limit}`;
+    const res = await fetch(url);
+    const json = await res.json();
+    if (json && json.data) {
+      return json.data.filter(t => t.is_streamable !== false).map(t => formatAudiusTrack(t, 'Search Result'));
+    }
+  } catch (err) {
+    console.warn('Audius search error:', err);
+  }
+  return [];
+}
+
+async function loadAudiusFeeds() {
+  try {
+    // 1. Trending Overall
+    const trending = await fetchAudiusTrending('', 15);
+    if (trending.length > 0) {
+      audiusTrendingTracks = trending;
+      trending.forEach(song => {
+        if (!allSongs.some(s => s.id === song.id)) allSongs.push(song);
+      });
+      renderMainSections();
+    }
+
+    // 2. Gospel
+    searchAudiusTracks('gospel worship', 10).then(gospel => {
+      if (gospel.length) {
+        audiusGenreTracks["Gospel Stream"] = gospel.map(s => ({ ...s, category: "Gospel Stream" }));
+        gospel.forEach(song => { if (!allSongs.some(s => s.id === song.id)) allSongs.push(song); });
+        renderMainSections();
+      }
+    });
+
+    // 3. Ambient
+    searchAudiusTracks('ambient meditation peaceful', 10).then(ambient => {
+      if (ambient.length) {
+        audiusGenreTracks["Ambient Stream"] = ambient.map(s => ({ ...s, category: "Ambient Stream" }));
+        ambient.forEach(song => { if (!allSongs.some(s => s.id === song.id)) allSongs.push(song); });
+      }
+    });
+
+    // 4. Lo-Fi
+    searchAudiusTracks('lofi hip hop study beats', 10).then(lofi => {
+      if (lofi.length) {
+        audiusGenreTracks["Lofi Stream"] = lofi.map(s => ({ ...s, category: "Lofi Stream" }));
+        lofi.forEach(song => { if (!allSongs.some(s => s.id === song.id)) allSongs.push(song); });
+      }
+    });
+
+    // 5. Acoustic
+    searchAudiusTracks('acoustic guitar folk worship', 10).then(acoustic => {
+      if (acoustic.length) {
+        audiusGenreTracks["Acoustic Stream"] = acoustic.map(s => ({ ...s, category: "Acoustic Stream" }));
+        acoustic.forEach(song => { if (!allSongs.some(s => s.id === song.id)) allSongs.push(song); });
+      }
+    });
+
+    // 6. R&B & Neo-Soul
+    searchAudiusTracks('neo soul rnb groove', 10).then(rnb => {
+      if (rnb.length) {
+        audiusGenreTracks["RnB Stream"] = rnb.map(s => ({ ...s, category: "RnB Stream" }));
+        rnb.forEach(song => { if (!allSongs.some(s => s.id === song.id)) allSongs.push(song); });
+      }
+    });
+
+    // 7. Electronic & EDM
+    searchAudiusTracks('melodic electronic synthwave', 10).then(edm => {
+      if (edm.length) {
+        audiusGenreTracks["Electronic Stream"] = edm.map(s => ({ ...s, category: "Electronic Stream" }));
+        edm.forEach(song => { if (!allSongs.some(s => s.id === song.id)) allSongs.push(song); });
+      }
+    });
+
+    // 8. Afrobeats Praise
+    searchAudiusTracks('afrobeats praise afro gospel', 10).then(afro => {
+      if (afro.length) {
+        audiusGenreTracks["Afrobeats Stream"] = afro.map(s => ({ ...s, category: "Afrobeats Stream" }));
+        afro.forEach(song => { if (!allSongs.some(s => s.id === song.id)) allSongs.push(song); });
+      }
+    });
+
+    // 9. Jazz
+    searchAudiusTracks('smooth jazz saxophone', 10).then(jazz => {
+      if (jazz.length) {
+        audiusGenreTracks["Jazz Stream"] = jazz.map(s => ({ ...s, category: "Jazz Stream" }));
+        jazz.forEach(song => { if (!allSongs.some(s => s.id === song.id)) allSongs.push(song); });
+      }
+    });
+
+    // 10. Classical
+    searchAudiusTracks('classical piano symphony strings', 10).then(classical => {
+      if (classical.length) {
+        audiusGenreTracks["Classical Stream"] = classical.map(s => ({ ...s, category: "Classical Stream" }));
+        classical.forEach(song => { if (!allSongs.some(s => s.id === song.id)) allSongs.push(song); });
+        renderMainSections();
+      }
+    });
+
+  } catch (e) {
+    console.warn('Audius background feed loading notice:', e);
+  }
+}
+
+function playTrendingAudius() {
+  if (audiusTrendingTracks.length > 0) {
+    playSongById(audiusTrendingTracks[0].id);
+  } else {
+    filterByCategory('Trending Online');
+  }
+}
+
+// -------------------------------------------------------------
 // Fallback Ambient Worship Synth (Web Audio API)
-// Guarantees rich, soothing worship music even if offline or missing files
 // -------------------------------------------------------------
 class WebAudioSynthPlayer {
   constructor() {
@@ -1311,12 +544,11 @@ class WebAudioSynthPlayer {
     this.timer = null;
     this.chordIndex = 0;
     
-    // Lush worship chord progressions in D Major / B Minor
     this.chords = [
-      [146.83, 220.00, 293.66, 369.99, 440.00], // D Major 9
-      [123.47, 185.00, 246.94, 293.66, 369.99], // B Minor 7
-      [130.81, 196.00, 261.63, 329.63, 392.00], // G Major 9
-      [110.00, 164.81, 220.00, 277.18, 329.63]  // A Major 11
+      [146.83, 220.00, 293.66, 369.99, 440.00],
+      [123.47, 185.00, 246.94, 293.66, 369.99],
+      [130.81, 196.00, 261.63, 329.63, 392.00],
+      [110.00, 164.81, 220.00, 277.18, 329.63]
     ];
   }
 
@@ -1344,21 +576,18 @@ class WebAudioSynthPlayer {
         this.playChord(this.chords[this.chordIndex]);
       }, 4000);
     } catch (e) {
-      console.warn("Synth player initialization notice:", e);
+      console.warn("Synth player notice:", e);
     }
   }
 
   playChord(freqs) {
     if (!this.ctx || !this.isPlaying) return;
-    
     const now = this.ctx.currentTime;
     
-    // Master gain with smooth envelope
     if (!this.gainNode) {
       this.gainNode = this.ctx.createGain();
       this.gainNode.gain.setValueAtTime(0.08, now);
       
-      // Gentle low-pass filter for warm analog tone
       const filter = this.ctx.createBiquadFilter();
       filter.type = 'lowpass';
       filter.frequency.setValueAtTime(750, now);
@@ -1376,7 +605,6 @@ class WebAudioSynthPlayer {
       osc.type = idx === 0 ? 'sine' : 'triangle';
       osc.frequency.setValueAtTime(freq, now);
       
-      // Gentle fade-in
       oscGain.gain.setValueAtTime(0.001, now);
       oscGain.gain.exponentialRampToValueAtTime(0.025 / (idx + 1), now + 1.2);
       oscGain.gain.exponentialRampToValueAtTime(0.001, now + 3.9);
@@ -1447,6 +675,7 @@ const dynamicSectionsEl = document.getElementById('dynamic-sections');
 const categoryChips = document.getElementById('category-chips');
 const searchInput = document.getElementById('search-input');
 const searchClear = document.getElementById('search-clear');
+const searchSpinner = document.getElementById('search-spinner');
 const greetingEl = document.getElementById('greeting');
 const musicFileInput = document.getElementById('music-file-input');
 const localFilesSection = document.getElementById('local-files-section');
@@ -1552,7 +781,6 @@ audioPlayer.addEventListener('error', () => {
   const track = queue[currentTrackIndex];
   console.warn("Audio file load notice:", track?.title);
   
-  // Try fallback audio source or smooth Synth mode
   if (track && track.fallbackAudioSrc && audioPlayer.src !== encodeURI(new URL(track.fallbackAudioSrc, window.location.href).href)) {
     audioPlayer.src = encodeURI(track.fallbackAudioSrc);
     audioPlayer.load();
@@ -1617,7 +845,7 @@ function syncPlaybackUI() {
   const playIcon = '<i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>';
   const pauseIcon = '<i data-lucide="pause" class="w-5 h-5 fill-current ml-0"></i>';
   const mobilePlayIcon = '<i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>';
-  const mobilePauseIcon = '<i data-lucide="pause" class="w-4 h-4 fill-current ml-0"></i>';
+  const mobilePauseIcon = '<i data-lucide="pause" class="w-4 h-4 fill-current ml-0.5"></i>';
   const sheetPlayIcon = '<i data-lucide="play" class="w-8 h-8 fill-current ml-1"></i>';
   const sheetPauseIcon = '<i data-lucide="pause" class="w-8 h-8 fill-current ml-0"></i>';
 
@@ -1637,7 +865,6 @@ function loadTrack(index) {
   const track = queue[index];
   if (!track) return;
   
-  // Update titles & artwork
   if (currentTitleEl) currentTitleEl.innerText = track.title;
   if (currentArtistEl) currentArtistEl.innerText = track.artist;
   if (currentAlbumArtEl) currentAlbumArtEl.src = track.img;
@@ -1648,7 +875,6 @@ function loadTrack(index) {
   if (mobileSheetBgArt) mobileSheetBgArt.src = track.img;
   if (mobileSheetCategory) mobileSheetCategory.innerText = track.category || 'StreamHub Worship';
 
-  // Inject Lyrics
   const lyricsHtml = track.lyrics || "No lyrics available for this track.";
   if (lyricsContent) lyricsContent.innerHTML = lyricsHtml;
   
@@ -1658,7 +884,6 @@ function loadTrack(index) {
   updateDurationDisplays(track.duration);
   updateProgressUI(0, track.duration);
   
-  // Set audio source
   activePlaybackMode = 'file';
   clearInterval(synthTimer);
   synthPlayer.pause();
@@ -1702,7 +927,20 @@ function togglePlay(forcePlay) {
 }
 
 function playSongById(id) {
-  const foundIndex = queue.findIndex(s => s.id === id);
+  let foundSong = queue.find(s => String(s.id) === String(id));
+  if (!foundSong) {
+    foundSong = allSongs.find(s => String(s.id) === String(id)) || 
+                audiusSearchResults.find(s => String(s.id) === String(id)) || 
+                audiusTrendingTracks.find(s => String(s.id) === String(id)) ||
+                Object.values(audiusGenreTracks).flat().find(s => String(s.id) === String(id));
+    
+    if (foundSong) {
+      if (!allSongs.some(s => String(s.id) === String(foundSong.id))) allSongs.push(foundSong);
+      if (!queue.some(s => String(s.id) === String(foundSong.id))) queue.push(foundSong);
+    }
+  }
+
+  const foundIndex = queue.findIndex(s => String(s.id) === String(id));
   if (foundIndex !== -1) {
     currentTrackIndex = foundIndex;
     loadTrack(currentTrackIndex);
@@ -1815,7 +1053,6 @@ function handleProgressClick(e, container) {
 
 [progressContainer, mobileProgressContainer, mobileSheetProgressContainer].forEach(container => {
   if (!container) return;
-  
   container.addEventListener('click', (e) => handleProgressClick(e, container));
   
   let isDragging = false;
@@ -1833,7 +1070,7 @@ function handleProgressClick(e, container) {
 });
 
 // -------------------------------------------------------------
-// Volume Slider Controls (Desktop & Mobile Touch)
+// Volume Slider Controls
 // -------------------------------------------------------------
 function setVolume(volume) {
   const clamped = Math.max(0, Math.min(1, volume));
@@ -1848,7 +1085,9 @@ function setVolume(volume) {
   if (btnMute) {
     const icon = btnMute.querySelector('i');
     if (icon) {
-      icon.setAttribute('data-lucide', clamped === 0 ? 'volume-x' : clamped < 0.5 ? 'volume-1' : 'volume-2');
+      if (clamped === 0) icon.setAttribute('data-lucide', 'volume-x');
+      else if (clamped < 0.5) icon.setAttribute('data-lucide', 'volume-1');
+      else icon.setAttribute('data-lucide', 'volume-2');
       lucide.createIcons();
     }
   }
@@ -1863,41 +1102,46 @@ function handleVolumeClick(e, container) {
 
 [volumeContainer, mobileSheetVolumeContainer].forEach(container => {
   if (!container) return;
-  
   container.addEventListener('click', (e) => handleVolumeClick(e, container));
+  
+  let isDragging = false;
+  const startDrag = (e) => { isDragging = true; handleVolumeClick(e, container); };
+  const moveDrag = (e) => { if (isDragging) handleVolumeClick(e, container); };
+  const stopDrag = () => { isDragging = false; };
 
-  let isDraggingVol = false;
-  const startVolDrag = (e) => { isDraggingVol = true; handleVolumeClick(e, container); };
-  const moveVolDrag = (e) => { if (isDraggingVol) handleVolumeClick(e, container); };
-  const stopVolDrag = () => { isDraggingVol = false; };
+  container.addEventListener('mousedown', startDrag);
+  window.addEventListener('mousemove', moveDrag);
+  window.addEventListener('mouseup', stopDrag);
 
-  container.addEventListener('mousedown', startVolDrag);
-  window.addEventListener('mousemove', moveVolDrag);
-  window.addEventListener('mouseup', stopVolDrag);
-
-  container.addEventListener('touchstart', startVolDrag, { passive: true });
-  window.addEventListener('touchmove', moveVolDrag, { passive: true });
-  window.addEventListener('touchend', stopVolDrag);
+  container.addEventListener('touchstart', startDrag, { passive: true });
+  window.addEventListener('touchmove', moveDrag, { passive: true });
+  window.addEventListener('touchend', stopDrag);
 });
 
 // -------------------------------------------------------------
-// Favorites Persistence
+// Favorites Management (Persistent via LocalStorage + Supabase)
 // -------------------------------------------------------------
-function syncFavoriteState(trackId) {
+function syncFavoriteState(songId) {
   const favs = JSON.parse(localStorage.getItem('favs') || '[]');
-  const isFav = favs.includes(trackId);
+  const isFav = favs.includes(songId);
 
   [btnFav, btnMobileSheetFav].forEach(btn => {
     if (!btn) return;
-    btn.classList.toggle('text-brand', isFav);
+    btn.classList.toggle('text-rose-500', isFav);
+    btn.classList.toggle('text-gray-400', !isFav);
     const icon = btn.querySelector('i');
-    if (icon) icon.classList.toggle('fill-brand', isFav);
+    if (icon) {
+      if (isFav) icon.classList.add('fill-current');
+      else icon.classList.remove('fill-current');
+    }
   });
+  lucide.createIcons();
 }
 
 function toggleFavorite() {
-  const currentTrackId = queue[currentTrackIndex]?.id;
-  if (!currentTrackId) return;
+  const currentTrack = queue[currentTrackIndex];
+  if (!currentTrack) return;
+  const currentTrackId = currentTrack.id;
 
   let favs = JSON.parse(localStorage.getItem('favs') || '[]');
   const isFav = favs.includes(currentTrackId);
@@ -1921,26 +1165,29 @@ function getFilteredSongs() {
   let list = allSongs;
   if (activeCategoryFilter !== 'all') {
     list = list.filter(s => 
-      s.category.toLowerCase().includes(activeCategoryFilter.toLowerCase()) || 
-      s.artist.toLowerCase().includes(activeCategoryFilter.toLowerCase()) ||
-      s.folder.toLowerCase().includes(activeCategoryFilter.toLowerCase())
+      (s.category && s.category.toLowerCase().includes(activeCategoryFilter.toLowerCase())) || 
+      (s.artist && s.artist.toLowerCase().includes(activeCategoryFilter.toLowerCase())) ||
+      (s.folder && s.folder.toLowerCase().includes(activeCategoryFilter.toLowerCase()))
     );
   }
   if (searchQuery.trim() !== '') {
     const q = searchQuery.toLowerCase().trim();
     list = list.filter(s => 
-      s.title.toLowerCase().includes(q) || 
-      s.artist.toLowerCase().includes(q) || 
-      s.album.toLowerCase().includes(q) ||
-      s.category.toLowerCase().includes(q) ||
-      s.folder.toLowerCase().includes(q)
+      (s.title && s.title.toLowerCase().includes(q)) || 
+      (s.artist && s.artist.toLowerCase().includes(q)) || 
+      (s.album && s.album.toLowerCase().includes(q)) ||
+      (s.category && s.category.toLowerCase().includes(q)) ||
+      (s.folder && s.folder.toLowerCase().includes(q))
     );
   }
   return list;
 }
 
 function playCategory(categoryName, shuffle = false) {
-  const categorySongs = allSongs.filter(s => s.category.toLowerCase().includes(categoryName.toLowerCase()) || s.folder.toLowerCase().includes(categoryName.toLowerCase()));
+  const categorySongs = allSongs.filter(s => 
+    (s.category && s.category.toLowerCase().includes(categoryName.toLowerCase())) || 
+    (s.folder && s.folder.toLowerCase().includes(categoryName.toLowerCase()))
+  );
   if (categorySongs.length === 0) return;
   
   if (shuffle) {
@@ -1954,203 +1201,303 @@ function playCategory(categoryName, shuffle = false) {
 function renderMainSections() {
   const songs = getFilteredSongs();
   
-  if (activeCategoryFilter !== 'all' || searchQuery.trim() !== '') {
-    const catMeta = categoryMetadata[activeCategoryFilter] || {
-      name: activeCategoryFilter,
-      badge: "FEATURED COLLECTION",
-      tagline: "Curated Playlist & Tracks",
-      description: `Explore all ${songs.length} worship tracks in this specialized collection.`,
-      heroImg: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1600&q=80",
-      accentColor: "#8b5cf6",
-      gradient: "from-purple-950/90 via-indigo-950/70 to-[#121212]",
-      listeners: "Featured StreamHub Playlist",
-      songsCount: songs.length
-    };
-
+  // When Searching
+  if (searchQuery.trim() !== '') {
     dynamicSectionsEl.innerHTML = `
       <div>
-        ${!searchQuery ? `
-          <div class="category-hero-banner relative rounded-2xl overflow-hidden mb-6 md:mb-8 border border-white/10 shadow-2xl min-h-[220px] sm:min-h-[260px] md:min-h-[300px] flex flex-col justify-end p-4 sm:p-6 md:p-8" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(18,18,18,0.85) 60%, #121212 100%), url('${catMeta.heroImg}'); background-size: cover; background-position: center;">
-            <div class="relative z-10 max-w-3xl">
-              <div class="flex items-center gap-2 mb-2 sm:mb-3">
-                <span class="text-[9px] sm:text-[10px] uppercase tracking-widest font-extrabold px-2.5 py-0.5 rounded-full text-white bg-black/60 backdrop-blur-md border border-white/20 shadow-md">
-                  <i data-lucide="sparkles" class="w-3 h-3 inline mr-1 text-yellow-400"></i> ${catMeta.badge}
-                </span>
-                <span class="text-xs text-gray-300 font-mono flex items-center gap-1">
-                  <i data-lucide="music" class="w-3 h-3 text-brand"></i> ${songs.length} Tracks
-                </span>
-              </div>
-              <h1 class="text-2xl sm:text-3xl md:text-5xl font-outfit font-black tracking-tight text-white drop-shadow-lg mb-1 sm:mb-2">
-                ${catMeta.name}
-              </h1>
-              <p class="text-xs sm:text-sm md:text-base font-semibold text-purple-200 drop-shadow mb-1 sm:mb-2">${catMeta.tagline}</p>
-              <p class="text-xs md:text-sm text-gray-300 leading-relaxed drop-shadow line-clamp-2 max-w-2xl mb-4 sm:mb-6">${catMeta.description}</p>
-              
-              <div class="flex flex-wrap items-center gap-2.5 sm:gap-3">
-                <button onclick="playCategory('${activeCategoryFilter}', false)" class="bg-brand hover:bg-brand-hover active:scale-95 text-white font-bold px-5 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm rounded-full flex items-center gap-2 transition shadow-xl shadow-brand/40">
-                  <i data-lucide="play" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current"></i> Play All
-                </button>
-                <button onclick="playCategory('${activeCategoryFilter}', true)" class="bg-white/10 hover:bg-white/20 active:scale-95 backdrop-blur-md text-white font-semibold px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm rounded-full flex items-center gap-2 transition border border-white/15">
-                  <i data-lucide="shuffle" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i> Shuffle
-                </button>
-                <button onclick="resetFilters()" class="text-xs text-gray-400 hover:text-white px-3 py-2 rounded-full transition flex items-center gap-1.5 hover:bg-white/5 ml-auto">
-                  <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to All
-                </button>
-              </div>
-            </div>
+        <div class="flex items-center justify-between mb-5 pb-2 border-b border-white/10">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-bold font-outfit text-white flex items-center gap-2">
+              <i data-lucide="search" class="w-5 h-5 text-brand"></i> Search Results for "${searchQuery}"
+            </h2>
+            <p class="text-xs text-gray-400 mt-0.5">${songs.length} local & cached tracks, plus live Audius cloud search</p>
           </div>
-        ` : `
-          <div class="flex items-center justify-between mb-5 pb-2 border-b border-white/10">
-            <div>
-              <h2 class="text-xl sm:text-2xl font-bold font-outfit text-white">
-                Search Results for "${searchQuery}"
-              </h2>
-              <p class="text-xs text-gray-400 mt-0.5">${songs.length} tracks found matching your query</p>
-            </div>
-            <button onclick="resetFilters()" class="text-xs text-brand hover:underline font-semibold flex items-center gap-1.5 bg-brand/10 hover:bg-brand/20 px-3 py-1.5 rounded-full border border-brand/30 transition">
-              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset Filter
-            </button>
-          </div>
-        `}
+          <button onclick="resetFilters()" class="text-xs text-brand hover:underline font-semibold flex items-center gap-1.5 bg-brand/10 hover:bg-brand/20 px-3 py-1.5 rounded-full border border-brand/30 transition">
+            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Clear Search
+          </button>
+        </div>
 
-        ${songs.length === 0 ? `
-          <div class="p-8 sm:p-12 text-center text-gray-400 bg-white/5 rounded-2xl border border-white/5 backdrop-blur-md">
-            <i data-lucide="music" class="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 text-gray-600"></i>
-            <p class="text-base sm:text-lg font-semibold text-white">No songs match your search</p>
-            <p class="text-xs sm:text-sm text-gray-500 mt-1">Try another artist name or category filter</p>
+        ${audiusSearchResults.length > 0 ? `
+          <div class="mb-8">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="badge-audius text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+                <i data-lucide="cloud-lightning" class="w-3.5 h-3.5 text-cyan-400"></i> LIVE AUDIUS CLOUD RESULTS (${audiusSearchResults.length})
+              </span>
+              <span class="text-xs text-gray-400">Instant full-length stream</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-4">
+              ${audiusSearchResults.map(song => renderSongCard(song)).join('')}
+            </div>
           </div>
-        ` : `
+        ` : ''}
+
+        ${songs.length > 0 ? `
           <div class="mb-6 sm:mb-8">
             <h3 class="text-base sm:text-lg font-outfit font-bold mb-3 text-white flex items-center gap-2">
-              <i data-lucide="layout-grid" class="w-4 h-4 text-brand"></i> Category Picks
+              <i data-lucide="library" class="w-4 h-4 text-brand"></i> Library & Curated Matches (${songs.length})
             </h3>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-4">
               ${songs.map(song => renderSongCard(song)).join('')}
             </div>
           </div>
-
-          <div class="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/5 overflow-hidden p-2 sm:p-4 shadow-xl">
-            <div class="text-[11px] sm:text-xs text-gray-400 font-semibold px-3 sm:px-4 py-2 flex items-center border-b border-white/10 uppercase tracking-wider">
-              <span class="w-6 sm:w-8">#</span>
-              <span class="flex-1">Title & Artist</span>
-              <span class="w-40 hidden md:block">Album / Category</span>
-              <span class="w-14 sm:w-16 text-right">Time</span>
-            </div>
-            <div class="divide-y divide-white/5">
-              ${songs.map((song, i) => renderSongRow(song, i + 1)).join('')}
-            </div>
+        ` : (audiusSearchResults.length === 0 ? `
+          <div class="p-8 sm:p-12 text-center text-gray-400 bg-white/5 rounded-2xl border border-white/5 backdrop-blur-md">
+            <i data-lucide="music" class="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 text-gray-600"></i>
+            <p class="text-base sm:text-lg font-semibold text-white">Searching online & library...</p>
+            <p class="text-xs sm:text-sm text-gray-500 mt-1">Type an artist name (e.g. Hillsong, Jazz, Worship) to stream</p>
           </div>
-        `}
+        ` : '')}
       </div>
     `;
-  } else {
-    const categoriesList = Object.keys(categoryMetadata);
-    const spotlightCategory = categoryMetadata["Hillsong United"];
+    lucide.createIcons();
+    return;
+  }
+
+  // When Filtering by Category (other than 'all')
+  if (activeCategoryFilter !== 'all') {
+    const catMeta = categoryMetadata[activeCategoryFilter] || {
+      name: activeCategoryFilter,
+      badge: "STREAMHUB PLAYLIST",
+      tagline: "Curated Playlist & Audio Collection",
+      description: `Explore all ${songs.length} tracks in this collection.`,
+      heroImg: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1600&q=80",
+      accentColor: "#8b5cf6",
+      gradient: "from-purple-950/90 via-indigo-950/70 to-[#121212]",
+      listeners: "Specialized Stream",
+      songsCount: songs.length
+    };
 
     dynamicSectionsEl.innerHTML = `
-      <div class="category-hero-banner relative rounded-2xl md:rounded-3xl overflow-hidden mb-8 md:mb-10 border border-white/10 shadow-2xl min-h-[240px] sm:min-h-[280px] md:min-h-[340px] flex flex-col justify-end p-4 sm:p-6 md:p-10" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(18,18,18,0.85) 50%, #121212 100%), url('${spotlightCategory.heroImg}'); background-size: cover; background-position: center 30%;">
-        <div class="relative z-10 max-w-3xl">
-          <div class="flex items-center gap-2 mb-2 sm:mb-3">
-            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest font-extrabold px-3 py-1 rounded-full text-white bg-gradient-to-r from-brand to-purple-600 shadow-lg shadow-purple-900/50">
-              <i data-lucide="flame" class="w-3 h-3 inline mr-1 text-yellow-300"></i> FEATURED SPOTLIGHT
-            </span>
-            <span class="text-xs text-purple-200/90 font-medium">3.4M Monthly Listeners</span>
+      <div>
+        <div class="category-hero-banner relative rounded-2xl overflow-hidden mb-6 md:mb-8 border border-white/10 shadow-2xl min-h-[220px] sm:min-h-[260px] md:min-h-[300px] flex flex-col justify-end p-4 sm:p-6 md:p-8" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(18,18,18,0.85) 60%, #121212 100%), url('${catMeta.heroImg}'); background-size: cover; background-position: center;">
+          <div class="relative z-10 max-w-3xl">
+            <div class="flex items-center gap-2 mb-2 sm:mb-3">
+              <span class="text-[9px] sm:text-[10px] uppercase tracking-widest font-extrabold px-2.5 py-0.5 rounded-full text-white bg-black/60 backdrop-blur-md border border-white/20 shadow-md flex items-center gap-1">
+                <i data-lucide="sparkles" class="w-3 h-3 text-yellow-400"></i> ${catMeta.badge}
+              </span>
+              <span class="text-xs text-gray-300 font-mono flex items-center gap-1">
+                <i data-lucide="music" class="w-3 h-3 text-brand"></i> ${songs.length} Tracks
+              </span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl md:text-5xl font-outfit font-black tracking-tight text-white drop-shadow-lg mb-1 sm:mb-2">
+              ${catMeta.name}
+            </h1>
+            <p class="text-xs sm:text-sm md:text-base font-semibold text-purple-200 drop-shadow mb-1 sm:mb-2">${catMeta.tagline}</p>
+            <p class="text-xs md:text-sm text-gray-300 leading-relaxed drop-shadow line-clamp-2 max-w-2xl mb-4 sm:mb-6">${catMeta.description}</p>
+            
+            <div class="flex flex-wrap items-center gap-2.5 sm:gap-3">
+              <button onclick="playCategory('${activeCategoryFilter}', false)" class="bg-brand hover:bg-brand-hover active:scale-95 text-white font-bold px-5 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-sm rounded-full flex items-center gap-2 transition shadow-xl shadow-brand/40">
+                <i data-lucide="play" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current"></i> Play Collection
+              </button>
+              <button onclick="playCategory('${activeCategoryFilter}', true)" class="bg-white/10 hover:bg-white/20 active:scale-95 backdrop-blur-md text-white font-semibold px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm rounded-full flex items-center gap-2 transition border border-white/15">
+                <i data-lucide="shuffle" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i> Shuffle
+              </button>
+              <button onclick="resetFilters()" class="text-xs text-gray-400 hover:text-white px-3 py-2 rounded-full transition flex items-center gap-1.5 hover:bg-white/5 ml-auto">
+                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to All
+              </button>
+            </div>
           </div>
-          <h1 class="text-2xl sm:text-3xl md:text-5xl font-outfit font-black tracking-tight text-white drop-shadow-xl mb-1 sm:mb-2">
-            ${spotlightCategory.name}
-          </h1>
-          <p class="text-xs sm:text-sm md:text-base font-semibold text-purple-200 drop-shadow mb-1 sm:mb-2">${spotlightCategory.tagline}</p>
-          <p class="text-xs md:text-sm text-gray-300 leading-relaxed drop-shadow line-clamp-2 max-w-2xl mb-4 sm:mb-6">${spotlightCategory.description}</p>
-          
-          <div class="flex flex-wrap items-center gap-2.5 sm:gap-3">
-            <button onclick="playCategory('Hillsong United', false)" class="bg-brand hover:bg-brand-hover active:scale-95 text-white font-bold px-6 sm:px-7 py-2.5 sm:py-3 rounded-full flex items-center gap-2 transition shadow-xl shadow-brand/40 text-xs sm:text-sm">
-              <i data-lucide="play" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current"></i> Listen Now
-            </button>
-            <button onclick="filterByCategory('Hillsong United')" class="bg-white/10 hover:bg-white/20 active:scale-95 backdrop-blur-md text-white font-semibold px-4 sm:px-5 py-2.5 sm:py-3 rounded-full flex items-center gap-2 transition border border-white/15 text-xs sm:text-sm">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-300"></i> View All Tracks
-            </button>
+        </div>
+
+        <div class="mb-6 sm:mb-8">
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-4">
+            ${songs.map(song => renderSongCard(song)).join('')}
+          </div>
+        </div>
+
+        <div class="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/5 overflow-hidden p-2 sm:p-4 shadow-xl">
+          <div class="text-[11px] sm:text-xs text-gray-400 font-semibold px-3 sm:px-4 py-2 flex items-center border-b border-white/10 uppercase tracking-wider">
+            <span class="w-6 sm:w-8">#</span>
+            <span class="flex-1">Title & Artist</span>
+            <span class="w-40 hidden md:block">Source / Category</span>
+            <span class="w-14 sm:w-16 text-right">Time</span>
+          </div>
+          <div class="divide-y divide-white/5">
+            ${songs.map((song, i) => renderSongRow(song, i + 1)).join('')}
           </div>
         </div>
       </div>
+    `;
+    lucide.createIcons();
+    return;
+  }
 
-      <div class="mb-8 md:mb-12">
-        <div class="flex items-center justify-between mb-3 sm:mb-4">
-          <div>
-            <h2 class="text-xl sm:text-2xl font-outfit font-black text-white flex items-center gap-2">
-              <i data-lucide="compass" class="w-5 h-5 text-brand"></i> Explore Categories & Genres
-            </h2>
-            <p class="text-[11px] sm:text-xs text-gray-400 mt-0.5">Select a category to view full track collections</p>
-          </div>
+  // Home View (All)
+  const categoriesList = Object.keys(categoryMetadata);
+  const spotlightCategory = categoryMetadata["Trending Online"];
+
+  dynamicSectionsEl.innerHTML = `
+    <!-- Top Spotlight Banner -->
+    <div class="category-hero-banner relative rounded-2xl md:rounded-3xl overflow-hidden mb-8 md:mb-10 border border-white/10 shadow-2xl min-h-[240px] sm:min-h-[280px] md:min-h-[340px] flex flex-col justify-end p-4 sm:p-6 md:p-10" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(18,18,18,0.85) 50%, #121212 100%), url('${spotlightCategory.heroImg}'); background-size: cover; background-position: center 30%;">
+      <div class="relative z-10 max-w-3xl">
+        <div class="flex items-center gap-2 mb-2 sm:mb-3">
+          <span class="text-[9px] sm:text-[10px] uppercase tracking-widest font-extrabold px-3 py-1 rounded-full text-white bg-gradient-to-r from-cyan-500 to-brand shadow-lg shadow-cyan-900/50 flex items-center gap-1">
+            <i data-lucide="cloud-lightning" class="w-3.5 h-3.5 text-yellow-300"></i> LIVE AUDIUS PROTOCOL
+          </span>
+          <span class="text-xs text-cyan-200/90 font-medium">Full Songs • Instant Streaming</span>
         </div>
+        <h1 class="text-2xl sm:text-3xl md:text-5xl font-outfit font-black tracking-tight text-white drop-shadow-xl mb-1 sm:mb-2">
+          ${spotlightCategory.name}
+        </h1>
+        <p class="text-xs sm:text-sm md:text-base font-semibold text-cyan-200 drop-shadow mb-1 sm:mb-2">${spotlightCategory.tagline}</p>
+        <p class="text-xs md:text-sm text-gray-300 leading-relaxed drop-shadow line-clamp-2 max-w-2xl mb-4 sm:mb-6">${spotlightCategory.description}</p>
+        
+        <div class="flex flex-wrap items-center gap-2.5 sm:gap-3">
+          <button onclick="playTrendingAudius()" class="bg-gradient-to-r from-brand to-cyan-500 hover:opacity-90 active:scale-95 text-white font-bold px-6 sm:px-7 py-2.5 sm:py-3 rounded-full flex items-center gap-2 transition shadow-xl shadow-brand/40 text-xs sm:text-sm">
+            <i data-lucide="play" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current"></i> Stream Trending Hits
+          </button>
+          <button onclick="filterByCategory('Trending Online')" class="bg-white/10 hover:bg-white/20 active:scale-95 backdrop-blur-md text-white font-semibold px-4 sm:px-5 py-2.5 sm:py-3 rounded-full flex items-center gap-2 transition border border-white/15 text-xs sm:text-sm">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-300"></i> View All Stream Tracks
+          </button>
+        </div>
+      </div>
+    </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2.5 sm:gap-3">
-          ${categoriesList.map(catKey => {
-            const meta = categoryMetadata[catKey];
-            return `
-              <div onclick="filterByCategory('${catKey}')" class="category-card-hover group relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer h-28 sm:h-36 border border-white/10 shadow-lg" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.9) 100%), url('${meta.heroImg}'); background-size: cover; background-position: center;">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:via-brand/20 transition-all duration-300"></div>
-                <div class="absolute top-2 left-2">
-                  <span class="text-[7px] sm:text-[8px] font-extrabold uppercase tracking-wider px-1.5 py-0.5 rounded-full text-white bg-black/60 backdrop-blur-md border border-white/10">
-                    ${meta.badge}
-                  </span>
-                </div>
-                <div class="absolute bottom-2.5 left-2.5 right-2.5 flex items-end justify-between">
-                  <div class="overflow-hidden pr-1">
-                    <span class="font-outfit font-bold text-[11px] sm:text-xs text-white block truncate drop-shadow group-hover:text-purple-200 transition">${meta.shortName}</span>
-                    <span class="text-[9px] sm:text-[10px] text-gray-300 font-mono block mt-0.5">5 tracks</span>
-                  </div>
-                  <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-brand text-white flex items-center justify-center opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all shadow-lg shrink-0">
-                    <i data-lucide="play" class="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current ml-0.5"></i>
-                  </div>
-                </div>
-              </div>
-            `;
-          }).join('')}
+    <!-- Category Grid Navigation -->
+    <div class="mb-8 md:mb-12">
+      <div class="flex items-center justify-between mb-3 sm:mb-4">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-outfit font-black text-white flex items-center gap-2">
+            <i data-lucide="compass" class="w-5 h-5 text-brand"></i> Explore Cloud Stations & Collections
+          </h2>
+          <p class="text-[11px] sm:text-xs text-gray-400 mt-0.5">Select any station to load dynamic live streams</p>
         </div>
       </div>
 
-      <div class="space-y-8 md:space-y-12">
-        ${categoriesList.map(catKey => {
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-3">
+        ${categoriesList.slice(0, 6).map(catKey => {
           const meta = categoryMetadata[catKey];
-          const sectionSongs = allSongs.filter(s => s.category === catKey || s.folder === meta.folder);
-
           return `
-            <section class="space-y-3">
-              <div class="flex items-end justify-between">
-                <div>
-                  <h2 class="text-lg sm:text-xl font-outfit font-bold text-white hover:text-brand transition cursor-pointer flex items-center gap-1.5 group" onclick="filterByCategory('${catKey}')">
-                    <span>${meta.name}</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-1"></i>
-                  </h2>
-                  <div class="flex items-center gap-2 mt-0.5 text-xs text-gray-400">
-                    <span class="text-[9px] sm:text-[10px] uppercase font-bold text-brand bg-brand/10 border border-brand/20 px-2 py-0.5 rounded-full">${meta.badge}</span>
-                  </div>
+            <div onclick="filterByCategory('${catKey}')" class="category-card-hover group relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer h-28 sm:h-36 border border-white/10 shadow-lg" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.9) 100%), url('${meta.heroImg}'); background-size: cover; background-position: center;">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:via-brand/20 transition-all duration-300"></div>
+              <div class="absolute top-2 left-2">
+                <span class="text-[7px] sm:text-[8px] font-extrabold uppercase tracking-wider px-1.5 py-0.5 rounded-full text-white bg-black/60 backdrop-blur-md border border-white/10">
+                  ${meta.badge}
+                </span>
+              </div>
+              <div class="absolute bottom-2.5 left-2.5 right-2.5 flex items-end justify-between">
+                <div class="overflow-hidden pr-1">
+                  <span class="font-outfit font-bold text-[11px] sm:text-xs text-white block truncate drop-shadow group-hover:text-purple-200 transition">${meta.shortName}</span>
+                  <span class="text-[9px] sm:text-[10px] text-gray-300 font-mono block mt-0.5">${meta.isOnline ? '⚡ Live Stream' : meta.songsCount + ' tracks'}</span>
                 </div>
-                <button onclick="filterByCategory('${catKey}')" class="text-xs text-gray-400 font-semibold hover:text-white hover:underline flex items-center gap-1">
-                  Show all (${sectionSongs.length}) <i data-lucide="arrow-right" class="w-3 h-3"></i>
-                </button>
+                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-brand text-white flex items-center justify-center opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-all shadow-lg shrink-0">
+                  <i data-lucide="play" class="w-3.5 h-3.5 sm:w-3.5 sm:h-3.5 fill-current ml-0.5"></i>
+                </div>
               </div>
-
-              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-4">
-                ${sectionSongs.map(song => renderSongCard(song)).join('')}
-              </div>
-            </section>
+            </div>
           `;
         }).join('')}
       </div>
-    `;
-  }
+    </div>
+
+    <!-- Category Sections -->
+    <div class="space-y-8 md:space-y-12">
+      <!-- 1. Audius Trending Section -->
+      ${audiusTrendingTracks.length > 0 ? `
+        <section class="space-y-3">
+          <div class="flex items-end justify-between">
+            <div>
+              <h2 class="text-lg sm:text-xl font-outfit font-bold text-white hover:text-cyan-300 transition cursor-pointer flex items-center gap-1.5 group" onclick="filterByCategory('Trending Online')">
+                <i data-lucide="flame" class="w-5 h-5 text-yellow-400 inline"></i>
+                <span>Audius Global Trending</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400 group-hover:text-cyan-300 transition-transform group-hover:translate-x-1"></i>
+              </h2>
+              <div class="flex items-center gap-2 mt-0.5 text-xs text-gray-400">
+                <span class="badge-audius text-[9px] sm:text-[10px] uppercase font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                  <i data-lucide="cloud-lightning" class="w-3 h-3 text-cyan-400"></i> LIVE STREAM
+                </span>
+                <span>Top trending tracks on the decentralized protocol</span>
+              </div>
+            </div>
+            <button onclick="filterByCategory('Trending Online')" class="text-xs text-gray-400 font-semibold hover:text-white hover:underline flex items-center gap-1">
+              Show all (${audiusTrendingTracks.length}) <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </button>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-4">
+            ${audiusTrendingTracks.slice(0, 5).map(song => renderSongCard(song)).join('')}
+          </div>
+        </section>
+      ` : ''}
+
+      <!-- 2. Gospel & Worship Section -->
+      ${(audiusGenreTracks["Gospel Stream"] && audiusGenreTracks["Gospel Stream"].length > 0) ? `
+        <section class="space-y-3">
+          <div class="flex items-end justify-between">
+            <div>
+              <h2 class="text-lg sm:text-xl font-outfit font-bold text-white hover:text-purple-300 transition cursor-pointer flex items-center gap-1.5 group" onclick="filterByCategory('Gospel Stream')">
+                <i data-lucide="sparkles" class="w-5 h-5 text-purple-400 inline"></i>
+                <span>Gospel & Worship Cloud</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400 group-hover:text-purple-300 transition-transform group-hover:translate-x-1"></i>
+              </h2>
+              <div class="flex items-center gap-2 mt-0.5 text-xs text-gray-400">
+                <span class="text-[9px] sm:text-[10px] uppercase font-bold text-purple-400 bg-purple-950/70 border border-purple-500/30 px-2 py-0.5 rounded-full">WORSHIP CLOUD</span>
+                <span>Live uplifting spiritual melodies</span>
+              </div>
+            </div>
+            <button onclick="filterByCategory('Gospel Stream')" class="text-xs text-gray-400 font-semibold hover:text-white hover:underline flex items-center gap-1">
+              Show all (${audiusGenreTracks["Gospel Stream"].length}) <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </button>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-4">
+            ${audiusGenreTracks["Gospel Stream"].slice(0, 5).map(song => renderSongCard(song)).join('')}
+          </div>
+        </section>
+      ` : ''}
+
+      <!-- 3. Local Curated Artists -->
+      ${["Hillsong United", "Hillsong Worship", "Nathaniel Bassey", "Paul Baloche", "Ragtime", "Classical"].map(catKey => {
+        const meta = categoryMetadata[catKey];
+        if (!meta) return '';
+        const sectionSongs = allSongs.filter(s => s.category === catKey || s.folder === meta.folder);
+        if (sectionSongs.length === 0) return '';
+
+        return `
+          <section class="space-y-3">
+            <div class="flex items-end justify-between">
+              <div>
+                <h2 class="text-lg sm:text-xl font-outfit font-bold text-white hover:text-brand transition cursor-pointer flex items-center gap-1.5 group" onclick="filterByCategory('${catKey}')">
+                  <span>${meta.name}</span>
+                  <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400 group-hover:text-brand transition-transform group-hover:translate-x-1"></i>
+                </h2>
+                <div class="flex items-center gap-2 mt-0.5 text-xs text-gray-400">
+                  <span class="text-[9px] sm:text-[10px] uppercase font-bold text-brand bg-brand/10 border border-brand/20 px-2 py-0.5 rounded-full">${meta.badge}</span>
+                </div>
+              </div>
+              <button onclick="filterByCategory('${catKey}')" class="text-xs text-gray-400 font-semibold hover:text-white hover:underline flex items-center gap-1">
+                Show all (${sectionSongs.length}) <i data-lucide="arrow-right" class="w-3 h-3"></i>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-4">
+              ${sectionSongs.map(song => renderSongCard(song)).join('')}
+            </div>
+          </section>
+        `;
+      }).join('')}
+    </div>
+  `;
 
   lucide.createIcons();
 }
 
 function renderSongCard(song) {
-  const isCurrent = queue[currentTrackIndex]?.id === song.id;
+  const isCurrent = String(queue[currentTrackIndex]?.id) === String(song.id);
+  const isOnline = song.isAudius || (song.id && String(song.id).startsWith('audius_'));
+
   return `
-    <div onclick="playSongById(${song.id})" class="bg-white/5 hover:bg-white/10 active:scale-95 backdrop-blur-md border ${isCurrent ? 'border-brand shadow-[0_0_20px_rgba(139,92,246,0.35)]' : 'border-white/5'} transition-all duration-300 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl cursor-pointer group flex flex-col gap-2 shadow-lg">
+    <div onclick="playSongById('${song.id}')" class="bg-white/5 hover:bg-white/10 active:scale-95 backdrop-blur-md border ${isCurrent ? 'border-brand shadow-[0_0_20px_rgba(139,92,246,0.35)]' : 'border-white/5'} transition-all duration-300 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl cursor-pointer group flex flex-col gap-2 shadow-lg">
       <div class="relative w-full aspect-square bg-surface-highlight rounded-lg sm:rounded-xl shadow-inner overflow-hidden">
-        <img src="${song.img}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="${song.title}" />
+        <img src="${song.img}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="${song.title}" loading="lazy" />
         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        
+        ${isOnline ? `
+          <div class="absolute top-1.5 left-1.5">
+            <span class="badge-audius text-[8px] font-bold px-1.5 py-0.5 rounded-md flex items-center gap-1 shadow-sm">
+              <i data-lucide="cloud-lightning" class="w-2.5 h-2.5 text-cyan-400"></i> Cloud
+            </span>
+          </div>
+        ` : ''}
+
         <button class="absolute bottom-2 right-2 sm:bottom-2.5 sm:right-2.5 bg-brand text-white rounded-full p-2.5 sm:p-3 ${isCurrent && isPlaying ? 'opacity-100' : 'opacity-90 sm:opacity-0 sm:group-hover:opacity-100'} hover:scale-110 transition-all shadow-[0_0_20px_rgba(139,92,246,0.7)] duration-300">
           <i data-lucide="${isCurrent && isPlaying ? 'pause' : 'play'}" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current ${isCurrent && isPlaying ? '' : 'ml-0.5'}"></i>
         </button>
@@ -2164,9 +1511,11 @@ function renderSongCard(song) {
 }
 
 function renderSongRow(song, index) {
-  const isCurrent = queue[currentTrackIndex]?.id === song.id;
+  const isCurrent = String(queue[currentTrackIndex]?.id) === String(song.id);
+  const isOnline = song.isAudius || (song.id && String(song.id).startsWith('audius_'));
+
   return `
-    <div onclick="playSongById(${song.id})" class="flex items-center px-3 sm:px-4 py-2.5 sm:py-3 hover:bg-white/10 active:bg-white/15 cursor-pointer rounded-xl transition group ${isCurrent ? 'bg-brand/15 text-brand' : 'text-gray-200'}">
+    <div onclick="playSongById('${song.id}')" class="flex items-center px-3 sm:px-4 py-2.5 sm:py-3 hover:bg-white/10 active:bg-white/15 cursor-pointer rounded-xl transition group ${isCurrent ? 'bg-brand/15 text-brand' : 'text-gray-200'}">
       <span class="w-6 sm:w-8 text-xs text-gray-400 group-hover:hidden">
         ${isCurrent && isPlaying ? `
           <div class="playing-equalizer">
@@ -2177,9 +1526,12 @@ function renderSongRow(song, index) {
       <span class="w-6 sm:w-8 text-xs text-white hidden group-hover:inline-block"><i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i></span>
       
       <div class="flex items-center gap-2.5 sm:gap-3 flex-1 overflow-hidden">
-        <img src="${song.img}" class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg object-cover shrink-0 border border-white/10" alt="${song.title}" />
+        <img src="${song.img}" class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg object-cover shrink-0 border border-white/10" alt="${song.title}" loading="lazy" />
         <div class="flex flex-col overflow-hidden pr-2">
-          <span class="text-xs font-semibold truncate ${isCurrent ? 'text-brand font-bold' : 'text-white'}">${song.title}</span>
+          <div class="flex items-center gap-1.5 overflow-hidden">
+            <span class="text-xs font-semibold truncate ${isCurrent ? 'text-brand font-bold' : 'text-white'}">${song.title}</span>
+            ${isOnline ? `<span class="badge-audius text-[7px] font-bold px-1 py-0.2 rounded shrink-0">AUDIUS</span>` : ''}
+          </div>
           <span class="text-[10px] text-gray-400 truncate">${song.artist}</span>
         </div>
       </div>
@@ -2231,6 +1583,7 @@ function resetFilters() {
   searchQuery = '';
   if (searchInput) searchInput.value = '';
   if (searchClear) searchClear.classList.add('hidden');
+  if (searchSpinner) searchSpinner.classList.add('hidden');
   const allChip = categoryChips?.querySelector('[data-filter="all"]');
   if (allChip) allChip.click();
   else renderMainSections();
@@ -2243,8 +1596,20 @@ function setupSearchListeners() {
     searchQuery = e.target.value;
     if (searchQuery.trim() !== '') {
       if (searchClear) searchClear.classList.remove('hidden');
+      if (searchSpinner) searchSpinner.classList.remove('hidden');
+
+      // Debounce live Audius search
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(async () => {
+        const results = await searchAudiusTracks(searchQuery, 15);
+        audiusSearchResults = results;
+        if (searchSpinner) searchSpinner.classList.add('hidden');
+        renderMainSections();
+      }, 350);
     } else {
       if (searchClear) searchClear.classList.add('hidden');
+      if (searchSpinner) searchSpinner.classList.add('hidden');
+      audiusSearchResults = [];
     }
     renderMainSections();
   });
@@ -2253,7 +1618,9 @@ function setupSearchListeners() {
     searchClear.addEventListener('click', () => {
       searchInput.value = '';
       searchQuery = '';
+      audiusSearchResults = [];
       searchClear.classList.add('hidden');
+      if (searchSpinner) searchSpinner.classList.add('hidden');
       renderMainSections();
     });
   }
@@ -2279,7 +1646,7 @@ function populateSidebar() {
       <div onclick="filterByCategory('${p.category}'); closeMobileSidebar();" class="group flex items-center justify-between px-2.5 py-2 rounded-xl hover:bg-white/10 cursor-pointer transition text-gray-300 hover:text-white">
         <div class="flex items-center gap-3 overflow-hidden">
           <div class="w-8 h-8 rounded-lg bg-white/5 group-hover:bg-brand/20 flex items-center justify-center shrink-0 border border-white/5 transition">
-            <i data-lucide="disc" class="w-4 h-4 text-brand"></i>
+            <i data-lucide="${p.isOnline ? 'cloud-lightning' : 'disc'}" class="w-4 h-4 ${p.isOnline ? 'text-cyan-400' : 'text-brand'}"></i>
           </div>
           <span class="text-xs font-medium truncate">${p.name}</span>
         </div>
@@ -2300,7 +1667,7 @@ function populateSidebar() {
     sidebarPlaylistsEl.innerHTML = foldersData.map(f => `
       <div onclick="filterByCategory('${f.filter}'); closeMobileSidebar();" class="group flex items-center gap-2.5 px-2.5 py-2 rounded-xl hover:bg-white/10 cursor-pointer transition text-gray-300 hover:text-white">
         <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0 border border-white/5">
-          <i data-lucide="folder" class="w-4 h-4 text-yellow-500"></i>
+          <i data-lucide="${f.name.startsWith('cloud') ? 'cloud' : 'folder'}" class="w-4 h-4 ${f.name.startsWith('cloud') ? 'text-cyan-400' : 'text-yellow-500'}"></i>
         </div>
         <div class="flex flex-col overflow-hidden">
           <span class="text-xs font-medium truncate group-hover:text-white">${f.label}</span>
@@ -2329,7 +1696,7 @@ function setupSidebarTabListeners() {
 function renderFeaturedGrid() {
   if (!featuredGridEl) return;
   featuredGridEl.innerHTML = featuredAlbums.map(album => `
-    <div onclick="playSongById(${album.id})" class="bg-white/5 hover:bg-white/10 active:scale-95 backdrop-blur-md border border-white/5 hover:border-white/20 transition-all duration-300 rounded-xl overflow-hidden flex items-center group cursor-pointer h-14 sm:h-16 shadow-md hover:shadow-[0_4px_20px_rgba(139,92,246,0.25)]">
+    <div onclick="playSongById('${album.id}')" class="bg-white/5 hover:bg-white/10 active:scale-95 backdrop-blur-md border border-white/5 hover:border-white/20 transition-all duration-300 rounded-xl overflow-hidden flex items-center group cursor-pointer h-14 sm:h-16 shadow-md hover:shadow-[0_4px_20px_rgba(139,92,246,0.25)]">
       <img src="${album.img}" class="h-14 w-14 sm:h-16 sm:w-16 object-cover shrink-0 group-hover:scale-105 transition duration-500" alt="${album.title}" />
       <div class="flex flex-col px-2.5 sm:px-3 overflow-hidden">
         <span class="font-outfit font-bold text-[11px] sm:text-xs truncate text-white">${album.title}</span>
@@ -2373,7 +1740,6 @@ function setupLocalFileImport() {
     renderLocalFilesSection();
     event.target.value = '';
 
-    // Automatically play first imported song
     if (newSongs.length > 0) {
       playSongById(newSongs[0].id);
     }
@@ -2423,7 +1789,7 @@ function updateMediaSessionMetadata(track) {
     navigator.mediaSession.metadata = new MediaMetadata({
       title: track.title,
       artist: track.artist,
-      album: track.album || 'StreamHub Worship',
+      album: track.album || 'StreamHub Cloud',
       artwork: [ { src: track.img, sizes: '512x512', type: 'image/jpeg' } ]
     });
   }
@@ -2433,15 +1799,12 @@ function updateMediaSessionMetadata(track) {
 // Global Event Listeners Wiring
 // -------------------------------------------------------------
 function setupEventListeners() {
-  // Mobile drawer
   if (btnMobileMenu) btnMobileMenu.addEventListener('click', openMobileSidebar);
   if (btnCloseSidebar) btnCloseSidebar.addEventListener('click', closeMobileSidebar);
   if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeMobileSidebar);
 
-  // Mobile Expanded Player Sheet
   if (nowPlayingClickableArea) {
     nowPlayingClickableArea.addEventListener('click', (e) => {
-      // Don't expand if clicking fav button
       if (e.target.closest('#btn-fav')) return;
       if (window.innerWidth < 768) openMobilePlayerSheet();
     });
@@ -2449,7 +1812,6 @@ function setupEventListeners() {
   if (btnMobileExpand) btnMobileExpand.addEventListener('click', openMobilePlayerSheet);
   if (btnCloseMobileSheet) btnCloseMobileSheet.addEventListener('click', closeMobilePlayerSheet);
 
-  // Desktop Controls
   if (btnPlay) btnPlay.addEventListener('click', () => togglePlay());
   if (btnNext) btnNext.addEventListener('click', playNext);
   if (btnPrev) btnPrev.addEventListener('click', playPrev);
@@ -2493,12 +1855,10 @@ function setupEventListeners() {
     });
   }
 
-  // Mobile Bar Controls
   if (btnMobilePlay) btnMobilePlay.addEventListener('click', () => togglePlay());
   if (btnMobileNext) btnMobileNext.addEventListener('click', playNext);
   if (btnMobileLyrics) btnMobileLyrics.addEventListener('click', toggleLyricsPanel);
 
-  // Mobile Sheet Controls
   if (btnMobileSheetPlay) btnMobileSheetPlay.addEventListener('click', () => togglePlay());
   if (btnMobileSheetNext) btnMobileSheetNext.addEventListener('click', playNext);
   if (btnMobileSheetPrev) btnMobileSheetPrev.addEventListener('click', playPrev);
@@ -2537,21 +1897,213 @@ function setupEventListeners() {
     });
   }
 
-  // Lyrics
   if (btnLyrics) btnLyrics.addEventListener('click', toggleLyricsPanel);
   if (btnCloseLyrics) btnCloseLyrics.addEventListener('click', toggleLyricsPanel);
 
-  // Keyboard controls
+  // Shortcuts Modal Buttons
+  const btnHeaderShortcuts = document.getElementById('btn-header-shortcuts');
+  const btnPlayerShortcuts = document.getElementById('btn-player-shortcuts');
+  const btnCloseShortcuts = document.getElementById('btn-close-shortcuts');
+  const shortcutsModal = document.getElementById('shortcuts-modal');
+
+  if (btnHeaderShortcuts) btnHeaderShortcuts.addEventListener('click', () => toggleShortcutsModal());
+  if (btnPlayerShortcuts) btnPlayerShortcuts.addEventListener('click', () => toggleShortcutsModal());
+  if (btnCloseShortcuts) btnCloseShortcuts.addEventListener('click', () => toggleShortcutsModal(false));
+  if (shortcutsModal) {
+    shortcutsModal.addEventListener('click', (e) => {
+      if (e.target === shortcutsModal) toggleShortcutsModal(false);
+    });
+  }
+
+  // Comprehensive Player Keyboard Shortcuts
   window.addEventListener('keydown', (e) => {
-    if (e.code === 'Space' && (e.target === document.body || e.target.tagName !== 'INPUT')) {
+    const isInputFocused = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
+
+    // Global escape works even in inputs
+    if (e.key === 'Escape') {
+      if (shortcutsModal && !shortcutsModal.classList.contains('hidden')) {
+        toggleShortcutsModal(false);
+        return;
+      }
+      if (isLyricsOpen) {
+        toggleLyricsPanel();
+        return;
+      }
+      if (isMobilePlayerSheetOpen) {
+        closeMobilePlayerSheet();
+        return;
+      }
+      if (isInputFocused) {
+        e.target.blur();
+        return;
+      }
+      if (searchQuery) {
+        resetFilters();
+        return;
+      }
+    }
+
+    // Ignore other shortcuts when user is actively typing in a text field
+    if (isInputFocused) return;
+
+    // ? or Shift + / -> Shortcuts Cheatsheet
+    if (e.key === '?' || (e.shiftKey && e.code === 'Slash')) {
+      e.preventDefault();
+      toggleShortcutsModal();
+      return;
+    }
+
+    // / -> Focus live search
+    if (e.key === '/' || e.code === 'Slash') {
+      e.preventDefault();
+      if (searchInput) {
+        searchInput.focus();
+        showShortcutToast('Search activated', 'search');
+      }
+      return;
+    }
+
+    // Space or k -> Play / Pause
+    if (e.code === 'Space' || e.key === 'k' || e.key === 'K') {
       e.preventDefault();
       togglePlay();
-    } else if (e.code === 'ArrowRight' && e.ctrlKey) {
+      showShortcutToast(isPlaying ? 'Playing' : 'Paused', isPlaying ? 'play' : 'pause');
+      return;
+    }
+
+    // l or Ctrl + ArrowRight -> Next Track
+    if (e.key === 'l' || e.key === 'L' || (e.ctrlKey && e.code === 'ArrowRight')) {
+      e.preventDefault();
       playNext();
-    } else if (e.code === 'ArrowLeft' && e.ctrlKey) {
+      showShortcutToast('Next Track', 'skip-forward');
+      return;
+    }
+
+    // j or Ctrl + ArrowLeft -> Previous Track
+    if (e.key === 'j' || e.key === 'J' || (e.ctrlKey && e.code === 'ArrowLeft')) {
+      e.preventDefault();
       playPrev();
+      showShortcutToast('Previous Track', 'skip-back');
+      return;
+    }
+
+    // ArrowUp or Shift + ArrowUp -> Volume +10%
+    if (e.code === 'ArrowUp') {
+      e.preventDefault();
+      const newVol = Math.min(1.0, (audioPlayer.volume || 1.0) + 0.1);
+      setVolume(newVol);
+      showShortcutToast(`Volume: ${Math.round(newVol * 100)}%`, 'volume-2');
+      return;
+    }
+
+    // ArrowDown or Shift + ArrowDown -> Volume -10%
+    if (e.code === 'ArrowDown') {
+      e.preventDefault();
+      const newVol = Math.max(0.0, (audioPlayer.volume || 1.0) - 0.1);
+      setVolume(newVol);
+      showShortcutToast(`Volume: ${Math.round(newVol * 100)}%`, newVol === 0 ? 'volume-x' : 'volume-1');
+      return;
+    }
+
+    // m -> Mute / Unmute
+    if (e.key === 'm' || e.key === 'M') {
+      e.preventDefault();
+      isMuted = !isMuted;
+      if (isMuted) {
+        previousVolume = audioPlayer.volume || 1.0;
+        setVolume(0);
+        showShortcutToast('Muted', 'volume-x');
+      } else {
+        setVolume(previousVolume || 1.0);
+        showShortcutToast(`Unmuted: ${Math.round((previousVolume || 1.0) * 100)}%`, 'volume-2');
+      }
+      return;
+    }
+
+    // s -> Shuffle
+    if (e.key === 's' || e.key === 'S') {
+      e.preventDefault();
+      isShuffle = !isShuffle;
+      if (btnShuffle) btnShuffle.classList.toggle('text-brand', isShuffle);
+      if (btnMobileSheetShuffle) btnMobileSheetShuffle.classList.toggle('text-brand', isShuffle);
+      showShortcutToast(`Shuffle: ${isShuffle ? 'ON' : 'OFF'}`, 'shuffle');
+      return;
+    }
+
+    // r -> Repeat
+    if (e.key === 'r' || e.key === 'R') {
+      e.preventDefault();
+      isRepeat = !isRepeat;
+      if (btnRepeat) btnRepeat.classList.toggle('text-brand', isRepeat);
+      if (btnMobileSheetRepeat) btnMobileSheetRepeat.classList.toggle('text-brand', isRepeat);
+      showShortcutToast(`Repeat: ${isRepeat ? 'ON' : 'OFF'}`, 'repeat');
+      return;
+    }
+
+    // f -> Favorite
+    if (e.key === 'f' || e.key === 'F') {
+      e.preventDefault();
+      toggleFavorite();
+      const currentTrack = queue[currentTrackIndex];
+      const favs = JSON.parse(localStorage.getItem('favs') || '[]');
+      const isFav = currentTrack ? favs.includes(currentTrack.id) : false;
+      showShortcutToast(isFav ? 'Added to Favorites' : 'Removed from Favorites', 'heart');
+      return;
+    }
+
+    // c or x -> Playback speed
+    if (e.key === 'c' || e.key === 'C' || e.key === 'x' || e.key === 'X') {
+      e.preventDefault();
+      speedIndex = (speedIndex + 1) % playbackSpeeds.length;
+      const speed = playbackSpeeds[speedIndex];
+      audioPlayer.playbackRate = speed;
+      if (btnSpeed) btnSpeed.innerText = speed + 'x';
+      if (btnMobileSheetSpeed) btnMobileSheetSpeed.innerText = speed + 'x';
+      showShortcutToast(`Playback Speed: ${speed}x`, 'gauge');
+      return;
+    }
+
+    // h -> Lyrics panel
+    if (e.key === 'h' || e.key === 'H') {
+      e.preventDefault();
+      toggleLyricsPanel();
+      showShortcutToast(isLyricsOpen ? 'Lyrics Opened' : 'Lyrics Closed', 'mic-2');
+      return;
     }
   });
+}
+
+let toastTimeout = null;
+function showShortcutToast(message, iconName = 'info') {
+  const toast = document.getElementById('shortcut-toast');
+  const toastMsg = document.getElementById('toast-message');
+  const toastIcon = document.getElementById('toast-icon');
+  if (!toast || !toastMsg) return;
+
+  toastMsg.innerText = message;
+  if (toastIcon && iconName) {
+    toastIcon.setAttribute('data-lucide', iconName);
+    lucide.createIcons();
+  }
+  toast.classList.add('show');
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 1400);
+}
+
+function toggleShortcutsModal(forceOpen) {
+  const modal = document.getElementById('shortcuts-modal');
+  if (!modal) return;
+  const isHidden = modal.classList.contains('hidden');
+  const shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : isHidden;
+  if (shouldOpen) {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  } else {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
 }
 
 // -------------------------------------------------------------
@@ -2583,6 +2135,9 @@ async function init() {
   setupMediaSession();
   loadTrack(currentTrackIndex);
   lucide.createIcons();
+
+  // Initialize Audius Protocol in background
+  initAudiusService();
 }
 
 // Start StreamHub
